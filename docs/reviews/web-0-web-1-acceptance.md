@@ -154,25 +154,25 @@ material unresolved conflict.
 
 ## Verification commands and results
 
-| Command or check               | Result                                                                                                                 |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| `npm install`                  | Passed; npm lockfile created and safe patch updates applied.                                                           |
-| `npm run format:check`         | Passed; all matched files formatted.                                                                                   |
-| `npm run lint`                 | Passed with no final warnings or errors.                                                                               |
-| `npm run typecheck`            | Passed under strict TypeScript.                                                                                        |
-| `npm run test`                 | Passed: 3 files, 10 tests.                                                                                             |
-| `npm run build`                | Passed; all reported routes static.                                                                                    |
-| `npm run check`                | Passed, including formatting, lint, types, tests, dependency tree, and build.                                          |
-| `npm run audit`                | Passed: 0 production vulnerabilities.                                                                                  |
-| `npm run audit:all`            | Review completed; 9 high development-only lint-chain findings remain and are documented below.                         |
-| `git diff --check`             | Pending final commit staging at the time this evidence section was written; final result is recorded under Git status. |
-| Public-boundary source scan    | Passed; no private provider, secret, or credential pattern in public UI/content source.                                |
-| Raw-color component scan       | Passed; reusable components contain no raw hex colors.                                                                 |
-| Authored Client Component scan | Passed; no `"use client"` directive found.                                                                             |
-| Production route probe         | `/` 200; `/design-system` 404; robots disallows `/design-system`.                                                      |
-| Mobile browser review          | Passed at 360×800 with no horizontal overflow.                                                                         |
-| Desktop browser review         | Passed at 1440×900 with no horizontal overflow.                                                                        |
-| Browser console review         | Passed; no warning or error entry.                                                                                     |
+| Command or check               | Result                                                                                         |
+| ------------------------------ | ---------------------------------------------------------------------------------------------- |
+| `npm install`                  | Passed; npm lockfile created and safe patch updates applied.                                   |
+| `npm run format:check`         | Passed; all matched files formatted.                                                           |
+| `npm run lint`                 | Passed with no final warnings or errors.                                                       |
+| `npm run typecheck`            | Passed under strict TypeScript.                                                                |
+| `npm run test`                 | Passed: 3 files, 10 tests.                                                                     |
+| `npm run build`                | Passed; all reported routes static.                                                            |
+| `npm run check`                | Passed, including formatting, lint, types, tests, dependency tree, and build.                  |
+| `npm run audit`                | Passed: 0 production vulnerabilities.                                                          |
+| `npm run audit:all`            | Review completed; 9 high development-only lint-chain findings remain and are documented below. |
+| `git diff --check`             | Passed for each staged commit and for `HEAD`; no whitespace error.                             |
+| Public-boundary source scan    | Passed; no private provider, secret, or credential pattern in public UI/content source.        |
+| Raw-color component scan       | Passed; reusable components contain no raw hex colors.                                         |
+| Authored Client Component scan | Passed; no `"use client"` directive found.                                                     |
+| Production route probe         | `/` 200; `/design-system` 404; robots disallows `/design-system`.                              |
+| Mobile browser review          | Passed at 360×800 with no horizontal overflow.                                                 |
+| Desktop browser review         | Passed at 1440×900 with no horizontal overflow.                                                |
+| Browser console review         | Passed; no warning or error entry.                                                             |
 
 The first sandboxed `next build` could not bind an internal CSS worker port.
 The same build succeeded outside the restricted sandbox. This was an execution
@@ -319,6 +319,24 @@ Approval is required for:
 
 ## Git status and commits
 
-This section is updated after the logical local commits so the final approval
-gate records the exact branch, worktree state, and non-self-referential commit
-hashes. No remote will be added and no push will occur.
+Final material-work snapshot before this report-only update:
+
+```text
+## feat/web-0-web-1-foundation
+```
+
+The branch had a clean working tree, no upstream, and no configured remote.
+Nothing was pushed or deployed.
+
+Material commits:
+
+1. `639e1cd1af47a43c7a4b2b808ef71b0728a295da` —
+   `feat(web-0-web-1): bootstrap accessible website foundation`
+2. `c3082908e49c5283525778120c85436b10b89dd0` —
+   `docs(web-0): add architecture and governance foundations`
+3. `36feab63fd5db2deb2fbb225ccdf32daa6d2ddc2` —
+   `docs(web-1): record brand accessibility and performance baselines`
+
+The final report-only update commit cannot embed its own hash without changing
+that hash. Its exact hash and the post-commit clean status are included in the
+external approval-gate handoff.
