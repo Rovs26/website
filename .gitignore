@@ -1,0 +1,25 @@
+# Dependencies
+/node_modules
+
+# Next.js
+/.next
+/out
+next-env.d.ts
+
+# Testing
+/coverage
+
+# Local environments
+.env
+.env.*
+!.env.example
+
+# Deployment state
+/.vercel
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs and local files
+*.log
+.DS_Store
