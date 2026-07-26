@@ -119,7 +119,9 @@ baseline changes.
 
 ## Scope gate
 
-WEB-0 and WEB-1 establish only the repository and design-system foundation.
-Without explicit Website Architect approval, do not implement information
-architecture, final navigation, the final homepage, core public pages, legal or
-support pages, full hardening, Play Store readiness, or production readiness.
+WEB-0 and WEB-1 establish the repository and design-system foundation. WEB-2
+defines information architecture in documentation only. Do not implement final
+navigation, the final homepage, core public pages, legal or support pages, full
+hardening, Play Store readiness, or production readiness until the Website
+Architect approves WEB-2 and separately authorizes the applicable later
+milestone.
