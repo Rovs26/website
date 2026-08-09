@@ -6,7 +6,6 @@ import { Heading } from "@/components/primitives/heading";
 import { SkipLink } from "@/components/primitives/skip-link";
 import { StyledLink } from "@/components/primitives/styled-link";
 import { ProductStatus } from "@/components/status/product-status";
-import { foundationCopy } from "@/lib/content/foundation-copy";
 import { productStatuses } from "@/lib/content/product-status";
 import { siteMetadata } from "@/lib/metadata/site";
 
@@ -76,25 +75,8 @@ describe("foundational semantics", () => {
   });
 });
 
-describe("temporary public copy", () => {
-  it("avoids promotional and availability claims", () => {
-    const copy = Object.values(foundationCopy).join(" ").toLowerCase();
-    const unsupportedPhrases = [
-      "available now",
-      "best",
-      "customers",
-      "download",
-      "ai magic",
-      "pricing",
-      "public release",
-    ];
-
-    for (const phrase of unsupportedPhrases) {
-      expect(copy).not.toContain(phrase);
-    }
-  });
-
-  it("keeps the temporary foundation out of search indexes", () => {
+describe("public indexing baseline", () => {
+  it("keeps the WEB-3 homepage out of search indexes", () => {
     expect(siteMetadata.robots).toMatchObject({
       follow: false,
       index: false,

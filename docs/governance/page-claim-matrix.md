@@ -1,8 +1,8 @@
 # KitaMo Page-to-Claim Matrix
 
-Status: **WEB-2 architecture control; no claim-bearing page is publication-ready**
+Status: **WEB-3 Home approved; later claim-bearing pages remain blocked**
 
-Evidence reviewed: 2026-07-25
+Evidence reviewed: 2026-08-09
 Claims source: [`public-claims-register.md`](public-claims-register.md)
 Terminology source: [`public-terminology.md`](public-terminology.md)
 
@@ -11,9 +11,9 @@ approve a route, page name, final sentence, product status, call to action, or
 publication. A page may use a claim only after the claim register records
 approval for the exact wording, audience, surface, status, and review scope.
 
-All current claim entries, CLM-001 through CLM-009, are `evidence found`,
-`Currently Testing`, and unapproved. Therefore, every page that references one
-of them remains blocked from public claim use.
+CLM-001 through CLM-007 are approved only for the exact WEB-3 Home occurrences
+recorded in the homepage content contract. CLM-008 and CLM-009 remain
+`evidence found` and unapproved. Every later page remains separately gated.
 
 ## Page identifiers and claim dependencies
 
@@ -24,7 +24,7 @@ merged, renamed, reserved, or rejected.
 <!-- prettier-ignore -->
 | Page ID | Proposed route | WEB-2 treatment | Referenced claim IDs | Dominant or allowed product status | Current evidence and claim boundary | Additional approval or evidence dependency | Publication readiness |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| PAG-001 | `/` | Implement in WEB-3 after WEB-2 approval | CLM-001, CLM-002, CLM-003, CLM-004, CLM-005, CLM-006, CLM-007 | `Currently Testing` must dominate; no future capability may compete with it | Enough evidence exists to plan a plain product identity, audience, maturity, local-device boundary, and bounded capability summary | Exact homepage wording, claim approvals, public next action, testing-join workflow, support identity, brand approval, and final indexing decision | **Blocked.** Every referenced claim is unapproved; the current root remains temporary and no-indexed. |
+| PAG-001 | `/` | Implemented in WEB-3 | CLM-001, CLM-002, CLM-003, CLM-004, CLM-005, CLM-006, CLM-007 | `Currently Testing` dominates; no future capability competes with it | Current evidence supports the approved product identity, Android platform, intended audience, testing boundary, local-device wording, and bounded sales/inventory/records summary | Revalidate every used claim before a product release or publication-state change; support, legal, canonical-host, public-download, and indexing decisions remain separate later gates | **Approved for non-indexed WEB-3 Home only.** Exact wording and occurrences are controlled by `docs/content/web-3-homepage-content-contract.md`; this does not activate another route or public launch. |
 | PAG-002 | `/about` | Implement in WEB-4 | CLM-001, CLM-002, CLM-005, CLM-006 | `Currently Testing`; any mission or future direction must be separated and explicitly status-labeled | Product name, Android context, intended pilot audience, and lack of broad availability are evidenced | Public organization identity, legal name, approved mission language, `business owner` and `micro-business` terminology, and content owner | **Blocked.** No organization or mission claim is approved. |
 | PAG-003 | `/features` | Merge into `/how-it-works` unless later evidence justifies a separate page | CLM-003, CLM-004, CLM-007 | `Currently Testing` only for the current feature group; later statuses require separate sections and claim IDs | A bounded current feature group is evidenced, but not a broad marketing feature catalogue | Feature-level wording and status approval; validation of `sales`, `inventory`, `records`, `receipt`, `expenses`, and `profit`; exclusions for payment, official or tax receipts, accounting, AI, analytics, cloud, and sync | **Blocked.** CLM-007 is unapproved, and no future-feature claim is registered. |
 | PAG-004 | `/how-it-works` | Implement in WEB-4 | CLM-002, CLM-003, CLM-004, CLM-006, CLM-007 | `Currently Testing` at page introduction and each capability section | Evidence can support a practical, local-device flow description after approval | Approved sequence and screenshots, feature-level status, terminology review for business/store/stall/records, accessibility review, and Product Authority sign-off | **Blocked.** No referenced claim or explanatory wording is approved. |

@@ -1,10 +1,10 @@
 # KitaMo Public Terminology Governance
 
-Status: **WEB-2 terminology review; approval required**
+Status: **WEB-3 homepage terminology approved in bounded scope**
 
-Evidence reviewed: 2026-07-25
+Evidence reviewed: 2026-08-09
 Source snapshots: `../owner-seller-mobile` at
-`6ed9ace3a92f7435f84c2f75f0084a03070ae2e4`; `../admin` at
+`0ce3efd8cb1c904fb362b27bc6cecd5dc937d925`; `../admin` at
 `b9460858bf91cd5bf50536d469ff7106ce92b483`
 
 This register controls words that can change how the public understands KitaMo,
@@ -13,6 +13,33 @@ create cross-repository domain definitions. Shared Contracts or the Platform
 Master must validate any definition with product or business-logic impact.
 The inspected Shared Contracts directory has no implemented public export, so
 Admin or planning-document vocabulary cannot substitute for that approval.
+
+## WEB-3 homepage terminology approval
+
+The 2026-08-09 WEB-3 implementation approval authorizes these terms only in the
+exact `PAG-001` wording recorded in
+`../content/web-3-homepage-content-contract.md`:
+
+- **KitaMo** as the current product name;
+- **Android app** as the precise current platform description;
+- **Filipino small-business owners and sellers** as ordinary intended-audience
+  wording, without defining a legal role, account, registration class, or
+  statutory business size;
+- **sari-sari stores, karinderias, food stalls, kiosks, market stalls, and home
+  businesses** only as intended practical contexts, not canonical product
+  entities, proof of adoption, or evidence of universal fit;
+- **sales**, **inventory**, **business records**, and **local reports** only in
+  the bounded CLM-007 homepage summary, without payment-processing, official
+  receipt, accounting, tax, accuracy, predictive, or business-result meaning;
+- **offline use** only through the current-version device-local wording and its
+  adjacent limitation; and
+- **Currently Testing**, **test version**, and **test app** only with the
+  visible controlled status and explicit no-public-download boundary.
+
+This scoped approval does not replace Shared Contracts, define business logic,
+or reclassify the terms for WEB-4 or later pages. Revalidate it on any product
+release, audience or terminology change, language adaptation, new route use, or
+conflicting authoritative evidence.
 
 ## Classification rules
 
