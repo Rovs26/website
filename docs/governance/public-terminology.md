@@ -1,6 +1,6 @@
 # KitaMo Public Terminology Governance
 
-Status: **WEB-3 homepage terminology approved in bounded scope**
+Status: **WEB-3 homepage and WEB-4 core-page terminology approved in bounded scope**
 
 Evidence reviewed: 2026-08-09
 Source snapshots: `../owner-seller-mobile` at
@@ -37,9 +37,36 @@ exact `PAG-001` wording recorded in
   visible controlled status and explicit no-public-download boundary.
 
 This scoped approval does not replace Shared Contracts, define business logic,
-or reclassify the terms for WEB-4 or later pages. Revalidate it on any product
-release, audience or terminology change, language adaptation, new route use, or
+or reclassify the terms for another surface. The separate WEB-4 approval below
+records its exact additional route uses. Revalidate it on any product release,
+audience or terminology change, language adaptation, new route use, or
 conflicting authoritative evidence.
+
+## WEB-4 core-page terminology approval
+
+The 2026-08-09 WEB-4 implementation approval extends the existing plain-English
+terms only to the exact wording in the three WEB-4 content contracts:
+
+- **KitaMo**, **Android app**, **Filipino small-business owners and sellers**,
+  **sales**, **inventory**, **business records**, **local reports**, and the
+  controlled status terms retain the same bounded meaning as WEB-3;
+- **sari-sari stores, karinderias, food stalls, kiosks, market vendors, home
+  businesses, and small retailers** are intended context examples only, not
+  canonical entities, legal size classes, adoption evidence, or universal-fit
+  claims;
+- **business information** describes the bounded current local setup task and
+  does not define an account, entity model, legal owner, or remote service;
+- **cloud synchronization**, **cloud backup**, and **online KitaMo account** may
+  appear only as explicit current-test negatives on `/how-it-works`; they do
+  not define future behavior or authorize privacy, deletion, or support advice;
+  and
+- **Future Vision** on `/about` means a broad, changeable direction with no
+  specific feature or timing commitment.
+
+This approval is route- and sentence-specific. It does not globally reclassify
+the governed terms below or create cross-product definitions. Revalidate on any
+release, audience, workflow, account, connectivity, status, or wording change,
+translation, reuse on another route, or conflicting evidence.
 
 ## Classification rules
 

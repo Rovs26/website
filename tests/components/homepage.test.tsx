@@ -19,7 +19,9 @@ describe("WEB-3 homepage trust behavior", () => {
   it("uses only the approved informational CTA destinations", () => {
     const markup = renderHomepage();
 
-    expect(markup).toContain('href="#how-it-works"');
+    expect(markup).toContain('href="/how-it-works"');
+    expect(markup).toContain('href="/for-sellers"');
+    expect(markup).toContain('href="/about"');
     expect(markup).toContain('href="#testing-status"');
     expect(markup).toContain('href="/#testing-status"');
 
@@ -29,8 +31,10 @@ describe("WEB-3 homepage trust behavior", () => {
     );
     const allowedHrefs = new Set([
       "/",
+      "/about",
+      "/for-sellers",
+      "/how-it-works",
       "/#testing-status",
-      "#how-it-works",
       "#main-content",
       "#testing-status",
     ]);

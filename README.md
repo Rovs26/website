@@ -12,11 +12,14 @@ This repository contains:
 - **WEB-2 — Information Architecture** (approved documentation and governance
   blueprint)
 - **WEB-3 — Homepage** (approved, evidence-backed implementation; non-indexed)
+- **WEB-4 — Core Public Website** (approved local implementation;
+  non-indexed)
 
-The root route is the first real KitaMo homepage. It explains the intended
-audience, bounded current Android test capabilities, device-local operation,
-and lack of open public availability. It remains globally `noindex`/`nofollow`
-and is not a public-launch authorization. Core public pages, legal and support
+The implemented public routes are `/`, `/for-sellers`, `/how-it-works`, and
+`/about`. They form a connected local-review site around the intended audience,
+bounded Android test capabilities, device-local operation, current limitations,
+and broad noncommittal direction. The site remains globally
+`noindex`/`nofollow` and is not a public-launch authorization. Legal and support
 content, store-readiness content, hardening, production work, and deployment
 remain deferred.
 
@@ -50,11 +53,11 @@ npm install
 npm run dev
 ```
 
-The local root route shows the WEB-3 homepage. During local development,
-`/design-system` provides the internal WEB-1 review surface. That route returns
-not found in production builds and is disallowed in `robots.txt`.
+Open `http://localhost:3000` to review the connected WEB-4 site. During local
+development, `/design-system` provides the internal WEB-1 review surface. That
+route returns not found in production builds and is disallowed in `robots.txt`.
 
-No private environment variables are required for WEB-0 or WEB-1. An
+No private environment variables are required for WEB-0 through WEB-4. An
 `.env.example` file is intentionally absent.
 
 ## Quality commands
@@ -147,6 +150,9 @@ only with names and safe placeholders.
 - [WEB-2 content and IA inventory](docs/preflight/web-2-content-and-ia-inventory.md)
 - [Design-system foundation](docs/brand/design-system-foundation.md)
 - [WEB-3 homepage content contract](docs/content/web-3-homepage-content-contract.md)
+- [WEB-4 For Sellers content contract](docs/content/web-4/for-sellers-content-contract.md)
+- [WEB-4 How It Works content contract](docs/content/web-4/how-it-works-content-contract.md)
+- [WEB-4 About content contract](docs/content/web-4/about-content-contract.md)
 - [Recommended information architecture](docs/architecture/recommended-information-architecture.md)
 - [Page inventory and contracts](docs/architecture/page-inventory.md)
 - [Architecture decisions](docs/decisions/)

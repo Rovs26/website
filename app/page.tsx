@@ -31,7 +31,7 @@ export default function HomePage() {
                 {homepageCopy.hero.introduction}
               </Text>
               <Cluster align="start">
-                <StyledLink href="#how-it-works" variant="primary">
+                <StyledLink href="/how-it-works" variant="primary">
                   {homepageCopy.hero.primaryAction}
                 </StyledLink>
                 <StyledLink href="#testing-status" variant="secondary">
@@ -90,6 +90,11 @@ export default function HomePage() {
               <Notice title="Intended context, not an adoption claim">
                 <p>{homepageCopy.audience.boundary}</p>
               </Notice>
+              <div>
+                <StyledLink href="/for-sellers" variant="secondary">
+                  See who KitaMo is for
+                </StyledLink>
+              </div>
             </Stack>
           </div>
         </Container>
@@ -132,6 +137,11 @@ export default function HomePage() {
                 </li>
               ))}
             </ol>
+            <div>
+              <StyledLink href="/how-it-works" variant="secondary">
+                See the current workflow
+              </StyledLink>
+            </div>
           </Stack>
         </Container>
       </Section>
@@ -156,6 +166,11 @@ export default function HomePage() {
             <Stack gap="large">
               <Text size="large">{homepageCopy.offline.body}</Text>
               <Text tone="secondary">{homepageCopy.offline.boundary}</Text>
+              <div>
+                <StyledLink href="/about" variant="secondary">
+                  Learn about KitaMo
+                </StyledLink>
+              </div>
             </Stack>
           </div>
         </Container>
@@ -177,7 +192,7 @@ export default function HomePage() {
               <Text size="large">{homepageCopy.testing.body}</Text>
               <Text tone="secondary">{homepageCopy.testing.changeNotice}</Text>
               <div>
-                <StyledLink href="#how-it-works" variant="secondary">
+                <StyledLink href="/how-it-works" variant="secondary">
                   {homepageCopy.hero.primaryAction}
                 </StyledLink>
               </div>

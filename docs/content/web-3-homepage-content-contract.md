@@ -33,7 +33,7 @@ for every kind of small business.
 - **Status explanation:** `Limited Android product testing; not an open public release.`
 - **Headline:** `Simple business tools for everyday Filipino sellers.`
 - **Supporting copy:** `KitaMo is an Android business app being built to help small-business owners keep important day-to-day records organized, even when internet access is limited.`
-- **Primary CTA:** `See how KitaMo works` → `#how-it-works`
+- **Primary CTA:** `See how KitaMo works` → `/how-it-works`
 - **Secondary CTA:** `View testing status` → `#testing-status`
 
 ## Approved claim occurrences
@@ -113,11 +113,15 @@ CLM-008 and CLM-009 are not approved or used on this homepage.
 
 ## CTA contract
 
-Every homepage CTA is informational and same-page:
+Every homepage CTA remains informational. WEB-4 connects the approved homepage
+to the implemented core public pages without changing its factual claims:
 
-- `See how KitaMo works` → `#how-it-works`
+- `See how KitaMo works` → `/how-it-works`
+- `See who KitaMo is for` → `/for-sellers`
+- `See the current workflow` → `/how-it-works`
+- `Learn about KitaMo` → `/about`
 - `View testing status` → `#testing-status`
-- `Testing status` → `/#testing-status` in the minimal header and footer
+- `Testing Status` → `/#testing-status` in the shared header and footer
 
 No download, sign-up, tester enrollment, waitlist, email capture, account,
 support, purchase, or unimplemented-route CTA is approved.
