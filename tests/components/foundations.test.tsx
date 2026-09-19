@@ -7,7 +7,8 @@ import { SkipLink } from "@/components/primitives/skip-link";
 import { StyledLink } from "@/components/primitives/styled-link";
 import { ProductStatus } from "@/components/status/product-status";
 import { productStatuses } from "@/lib/content/product-status";
-import { siteMetadata } from "@/lib/metadata/site";
+import sitemap from "@/app/sitemap";
+import { siteMetadata, siteOrigin } from "@/lib/metadata/site";
 
 describe("foundational semantics", () => {
   it("renders the controlled label and accessible status text", () => {
@@ -76,11 +77,33 @@ describe("foundational semantics", () => {
 });
 
 describe("public indexing baseline", () => {
-  it("keeps the WEB-3 homepage out of search indexes", () => {
+  // Changed by ADR-0011. The pre-domain posture was noindex, which contradicted
+  // app/robots.ts already allowing "/". The domain is live and the copy is the
+  // approved WEB-3/WEB-4 content, so the site is now indexable.
+  it("lets search engines index the public site", () => {
     expect(siteMetadata.robots).toMatchObject({
-      follow: false,
-      index: false,
-      nocache: true,
+      follow: true,
+      index: true,
     });
+  });
+
+  it("declares the apex as the canonical origin", () => {
+    expect(siteOrigin).toBe("https://kitamo.online");
+    expect(siteMetadata.metadataBase?.toString()).toBe(
+      "https://kitamo.online/",
+    );
+    expect(siteMetadata.alternates?.canonical).toBe("/");
+  });
+
+  it("lists only existing, approved routes in the sitemap", () => {
+    const urls = sitemap().map((entry) => entry.url);
+    expect(urls).toEqual([
+      "https://kitamo.online/",
+      "https://kitamo.online/for-sellers",
+      "https://kitamo.online/how-it-works",
+      "https://kitamo.online/about",
+    ]);
+    // /design-system is a development-only review route.
+    expect(urls.some((url) => url.includes("design-system"))).toBe(false);
   });
 });
