@@ -18,6 +18,9 @@ const pages = [
 
 const publicRoutes = ["/", "/for-sellers", "/how-it-works", "/about"];
 
+// CLM-010: the only approved external destination on the public site.
+const webAppSignInHref = "https://app.kitamo.online/login";
+
 const renderPage = (Page: (typeof pages)[number][1]) =>
   renderToStaticMarkup(<Page />);
 
@@ -57,7 +60,7 @@ describe("WEB-4 shared public site", () => {
     }
   });
 
-  it("keeps all shared navigation destinations implemented", () => {
+  it("keeps shared navigation to implemented routes and the approved sign-in link", () => {
     const markup = renderPage(HomePage);
     const hrefs = Array.from(
       markup.matchAll(/<a\b[^>]*href="([^"]+)"/g),
@@ -68,12 +71,33 @@ describe("WEB-4 shared public site", () => {
       "/#testing-status",
       "#main-content",
       "#testing-status",
+      webAppSignInHref,
     ]);
 
     for (const href of hrefs) {
       expect(allowed.has(href)).toBe(true);
     }
   });
+
+  it.each(pages)(
+    "offers Sign in as a secondary header, menu, and footer link on %s",
+    (_, Page) => {
+      const markup = renderPage(Page);
+      const signInLinks = Array.from(
+        markup.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g),
+      ).filter(([, attributes]) =>
+        attributes.includes(`href="${webAppSignInHref}"`),
+      );
+
+      // Desktop navigation, mobile menu, and footer.
+      expect(signInLinks).toHaveLength(3);
+      for (const [, attributes, label] of signInLinks) {
+        expect(label).toBe("Sign in");
+        // Primary-action styling is reserved for the page's one primary action.
+        expect(attributes).not.toContain("bg-action");
+      }
+    },
+  );
 });
 
 describe("WEB-4 For Sellers", () => {
@@ -132,6 +156,7 @@ describe("WEB-4 prohibited public language", () => {
       "ai-powered",
       "start free",
       "sign up",
+      "create account",
       "cloud sync available",
     ]) {
       expect(markup).not.toContain(phrase);

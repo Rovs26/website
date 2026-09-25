@@ -5,6 +5,7 @@ import {
   footerCopy,
   primaryNavigation,
   testingStatusLink,
+  webAppSignInLink,
 } from "@/lib/content/site-navigation";
 
 const footerLinkClasses =
@@ -57,6 +58,11 @@ export function SiteFooter() {
                 >
                   {testingStatusLink.label}
                 </Link>
+              </li>
+              <li>
+                <a className={footerLinkClasses} href={webAppSignInLink.href}>
+                  {webAppSignInLink.label}
+                </a>
               </li>
             </ul>
           </nav>

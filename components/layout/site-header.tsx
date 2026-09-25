@@ -5,10 +5,14 @@ import { Container } from "@/components/layout/container";
 import {
   primaryNavigation,
   testingStatusLink,
+  webAppSignInLink,
 } from "@/lib/content/site-navigation";
 
 const navigationLinkClasses =
   "rounded-control text-text hover:bg-muted hover:text-action inline-flex min-h-11 items-center px-3 py-2 text-sm font-semibold transition-colors motion-reduce:transition-none";
+
+const mobileNavigationLinkClasses =
+  "rounded-control text-text hover:bg-muted hover:text-action flex min-h-11 items-center px-3 py-2 text-base font-semibold";
 
 export function SiteHeader() {
   return (
@@ -43,6 +47,14 @@ export function SiteHeader() {
                   {testingStatusLink.label}
                 </Link>
               </li>
+              <li>
+                <a
+                  className={navigationLinkClasses}
+                  href={webAppSignInLink.href}
+                >
+                  {webAppSignInLink.label}
+                </a>
+              </li>
             </ul>
           </nav>
 
@@ -72,7 +84,7 @@ export function SiteHeader() {
                 {primaryNavigation.map((item) => (
                   <li key={item.href}>
                     <Link
-                      className="rounded-control text-text hover:bg-muted hover:text-action flex min-h-11 items-center px-3 py-2 text-base font-semibold"
+                      className={mobileNavigationLinkClasses}
                       href={item.href}
                     >
                       {item.label}
@@ -86,6 +98,14 @@ export function SiteHeader() {
                   >
                     {testingStatusLink.label}
                   </Link>
+                </li>
+                <li>
+                  <a
+                    className={mobileNavigationLinkClasses}
+                    href={webAppSignInLink.href}
+                  >
+                    {webAppSignInLink.label}
+                  </a>
                 </li>
               </ul>
             </nav>
