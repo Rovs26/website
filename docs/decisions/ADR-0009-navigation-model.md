@@ -3,6 +3,8 @@
 ## Status
 
 Accepted — approved as WEB-2 documentation and governance on 2026-07-26.
+Amended 2026-09-25 to add the web app `Sign in` link (see the amendment at the
+end).
 
 The labels, destinations, groups, and behavior described here are a navigation
 specification only. WEB-2 does not authorize a final header, mobile menu,
@@ -173,3 +175,40 @@ Reconsider this navigation model if:
 
 Any replacement must remain shallow, status-aware, mobile-first, keyboard
 operable, and free of links that imply unsupported availability.
+
+## Amendment — 2026-09-25: web app sign-in link
+
+**Status:** Accepted. The owner (Product Authority) approved it on 2026-09-25
+as CLM-010.
+
+**Context:** the separate KitaMo web app at `app.kitamo.online` is live and has
+open sign-up (ADR-0011 records it as a separate deployment). Visitors to this
+site had no way to reach it. This triggers the reconsideration condition above
+for an approved account path. It also makes the navigation model's rule of "no
+account link while no current account exists" out of date for this one link.
+
+**Decision:** add one secondary link, `Sign in` →
+`https://app.kitamo.online/login`, after Testing Status in the desktop header
+and the mobile `Menu`, and in the footer `Product` group. It uses the ordinary
+navigation or footer link style, never primary-action styling. It opens in the
+same tab.
+
+**Rationale:** returning web-app users need a predictable path, and the header
+and footer are where they look for it. Keeping the link plain preserves one
+primary action per page and keeps any sign-up or download call to action off
+this site.
+
+**Consequences:** the site has its first external navigation destination. Tests
+allow exactly this href and check its label, placement, and styling. The other
+prohibitions in this ADR still apply: no join, download, early-access, contact,
+sign-up, or create-account action.
+
+**Alternatives considered:** a primary `Sign in` button, rejected as a second
+primary action that would compete with each page's informational one; a
+footer-only link, rejected because the owner report asks for the header too;
+`Log in` or Filipino wording, not chosen because the owner specified `Sign in`
+for the English site.
+
+**Reconsideration conditions:** the web app origin, login route, or sign-up
+policy changes; the site is localized; or CLM-010 is withdrawn or needs
+revalidation.

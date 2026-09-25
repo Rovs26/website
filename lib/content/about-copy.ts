@@ -41,7 +41,7 @@ export const aboutCopy = {
   current: {
     eyebrow: "Current stage",
     heading: "Focused Android testing comes first",
-    body: "The Android experience for small-business owners and sellers is the current focus. It is not an open public release, and product details may change as testing continues.",
+    body: "The Android app for small-business owners and sellers is the current testing focus. It is not an open public download, and product details may change as testing continues. A separate web app for store owners is live at app.kitamo.online.",
   },
   future: {
     eyebrow: "Future direction",

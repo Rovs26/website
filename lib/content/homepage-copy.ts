@@ -43,7 +43,8 @@ export const homepageCopy = {
   },
   testing: {
     heading: "A clear view of the current test",
-    explanation: "Limited Android product testing; not an open public release.",
+    explanation:
+      "Limited Android testing; not an open public download. A separate web app for store owners, with its own sign-in, is at app.kitamo.online.",
     body: "The present focus is the Android app for Filipino small-business owners and sellers. It is not an open public download, and this website does not offer tester enrollment.",
     changeNotice:
       "The product details on this page reflect the current test version and may change as testing continues. Ideas being explored for later are not presented here as part of the current app.",

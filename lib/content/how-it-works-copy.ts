@@ -7,13 +7,13 @@ export const howItWorksCopy = {
   hero: {
     heading: "Keep everyday business records easier to follow.",
     introduction:
-      "KitaMo is an Android business app currently testing a focused set of local workflows for Filipino small-business owners and sellers.",
+      "KitaMo's Android app is currently testing a focused set of local workflows for Filipino small-business owners and sellers. A separate web app for store owners, with its own sign-in, is at app.kitamo.online.",
   },
   steps: {
     eyebrow: "Current workflow",
     heading: "From setup to review on one device",
     introduction:
-      "These steps summarize the current test experience. They do not describe an account, online service, or payment-processing flow.",
+      "These steps summarize the Android test experience. They do not describe the separate web app, an online service, or payment processing.",
     items: [
       {
         heading: "Set up the business",
@@ -47,7 +47,7 @@ export const howItWorksCopy = {
       "These boundaries keep the testing state clear and should not be read as promises about future delivery.",
     items: [
       "No automatic cloud synchronization or backup",
-      "No online KitaMo account",
+      "No online account in the Android test app",
       "No open public download or tester enrollment",
     ],
   },

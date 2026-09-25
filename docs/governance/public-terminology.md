@@ -68,6 +68,16 @@ the governed terms below or create cross-product definitions. Revalidate on any
 release, audience, workflow, account, connectivity, status, or wording change,
 translation, reuse on another route, or conflicting evidence.
 
+## Web app sign-in link terminology approval
+
+The 2026-09-25 owner (Product Authority) approval recorded as CLM-010 allows
+**Sign in** only as the label of the shared header and footer link to
+`https://app.kitamo.online/login`. It is the only approved login reference on
+this site. The `account` row below still applies to all other wording: do not
+describe an account, registration, sign-up, recovery, or account-backed data
+without a separate approval. Revalidate if the destination, the label, or the
+language of the site changes.
+
 ## Classification rules
 
 | Classification      | Meaning                                                                                                                    |

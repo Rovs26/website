@@ -1,10 +1,12 @@
 # KitaMo Public Claims Register
 
-Status: **WEB-3 homepage and WEB-4 core-page claims approved in bounded scope**
+Status: **WEB-3 homepage and WEB-4 core-page claims approved in bounded scope;
+CLM-010 web app sign-in link and CLM-011 web app statement approved 2026-09-25**
 
-Evidence reviewed: 2026-08-09
+Evidence reviewed: 2026-08-09 (CLM-001 to CLM-009); 2026-09-25 (CLM-010)
 Primary source snapshot: `../owner-seller-mobile` at
-`0ce3efd8cb1c904fb362b27bc6cecd5dc937d925`
+`0ce3efd8cb1c904fb362b27bc6cecd5dc937d925`; CLM-010: `../seller-web` at
+`9d30db6d21194870405f9e94ebd498107bbde8c0`
 
 This register governs factual public product statements. It is not a bank of
 final marketing copy. A traced fact is not approved for publication merely
@@ -43,7 +45,8 @@ or a release candidate exists.
 The wording below is a controlled factual proposition. CLM-001 through CLM-007
 are approved only for the exact WEB-3 and WEB-4 page occurrences recorded
 below. CLM-008 has one negative WEB-4 `/how-it-works` use. CLM-009 remains
-unapproved and must not be inferred from those approvals.
+unapproved and must not be inferred from those approvals. CLM-010 is approved
+only for the shared header and footer `Sign in` link recorded below.
 
 <!-- prettier-ignore -->
 | Claim ID | Proposed Public Claim                                                                                                                                                                              | Status         | Product Status Category | Source Repository     | Source Evidence                                                                                                                                                                             | Approval                                     | Notes                                                                                                                                                                                                                                                                            |
@@ -55,12 +58,17 @@ unapproved and must not be inferred from those approvals.
 | CLM-005  | The Android pilot is intended for Filipino small sellers, including microbusiness and food-stall operators.                                                                                        | approved       | Currently Testing       | `owner-seller-mobile` | `../owner-seller-mobile/docs/release/tester-plan.md:3-13`; `../owner-seller-mobile/docs/ANDROID_SCOPE_PLAN.md:3-9`; `../owner-seller-mobile/app/owner/about.tsx:31-44`                         | Approved — WEB-3 Home and WEB-4 core pages, Website Architect, 2026-08-09 | Approval uses `Filipino small-business owners and sellers` and the contract-listed examples only as intended contexts. It does not prove adoption, statutory business size, universal fit, or current use. Revalidate when audience scope or terminology changes.                                             |
 | CLM-006  | Broad public availability has not been approved.                                                                                                                                                   | approved       | Currently Testing       | `owner-seller-mobile` | `../owner-seller-mobile/docs/release/pre-internal-hardening-validation.md:3-5`; `../owner-seller-mobile/docs/release/pre-internal-hardening-validation.md:173-183`                            | Approved — WEB-3 Home and WEB-4 core pages, Website Architect, 2026-08-09 | Approval covers `not an open public release`, `not an open public download`, and no tester enrollment across the four implemented routes. It is not a launch promise, date, waitlist, download path, or invitation. Revalidate on every testing-track, download, or release change.                                       |
 | CLM-007  | The current Android testing candidate includes local setup for a business and stall, local sales and receipts, inventory records, and local reports.                                               | approved       | Currently Testing       | `owner-seller-mobile` | `../owner-seller-mobile/README.md:20-38`; `../owner-seller-mobile/docs/release/pre-internal-hardening-validation.md:30-38`; `../owner-seller-mobile/docs/release/final-release-readiness.md:36-46` | Approved — WEB-3 Home and WEB-4 core pages, Website Architect, 2026-08-09 | Approval is limited to the route-contract phrases for basic local setup, `Record sales`, `Track inventory`, and `Review business records`, with local/current-test qualifications. It does not approve receipt, payment, accounting, accuracy, remote-operation, cloud, analytics, AI, or business-outcome claims. Revalidate on any capability or release change. |
-| CLM-008  | The current Android testing candidate does not create an account or provide login or an account-deletion workflow.                                                                                 | approved | Currently Testing       | `owner-seller-mobile` | `../owner-seller-mobile/README.md:20-25`; `../owner-seller-mobile/docs/release/pre-internal-hardening-validation.md:147-167`; `../owner-seller-mobile/app/privacy.tsx:29-35`                  | Approved — WEB-4 `/how-it-works` negative clarification only, Website Architect, 2026-08-09 | Exact approved occurrence: `No online KitaMo account`. This is a current-release boundary, not a promise that accounts will never exist. It does not approve login, account-deletion, privacy, support, or local-data-removal guidance.                                                                                                                      |
+| CLM-008  | The current Android testing candidate does not create an account or provide login or an account-deletion workflow.                                                                                 | approved | Currently Testing       | `owner-seller-mobile` | `../owner-seller-mobile/README.md:20-25`; `../owner-seller-mobile/docs/release/pre-internal-hardening-validation.md:147-167`; `../owner-seller-mobile/app/privacy.tsx:29-35`                  | Approved — WEB-4 `/how-it-works` negative clarification only, Website Architect, 2026-08-09 | Exact approved occurrence: `No online account in the Android test app` (revalidated by the owner, 2026-09-25: the unscoped `No online KitaMo account` became false once the web app went live). This is a current-release boundary, not a promise that accounts will never exist. It does not approve login, account-deletion, privacy, support, or local-data-removal guidance.                                                                                                                      |
 | CLM-009  | For the current Android testing candidate, locally held app data can be removed through the in-app local-data reset, by clearing the app's storage, or by uninstalling the app.                     | evidence found | Currently Testing       | `owner-seller-mobile` | `../owner-seller-mobile/app/privacy.tsx:59-64`; `../owner-seller-mobile/app/owner/business-settings.tsx:482-531`; `../owner-seller-mobile/app/owner/business-settings.tsx:819-879`; `../owner-seller-mobile/docs/release/pre-internal-hardening-validation.md:40-50` | Unapproved — no public claim approval record | Requires Product Authority and Privacy Owner review before use. The in-app full reset is blocked until an Owner PIN exists and then requires the current local PIN; clearing app storage and uninstalling are separate device actions. This is not an account-deletion service, does not cover intentionally shared data, and must not be generalized to future server, account, support, retention, or third-party data. |
+| CLM-010  | The KitaMo web app at `app.kitamo.online` is live, and visitors can reach it from this website through a secondary `Sign in` link to `https://app.kitamo.online/login`.                               | approved       | Available Today         | `seller-web`          | `../seller-web/app/login/page.tsx:13-20`; `../seller-web/app/login/page.tsx:158-172` | Approved — shared header and footer on `/`, `/for-sellers`, `/how-it-works`, and `/about`; owner (Product Authority), 2026-09-25 | Owner approval note: `app.kitamo.online` is a live web app with open sign-up. Exact approved occurrence: the link label `Sign in`, destination `https://app.kitamo.online/login`, same tab, secondary styling, in the desktop header, the mobile Menu, and the footer `Product` group. It is not a primary action. It approves no sign-up, create-account, get-started, download, pricing, capability, platform, account, privacy, or support wording, and no status label or description of the web app. The `Available Today` category restates the owner's note and applies to web-app reachability only. The Android-scoped CLM-002 and CLM-008 wording needs Product Authority revalidation; see the approval record. Revalidate on any change to the web app origin, login route, sign-up policy, or availability. |
+| CLM-011  | A separate KitaMo web app for store owners, with its own online account and sign-in, is live at `app.kitamo.online`. | approved | Available Today | `seller-web` | `../seller-web/README.md:1-7`; `../seller-web/app/login/page.tsx` | Approved: `/` testing explanation, `/how-it-works` introduction, `/about` current stage, shared footer description; owner (Product Authority), 2026-09-25 | Exact approved occurrences: "A separate web app for store owners, with its own sign-in, is at app.kitamo.online." (`/`, `/how-it-works`), "A separate web app for store owners is live at app.kitamo.online." (`/about`), and the footer description. Added so the Android-scoped CLM-002 and CLM-008 sentences no longer read as describing all of KitaMo. Approves no capability, feature, pricing, sign-up call to action or privacy wording for the web app. Revalidate on any change to the origin, sign-up policy or availability. |
 
-There are no `Available Today` or `Planned` entries in this register. Approved
-current-product entries remain **Currently Testing**. The WEB-4 About contract
-authorizes one deliberately broad `Future Vision` direction without asserting
+CLM-010 is the only `Available Today` entry. It covers only the reachability of
+the separate web app through the `Sign in` link and does not change the status
+of the Android testing candidate. There are no `Planned` entries in this
+register. Approved Android entries remain **Currently Testing**. The WEB-4
+About contract authorizes one deliberately broad `Future Vision` direction
+without asserting
 a factual future capability or delivery timing. Future-roadmap evidence must
 not be added as a public claim until its status and wording are reviewed.
 
@@ -112,6 +120,39 @@ not be added as a public claim until its status and wording are reviewed.
   account, data location, connectivity, capability, mission, roadmap, or
   metadata; reuse on another surface; or conflicting evidence.
 
+## Web app sign-in link approval record
+
+- **Approval context:** owner report #2, supplied as an implementation brief on
+  2026-09-25, reports that visitors to this website have no way to reach the
+  web app. The owner, acting as Product Authority, approved a plain `Sign in`
+  link and noted that `app.kitamo.online` is a live web app with open sign-up.
+  The approval applies only to CLM-010.
+- **Approved surfaces:** the shared header (desktop navigation and the mobile
+  `Menu`) and the shared footer `Product` group on the four implemented routes.
+  It is a secondary link. Each page's primary action is unchanged.
+- **Exact wording and destination:** `Sign in` →
+  `https://app.kitamo.online/login`, opened in the same tab, styled as an
+  ordinary navigation or footer link and never with primary-action styling.
+- **Evidence:** `../seller-web` at
+  `9d30db6d21194870405f9e94ebd498107bbde8c0` serves the `/login` route with a
+  sign-in form and a create-account mode. On 2026-09-25,
+  `https://app.kitamo.online/login` responded with HTTP 200.
+- **Exclusions:** this website still offers no sign-up, create-account,
+  get-started, download, or pricing action, and it does not describe the web
+  app's features, status, platform, accounts, or data handling.
+- **Revalidation needed elsewhere:** CLM-002's note (do not imply a public web
+  application), CLM-008's approved `No online KitaMo account` on
+  `/how-it-works`, the footer description of an Android app that is currently
+  testing, the `account` terminology row, and the accounts line under Known
+  claim gaps were all written when KitaMo had no online account. They describe
+  the Android testing candidate. Next to a site-wide `Sign in` link, a reader
+  may take them as describing KitaMo as a whole. The Product Authority should
+  decide whether those claims need revalidation or new wording. This approval
+  does not change them.
+- **Revalidation trigger:** a change to the web app origin, login route,
+  sign-up policy, or availability; any added description of the web app; or
+  reuse of the link on another surface.
+
 ## Known claim gaps
 
 No claim entry may yet assert any of the following:
@@ -130,6 +171,10 @@ No claim entry may yet assert any of the following:
   workflow;
 - privacy, security, compliance, certification, revenue, customer-count, or
   business-outcome guarantees.
+
+CLM-010 is a narrow exception. It records only that a live web app sits behind
+the header and footer `Sign in` link. It does not open the account,
+availability, pricing, or capability gaps above for any other wording.
 
 The gaps remain closed until authoritative evidence and explicit public approval
 are both recorded. Placeholder contacts, draft legal text, roadmap documents,

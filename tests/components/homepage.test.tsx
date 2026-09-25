@@ -37,6 +37,8 @@ describe("WEB-3 homepage trust behavior", () => {
       "/#testing-status",
       "#main-content",
       "#testing-status",
+      // Shared header and footer Sign in link (CLM-010), not a homepage CTA.
+      "https://app.kitamo.online/login",
     ]);
 
     expect(hrefs.length).toBeGreaterThan(0);
@@ -58,6 +60,7 @@ describe("WEB-3 homepage trust behavior", () => {
       "join testing",
       "join now",
       "sign up",
+      "create account",
       "waitlist",
     ]) {
       expect(linkLabels).not.toContain(prohibitedAction);
