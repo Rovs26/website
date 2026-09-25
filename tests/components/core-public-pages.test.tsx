@@ -123,7 +123,8 @@ describe("WEB-4 How It Works", () => {
     expect(markup).toContain("Review business records");
     expect(markup).toContain("What the current test does not include");
     expect(markup).toContain("No automatic cloud synchronization or backup");
-    expect(markup).toContain("No online KitaMo account");
+    expect(markup).toContain("No online account in the Android test app");
+    expect(markup).toContain("app.kitamo.online");
     expect(markup.toLowerCase()).not.toContain("cloud sync available");
     expect(markup.toLowerCase()).not.toContain("ai-powered");
   });

@@ -30,7 +30,7 @@ for every kind of small business.
 ## Exact approved hero wording
 
 - **Status:** `Currently Testing`
-- **Status explanation:** `Limited Android product testing; not an open public release.`
+- **Status explanation:** `Limited Android testing; not an open public download. A separate web app for store owners, with its own sign-in, is at app.kitamo.online.` (revised 2026-09-25, CLM-011)
 - **Headline:** `Simple business tools for everyday Filipino sellers.`
 - **Supporting copy:** `KitaMo is an Android business app being built to help small-business owners keep important day-to-day records organized, even when internet access is limited.`
 - **Primary CTA:** `See how KitaMo works` → `/how-it-works`
@@ -57,7 +57,7 @@ for every kind of small business.
 ### CLM-003 — testing maturity
 
 - `Currently Testing`
-- `Limited Android product testing; not an open public release.`
+- `Limited Android testing; not an open public download. A separate web app for store owners, with its own sign-in, is at app.kitamo.online.`
 - Product-detail wording is qualified as the `current Android test version` or
   `current test app`.
 - Evidence:

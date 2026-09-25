@@ -21,5 +21,5 @@ export const webAppSignInLink = {
 
 export const footerCopy = {
   description:
-    "An Android business app currently testing for Filipino small-business owners and sellers.",
+    "An Android app in testing for Filipino small-business owners and sellers, and a web app for store owners at app.kitamo.online.",
 } as const;

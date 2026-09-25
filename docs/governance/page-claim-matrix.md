@@ -65,9 +65,10 @@ claim from being silently adapted to a new surface without a scope review.
 | CLM-005 | PAG-001, PAG-002, PAG-005, PAG-006, PAG-008, PAG-010 | Audience evidence, terminology, regional comprehension, and prohibition on adoption or outcome implications |
 | CLM-006 | PAG-001, PAG-002, PAG-004, PAG-006, PAG-010, PAG-011, PAG-016 | Recheck availability, download, invitation, launch, and testing-join evidence |
 | CLM-007 | PAG-001, PAG-003, PAG-004, PAG-005, PAG-006, PAG-010, PAG-016 | Feature-level scope, visible status, terminology, and all stated exclusions |
-| CLM-008 | PAG-004, PAG-010, PAG-011, PAG-013, PAG-015 | PAG-004 may use only the approved negative `No online KitaMo account` wording; every other surface needs separate approval. Do not imply future account policy or conflate local data removal with account deletion. |
+| CLM-008 | PAG-004, PAG-010, PAG-011, PAG-013, PAG-015 | PAG-004 may use only the approved negative `No online account in the Android test app` wording (revalidated 2026-09-25 when the web app went live); every other surface needs separate approval. Do not imply future account policy or conflate local data removal with account deletion. |
 | CLM-009 | PAG-010, PAG-011, PAG-013, PAG-015 | Product Authority and Privacy Owner approval of exact instructions, consequences, Owner-PIN prerequisite, exclusions, and current-release behavior |
 | CLM-010 | PAG-001, PAG-002, PAG-004, PAG-006 (shared header and footer only) | Only the `Sign in` label to `https://app.kitamo.online/login`, with secondary styling. Any web-app description, status label, sign-up or create-account action, pricing, or use in page body copy needs a new claim. Recheck the web app origin, login route, and sign-up policy before each release. |
+| CLM-011 | PAG-001, PAG-004, PAG-006 (body) and the shared footer | Only the exact sentences recorded in the claims register. Any web-app capability, feature, pricing or sign-up wording needs a new claim. |
 
 ## Unsupported propositions and dependency gates
 
