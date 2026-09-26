@@ -10,8 +10,15 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   // Ported from kitamo-ph/admin next.config.ts, which held the only hardened
-  // header set in the workspace. The site is fully static and ships no
-  // first-party JS, so the policy can stay this tight.
+  // header set in the workspace.
+  //
+  // `script-src 'none'` in production (ADR-0013): every page is static HTML
+  // with no Client Components, so the browser needs no script at all. With
+  // 'none' it never downloads the Next.js runtime (about 145 KB), which
+  // `script-src 'self'` used to fetch only to fail on the blocked inline RSC
+  // payload. Browsers log each refused tag in the console; that is expected.
+  // Development keeps 'self' 'unsafe-eval' for next dev. JSON-LD is a data
+  // block and is never executed, so it is unaffected.
   async headers() {
     return [
       {
@@ -36,9 +43,9 @@ const nextConfig: NextConfig = {
               "img-src 'self' data:",
               "font-src 'self'",
               "style-src 'self' 'unsafe-inline'",
-              `script-src 'self'${
-                process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""
-              }`,
+              process.env.NODE_ENV === "development"
+                ? "script-src 'self' 'unsafe-eval'"
+                : "script-src 'none'",
               "connect-src 'self'",
               "upgrade-insecure-requests",
             ].join("; "),

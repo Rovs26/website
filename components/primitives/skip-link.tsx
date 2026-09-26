@@ -14,7 +14,7 @@ export function SkipLink({
   return (
     <a
       className={classNames(
-        "rounded-control bg-text text-page shadow-raised fixed top-3 left-3 z-50 -translate-y-24 px-4 py-3 font-bold transition-transform focus:translate-y-0 motion-reduce:transition-none",
+        "rounded-control bg-text text-page shadow-raised fixed top-3 left-3 z-50 -translate-y-[calc(100%+1rem)] px-4 py-3 font-bold whitespace-nowrap transition-transform focus:translate-y-0 motion-reduce:transition-none",
         className,
       )}
       href={href}

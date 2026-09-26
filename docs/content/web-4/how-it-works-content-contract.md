@@ -1,5 +1,7 @@
 # WEB-4 How It Works Content Contract
 
+> **Superseded 2026-09-26** by [`mr-1-marketing-content-contract.md`](../mr-1-marketing-content-contract.md) (ADR-0012). Kept as the record of the WEB-3/WEB-4 approvals; this wording is no longer published.
+
 Status: **Approved for implementation; non-indexed preview only**
 
 Approved: 2026-08-09

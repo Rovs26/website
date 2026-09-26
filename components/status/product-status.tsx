@@ -10,6 +10,10 @@ export type ProductStatusProps = {
   status: ProductStatusName;
 };
 
+/**
+ * A controlled product status, always as visible text with a screen-reader
+ * prefix, never colour alone. The 1b design shows it as plain bold text.
+ */
 export function ProductStatus({
   className,
   explanation,
@@ -19,19 +23,14 @@ export function ProductStatus({
 
   return (
     <span
-      className={classNames(
-        "product-status rounded-status inline-flex max-w-full flex-wrap items-center gap-x-2 gap-y-1 border px-3 py-1.5 text-sm",
-        className,
-      )}
+      className={classNames("product-status inline", className)}
       data-product-status={status}
     >
-      <span className="font-bold">
+      <span className="font-semibold">
         <span className="sr-only">Product status: </span>
         {definition.label}
       </span>
-      {explanation ? (
-        <span className="text-[0.8125rem] leading-5">{explanation}</span>
-      ) : null}
+      {explanation ? <span> {explanation}</span> : null}
     </span>
   );
 }

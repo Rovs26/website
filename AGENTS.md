@@ -14,8 +14,9 @@ These rules apply to all work in this repository.
 
 ## Public trust and product authority
 
-- The Android Owner-Seller application is the current operational product
-  authority. This website is not a source of business logic.
+- The web app (`seller-web`, `app.kitamo.online`) is the product authority for
+  web-app claims, and the Android Owner-Seller application for the Android
+  answers. This website is not a source of business logic.
 - Never invent or independently redefine capabilities, business terminology,
   transaction rules, pricing, data models, roles, account states, subscription
   behavior, analytics definitions, or AI behavior.
@@ -57,7 +58,9 @@ alone.
 ## Implementation rules
 
 - Prefer React Server Components and static rendering.
-- Add `"use client"` only when a real interaction requires browser state.
+- Do not add Client Components (`"use client"`). The production CSP is
+  `script-src 'none'` (ADR-0013), so no script runs at all, and a test fails on
+  any `"use client"` file. A real client interaction needs a new decision first.
 - Minimize JavaScript, hydration, dependencies, and abstractions.
 - Preserve semantic HTML, logical heading order, keyboard access, visible focus,
   native control behavior, accessible names, touch targets, zoom, reduced
@@ -119,9 +122,20 @@ baseline changes.
 
 ## Scope gate
 
-WEB-0 and WEB-1 establish the repository and design-system foundation. WEB-2
-defines information architecture in documentation only. Do not implement final
-navigation, the final homepage, core public pages, legal or support pages, full
-hardening, Play Store readiness, or production readiness until the Website
-Architect approves WEB-2 and separately authorizes the applicable later
-milestone.
+WEB-0 to WEB-4 and MR-1 (ADR-0012, the web-first site) are approved.
+
+- The public routes are `/`, `/for-sellers`, `/how-it-works` and `/about`.
+- Each page's one primary action is **Create free account** (CLM-013).
+- **Sign in** is always secondary (CLM-010).
+
+Still gated behind a separate approval:
+
+- new routes;
+- this site's own legal or support pages;
+- pricing;
+- a second language;
+- video;
+- any new claim.
+
+Publish MR-1 only once the web app's Ledger build is live (ADR-0012 launch
+gate).

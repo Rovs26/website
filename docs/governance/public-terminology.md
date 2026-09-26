@@ -1,6 +1,7 @@
 # KitaMo Public Terminology Governance
 
-Status: **WEB-3 homepage and WEB-4 core-page terminology approved in bounded scope**
+Status: **MR-1 web-first terminology approved 2026-09-26; WEB-3 and WEB-4
+terminology retained for the Android answers**
 
 Evidence reviewed: 2026-08-09
 Source snapshots: `../owner-seller-mobile` at
@@ -77,6 +78,69 @@ this site. The `account` row below still applies to all other wording: do not
 describe an account, registration, sign-up, recovery, or account-backed data
 without a separate approval. Revalidate if the destination, the label, or the
 language of the site changes.
+
+## MR-1 web-first terminology approval
+
+The owner approved these terms on 2026-09-26 for the four MR-1 routes, in
+the exact wording of `../content/mr-1-marketing-content-contract.md`.
+
+**Product and actions**
+
+- **KitaMo web app**, **web app** and **account**: the web app's own owner
+  account, reached through CLM-013.
+- **Create free account**: the exact primary-action label.
+- **Sign in**: always secondary.
+- **Free while in testing**: the only price wording (CLM-012). "Free" alone,
+  "free forever", "no cost" and plan or tier names stay prohibited.
+
+**Seller words**
+
+These keep the web app's meanings, each with an English gloss where it first
+appears on a page:
+
+- **lista**
+- **Kita** (profit screen)
+- **Tubo** (profit)
+- **Benta** (sales, sell)
+- **Puhunan** (cost of goods)
+- **Bayarin** (expenses)
+- **Sira** (spoilage)
+- **Paninda** (products)
+- **Utang** (credit), with **Sa iyo** (customers who owe you) and **Utang mo**
+  (suppliers you owe)
+- **Gastos** (expenses)
+- **Sukli** (change)
+- **Sakto** (exact amount)
+- **suki** (regular customers)
+- bill names: **upa**, **kuryente**, **tubig**, **wifi**, **sahod**,
+  **basura**
+- **ulam**
+
+The formula **Tubo = Benta − Puhunan − Bayarin − Sira** is the web app's
+formula (`netProfit()` in seller-web). The site must not restate it
+differently.
+
+**Store types**
+
+**sari-sari store**, **karinderia**, **food stall**, **market stall** and
+**home business** are intended contexts only (CLM-005 wording), not adoption
+claims.
+
+**Screens and statuses**
+
+- **Hidden money view**: the web app's setting name.
+- **Illustration**: the label on every AI-generated photo.
+- **offline**: may describe only the Android pilot, and only beside
+  **Currently Testing**.
+
+**Still prohibited**
+
+These stay prohibited in public copy:
+
+- "sign up", "get started", "start free", "download" (as an action), "join";
+- "AI", "smart", "seamless", "all-in-one";
+- "official receipt", except in the negative;
+- any statistic, rating or customer count.
 
 ## Classification rules
 

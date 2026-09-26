@@ -1,25 +1,32 @@
 export const primaryNavigation = [
-  { href: "/for-sellers", label: "For Sellers" },
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/about", label: "About" },
+  { href: "/how-it-works", label: "How it works", key: "how" },
+  { href: "/for-sellers", label: "For sellers", key: "sellers" },
+  { href: "/about", label: "About", key: "about" },
 ] as const;
 
-export const testingStatusLink = {
-  href: "/#testing-status",
-  label: "Testing Status",
-} as const;
+export type NavigationKey = (typeof primaryNavigation)[number]["key"];
 
 /**
- * The separate KitaMo web app. CLM-010 approves this exact label and
- * destination for the shared header and footer only, as a secondary link:
- * never primary-action styling, and no other web-app copy.
+ * CLM-010: the web app sign-in. Always a secondary link or secondary button,
+ * never primary-action styling.
  */
 export const webAppSignInLink = {
   href: "https://app.kitamo.online/login",
   label: "Sign in",
 } as const;
 
-export const footerCopy = {
-  description:
-    "An Android app in testing for Filipino small-business owners and sellers, and a web app for store owners at app.kitamo.online.",
+/**
+ * CLM-013: the one primary action on every page. `bago=1` opens the web
+ * app's create-account mode.
+ */
+export const createAccountLink = {
+  href: "https://app.kitamo.online/login?bago=1",
+  label: "Create free account",
 } as const;
+
+/** CLM-025: the web app's public legal and help pages. */
+export const helpLinks = [
+  { href: "https://app.kitamo.online/privacy", label: "Privacy" },
+  { href: "https://app.kitamo.online/terms", label: "Terms" },
+  { href: "https://app.kitamo.online/support", label: "Support" },
+] as const;

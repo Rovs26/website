@@ -1,7 +1,8 @@
 # KitaMo Website
 
-The public website foundation for KitaMo, an Android-first business tool being
-developed for Filipino micro-businesses.
+The public website for KitaMo, a web app for Filipino micro-sellers, at
+`https://kitamo.online`. The web app itself is at `app.kitamo.online`, a
+separate repository.
 
 ## Current milestone
 
@@ -12,16 +13,18 @@ This repository contains:
 - **WEB-2 — Information Architecture** (approved documentation and governance
   blueprint)
 - **WEB-3 — Homepage** (approved, evidence-backed implementation; non-indexed)
-- **WEB-4 — Core Public Website** (approved local implementation;
-  non-indexed)
+- **WEB-4 — Core Public Website** (approved; superseded by MR-1)
+- **MR-1 — Web-first marketing site** (approved 2026-09-26,
+  [ADR-0012](docs/decisions/ADR-0012-web-first-marketing.md))
 
-The implemented public routes are `/`, `/for-sellers`, `/how-it-works`, and
-`/about`. They form a connected local-review site around the intended audience,
-bounded Android test capabilities, device-local operation, current limitations,
-and broad noncommittal direction. The site remains globally
-`noindex`/`nofollow` and is not a public-launch authorization. Legal and support
-content, store-readiness content, hardening, production work, and deployment
-remain deferred.
+The public routes are `/`, `/for-sellers`, `/how-it-works` and `/about`. They
+sell the web app: each page has one primary **Create free account** action,
+with **Sign in** kept secondary. The Android pilot appears only as **Currently
+Testing**. The site is indexable at the apex (ADR-0011). Legal and support
+pages are the web app's own and are linked, not copied.
+
+**Launch gate.** The pictures show the web app's Ledger redesign. Publish MR-1
+only once that build is live at `app.kitamo.online` (ADR-0012).
 
 ## Product-status warning
 
@@ -34,8 +37,9 @@ content must use the controlled status vocabulary:
 - **Future Vision**
 
 Every product claim requires traceable evidence and approval in the
-[public claims register](docs/governance/public-claims-register.md). The Android
-Owner-Seller application remains the operational product authority. Do not
+[public claims register](docs/governance/public-claims-register.md). The web
+app (`seller-web`) is the product authority for web-app claims, and the Android
+Owner-Seller application for the Android answers. Do not
 invent capabilities, terminology, prices, roles, account states, analytics
 definitions, or AI behavior in this repository.
 
@@ -53,7 +57,7 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000` to review the connected WEB-4 site. During local
+Open `http://localhost:3000` to review the site. During local
 development, `/design-system` provides the internal WEB-1 review surface. That
 route returns not found in production builds and is disallowed in `robots.txt`.
 
@@ -91,10 +95,8 @@ require network access.
 - Vitest for focused component and utility checks
 - No backend, database, authentication, CMS, analytics, trackers, or cookies
 
-The project is compatible with a conventional Vercel Next.js deployment, but
-production domains, hosted environment values, analytics, and production
-readiness are deferred to WEB-8. Do not deploy or configure a production domain
-without authorization.
+The site deploys to Vercel (`sin1`) behind Cloudflare (ADR-0011). Do not
+deploy without the owner's go-ahead.
 
 ## Public-content governance
 
@@ -125,10 +127,22 @@ See the [accessibility baseline](docs/reviews/accessibility-baseline.md).
 
 ## Performance
 
-Prefer Server Components and static output. Add a Client Component only when a
-real interaction requires browser state. Avoid heavy libraries, external fonts,
-autoplay media, background video, icon packages, carousels, chat widgets, and
-third-party scripts. Keep images responsive and optimized. See the
+Prefer Server Components and static output. The site ships no Client
+Components and runs no JavaScript. The production CSP is `script-src 'none'`
+(ADR-0013), so the browser never downloads the Next.js runtime. The console
+shows one CSP message per refused script tag, which is expected. The menu and
+FAQ are native `<details>`, and the receipt animation is CSS only. Avoid heavy libraries, externally hosted fonts, autoplay media,
+background video, icon packages, carousels, chat widgets and third-party
+scripts.
+
+ADR-0012 permits:
+
+- the self-hosted Schibsted Grotesk family;
+- product screen images and captioned illustrations (`public/plates/`,
+  `public/marketing/`);
+- a click-to-play clip under its stated limits.
+
+Keep images responsive and optimized. See the
 [performance baseline](docs/reviews/performance-baseline.md).
 
 ## Security and secret handling
@@ -149,7 +163,10 @@ only with names and safe placeholders.
 - [Preflight inventory](docs/preflight/workspace-inventory.md)
 - [WEB-2 content and IA inventory](docs/preflight/web-2-content-and-ia-inventory.md)
 - [Design-system foundation](docs/brand/design-system-foundation.md)
-- [WEB-3 homepage content contract](docs/content/web-3-homepage-content-contract.md)
+- [MR-1 content contract](docs/content/mr-1-marketing-content-contract.md)
+- [Marketing redesign](docs/redesign/README.md)
+- [MR-1 acceptance](docs/reviews/mr-1-acceptance.md)
+- [WEB-3 homepage content contract](docs/content/web-3-homepage-content-contract.md) (superseded)
 - [WEB-4 For Sellers content contract](docs/content/web-4/for-sellers-content-contract.md)
 - [WEB-4 How It Works content contract](docs/content/web-4/how-it-works-content-contract.md)
 - [WEB-4 About content contract](docs/content/web-4/about-content-contract.md)

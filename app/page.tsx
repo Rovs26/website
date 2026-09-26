@@ -1,205 +1,202 @@
-import { Cluster } from "@/components/layout/cluster";
-import { Container } from "@/components/layout/container";
+import Link from "next/link";
+
 import { PageShell } from "@/components/layout/page-shell";
-import { Section } from "@/components/layout/section";
-import { Stack } from "@/components/layout/stack";
-import { Card } from "@/components/primitives/card";
-import { Heading } from "@/components/primitives/heading";
-import { Notice } from "@/components/primitives/notice";
-import { StyledLink } from "@/components/primitives/styled-link";
-import { Text } from "@/components/primitives/text";
-import { ProductStatus } from "@/components/status/product-status";
+import {
+  CreateAccountLink,
+  SignInButton,
+} from "@/components/marketing/actions";
+import { Band, BandCaption } from "@/components/marketing/band";
+import { ClosingCta } from "@/components/marketing/closing";
+import { Device, DevicePair } from "@/components/marketing/device";
+import { Faq } from "@/components/marketing/faq";
+import { Arrow } from "@/components/marketing/icons";
+import { ArtDirectedPhoto } from "@/components/marketing/photo";
+import { FormulaHeading, Receipt } from "@/components/marketing/receipt";
+import { Tally } from "@/components/marketing/tally";
 import { homepageCopy } from "@/lib/content/homepage-copy";
+import { sharedCopy } from "@/lib/content/shared-copy";
+import { pageMetadata } from "@/lib/metadata/site";
+
+export const metadata = pageMetadata({ path: "/", ...homepageCopy.metadata });
+
+const { hero, formula, routine, sellers, counter, steps, faq } = homepageCopy;
 
 export default function HomePage() {
   return (
     <PageShell>
-      <Section aria-labelledby="home-heading" className="overflow-hidden">
-        <Container size="wide">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(17rem,0.65fr)] lg:gap-16">
-            <Stack className="max-w-4xl" gap="large">
-              <div>
-                <ProductStatus
-                  explanation={homepageCopy.testing.explanation}
-                  status="testing"
-                />
-              </div>
-              <Heading id="home-heading" level={1} size="display">
-                {homepageCopy.hero.heading}
-              </Heading>
-              <Text className="max-w-2xl" size="large" tone="secondary">
-                {homepageCopy.hero.introduction}
-              </Text>
-              <Cluster align="start">
-                <StyledLink href="/how-it-works" variant="primary">
-                  {homepageCopy.hero.primaryAction}
-                </StyledLink>
-                <StyledLink href="#testing-status" variant="secondary">
-                  {homepageCopy.hero.secondaryAction}
-                </StyledLink>
-              </Cluster>
-            </Stack>
+      {/* The devices stand on the counter band that starts the next section. */}
+      <section
+        aria-labelledby="hero-heading"
+        className="px-gutter wide:grid wide:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] wide:items-end wide:gap-10 wide:pt-14 pt-6"
+      >
+        <div className="wide:pb-18 flex flex-col">
+          <h1 className="text-display text-balance" id="hero-heading">
+            {hero.heading}
+          </h1>
+          <p className="text-lead wide:mt-8 mt-5 max-w-[33.75rem] font-medium text-pretty">
+            {hero.introduction}
+          </p>
+          <div className="wide:mt-8 wide:flex-row wide:flex-wrap wide:gap-3 mt-6 flex max-w-[37.5rem] flex-col gap-2.5">
+            <CreateAccountLink />
+            <SignInButton />
+          </div>
+          <p className="text-secondary wide:mt-4 wide:text-base mt-3.5 text-[0.9375rem] leading-6 font-medium">
+            {sharedCopy.reassurance}
+          </p>
+        </div>
+        <div className="wide:mt-0 mt-9 max-w-[56.25rem]">
+          <DevicePair phone="P1" priority tablet="T1" />
+        </div>
+      </section>
 
-            <aside
-              aria-label="Homepage scope"
-              className="rounded-surface border-border bg-muted/70 relative border p-6 sm:p-8"
+      <Band
+        aria-labelledby="formula-heading"
+        className="pb-[clamp(4rem,9vw,8rem)]"
+      >
+        <BandCaption>{sharedCopy.screensCaption}</BandCaption>
+        <div className="wide:grid-cols-2 grid items-start gap-x-[clamp(2.5rem,6.6vw,6rem)] gap-y-10">
+          <div className="wide:order-2 wide:pt-16 flex flex-col gap-[clamp(1.75rem,3.3vw,3rem)]">
+            <FormulaHeading id="formula-heading" />
+            <p className="max-w-[38.75rem] text-[clamp(1.1875rem,2.1vw,1.875rem)] leading-[1.35] font-semibold tracking-[-0.01em] text-pretty">
+              {formula.line}
+            </p>
+          </div>
+          <div className="wide:order-1">
+            <Receipt />
+          </div>
+        </div>
+      </Band>
+
+      <section
+        aria-labelledby="routine-heading"
+        className="px-gutter py-section"
+      >
+        <h2 className="text-h2" id="routine-heading">
+          {routine.heading}
+        </h2>
+        <ol className="wide:mt-14 wide:grid-cols-5 wide:items-start wide:gap-6 m-0 mt-8 grid list-none p-0">
+          {routine.items.map((item) => (
+            <li
+              className="border-border wide:gap-3 wide:border-t-0 wide:pt-0 flex flex-col gap-5 border-t pt-6"
+              key={item.word}
             >
-              <div
-                aria-hidden="true"
-                className="bg-accent absolute top-0 left-6 h-1 w-16 rounded-b-full"
-              />
-              <Stack gap="large">
-                <Text
-                  className="font-bold tracking-[0.12em] uppercase"
-                  size="small"
-                >
-                  Current focus
-                </Text>
-                <p className="font-display text-2xl leading-tight font-extrabold tracking-[-0.025em]">
-                  Practical records on one Android device.
+              <div className="wide:order-2 wide:mt-3 wide:border-t wide:border-text wide:pt-3.5 flex flex-col gap-2">
+                <h3 className="wide:text-[2rem] flex items-baseline gap-2.5 text-[1.875rem] leading-[1.05] font-bold tracking-[-0.02em]">
+                  {item.word}
+                  <span className="text-secondary text-[0.9375rem] font-semibold tracking-normal">
+                    {item.english}
+                  </span>
+                </h3>
+                <p className="text-[1.0625rem] leading-[1.45] font-medium text-pretty">
+                  {item.text}
                 </p>
-                <Text tone="secondary">
-                  A deliberately small test scope, described without download or
-                  launch promises.
-                </Text>
-              </Stack>
-            </aside>
-          </div>
-        </Container>
-      </Section>
-
-      <Section
-        aria-labelledby="audience-heading"
-        className="border-border bg-surface border-y"
-      >
-        <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-            <Stack gap="small">
-              <Text
-                className="text-action font-bold tracking-[0.12em] uppercase"
-                size="small"
-              >
-                {homepageCopy.audience.eyebrow}
-              </Text>
-              <Heading id="audience-heading" level={2} size="large">
-                {homepageCopy.audience.heading}
-              </Heading>
-            </Stack>
-            <Stack gap="large">
-              <Text size="large">{homepageCopy.audience.introduction}</Text>
-              <Notice title="Intended context, not an adoption claim">
-                <p>{homepageCopy.audience.boundary}</p>
-              </Notice>
-              <div>
-                <StyledLink href="/for-sellers" variant="secondary">
-                  See who KitaMo is for
-                </StyledLink>
               </div>
-            </Stack>
-          </div>
-        </Container>
-      </Section>
-
-      <Section aria-labelledby="how-it-works-heading" id="how-it-works">
-        <Container size="wide">
-          <Stack gap="xlarge">
-            <Stack className="max-w-3xl" gap="medium">
-              <Text
-                className="text-action font-bold tracking-[0.12em] uppercase"
-                size="small"
-              >
-                {homepageCopy.capabilities.eyebrow}
-              </Text>
-              <Heading id="how-it-works-heading" level={2} size="large">
-                {homepageCopy.capabilities.heading}
-              </Heading>
-              <Text size="large" tone="secondary">
-                {homepageCopy.capabilities.introduction}
-              </Text>
-            </Stack>
-            <ol className="grid list-none gap-4 p-0 md:grid-cols-3">
-              {homepageCopy.capabilities.items.map((item, index) => (
-                <li key={item.heading}>
-                  <Card as="article" className="h-full">
-                    <Stack gap="medium">
-                      <span
-                        aria-hidden="true"
-                        className="bg-accent text-accent-foreground inline-flex size-9 items-center justify-center rounded-full text-sm font-bold"
-                      >
-                        {index + 1}
-                      </span>
-                      <Heading level={3} size="small">
-                        {item.heading}
-                      </Heading>
-                      <Text tone="secondary">{item.body}</Text>
-                    </Stack>
-                  </Card>
-                </li>
-              ))}
-            </ol>
-            <div>
-              <StyledLink href="/how-it-works" variant="secondary">
-                See the current workflow
-              </StyledLink>
-            </div>
-          </Stack>
-        </Container>
-      </Section>
-
-      <Section
-        aria-labelledby="offline-heading"
-        className="border-border bg-muted border-y"
-      >
-        <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-14">
-            <Stack gap="small">
-              <Text
-                className="text-action font-bold tracking-[0.12em] uppercase"
-                size="small"
-              >
-                {homepageCopy.offline.eyebrow}
-              </Text>
-              <Heading id="offline-heading" level={2} size="large">
-                {homepageCopy.offline.heading}
-              </Heading>
-            </Stack>
-            <Stack gap="large">
-              <Text size="large">{homepageCopy.offline.body}</Text>
-              <Text tone="secondary">{homepageCopy.offline.boundary}</Text>
-              <div>
-                <StyledLink href="/about" variant="secondary">
-                  Learn about KitaMo
-                </StyledLink>
-              </div>
-            </Stack>
-          </div>
-        </Container>
-      </Section>
-
-      <Section aria-labelledby="testing-status-heading" id="testing-status">
-        <Container size="reading">
-          <Card className="border-warning/40 bg-warning-soft p-6 sm:p-8">
-            <Stack gap="large">
-              <div>
-                <ProductStatus
-                  explanation={homepageCopy.testing.explanation}
-                  status="testing"
+              <div className="border-text wide:order-1 wide:aspect-auto wide:max-w-none wide:overflow-visible wide:border-b-0 mx-auto aspect-[25/27] w-full max-w-[18.75rem] overflow-hidden border-b">
+                <Device
+                  plate={item.plate}
+                  sizes="(min-width: 1100px) 17vw, 300px"
                 />
               </div>
-              <Heading id="testing-status-heading" level={2} size="large">
-                {homepageCopy.testing.heading}
-              </Heading>
-              <Text size="large">{homepageCopy.testing.body}</Text>
-              <Text tone="secondary">{homepageCopy.testing.changeNotice}</Text>
-              <div>
-                <StyledLink href="/how-it-works" variant="secondary">
-                  {homepageCopy.hero.primaryAction}
-                </StyledLink>
-              </div>
-            </Stack>
-          </Card>
-        </Container>
-      </Section>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section
+        aria-labelledby="sellers-heading"
+        className="px-gutter py-section border-border wide:grid-cols-2 grid gap-x-[clamp(2.5rem,6.6vw,6rem)] gap-y-8 border-t"
+      >
+        <div className="flex flex-col items-start gap-5">
+          <h2 className="text-h2" id="sellers-heading">
+            {sellers.heading}
+          </h2>
+          <Link
+            className="text-action hover:text-action-press flex min-h-11 items-center gap-2 text-lg font-[650] underline underline-offset-4"
+            href="/for-sellers"
+          >
+            {sellers.link}
+            <Arrow />
+          </Link>
+        </div>
+        <ul className="m-0 list-none p-0">
+          {sellers.names.map((name) => (
+            <li
+              className="border-border flex min-h-[clamp(3.75rem,5.5vw,5rem)] items-baseline border-b pt-[clamp(0.625rem,1.2vw,1rem)] text-[clamp(1.875rem,3.3vw,3rem)] leading-[1.1] font-bold tracking-[-0.025em]"
+              key={name}
+            >
+              {name}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <Band aria-labelledby="counter-heading" className="pt-section">
+        <h2 className="text-h2" id="counter-heading">
+          {counter.heading}
+        </h2>
+        <div className="mt-[clamp(1.75rem,3.3vw,3rem)]">
+          <ArtDirectedPhoto
+            alt={counter.photoAlt}
+            caption={counter.caption}
+            captionClassName="text-on-ink"
+            narrow={{
+              src: "/marketing/S1-counter-4x5.jpg",
+              width: 893,
+              height: 1116,
+            }}
+            wide={{
+              src: "/marketing/S1-counter-16x9.jpg",
+              width: 2000,
+              height: 1116,
+            }}
+          />
+        </div>
+        <ul className="wide:grid-cols-4 m-0 mt-[clamp(1.5rem,2.8vw,2.5rem)] grid list-none gap-x-8 p-0 pb-[clamp(3rem,5.5vw,5rem)] sm:grid-cols-2">
+          {counter.items.map((item) => (
+            <li
+              className="border-rule-ink text-row flex min-h-[clamp(3.75rem,5vw,5.5rem)] items-start border-t py-4 font-semibold text-pretty"
+              key={item}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </Band>
+
+      <section aria-labelledby="steps-heading" className="px-gutter py-section">
+        <h2 className="text-h2" id="steps-heading">
+          {steps.heading}
+        </h2>
+        <ol className="m-0 mt-[clamp(1.75rem,3.3vw,3rem)] grid list-none gap-x-8 p-0 md:grid-cols-3">
+          {steps.items.map((text, index) => (
+            <li
+              className="border-text flex min-h-24 items-center gap-5 border-t py-4"
+              key={text}
+            >
+              <Tally count={index + 1} />
+              <span className="text-[clamp(1.5rem,2vw,1.875rem)] leading-[1.15] font-bold tracking-[-0.015em]">
+                <span className="sr-only">Step {index + 1}. </span>
+                {text}
+              </span>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <CreateAccountLink className="wide:max-w-[22.5rem] flex-[1_1_16.25rem]" />
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="faq-heading"
+        className="px-gutter py-section border-border wide:grid-cols-2 grid gap-x-[clamp(2.5rem,6.6vw,6rem)] gap-y-7 border-t"
+      >
+        <h2 className="text-h2" id="faq-heading">
+          {faq.heading}
+        </h2>
+        <Faq items={faq.items} />
+      </section>
+
+      <ClosingCta />
     </PageShell>
   );
 }

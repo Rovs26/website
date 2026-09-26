@@ -5,32 +5,39 @@ import { classNames } from "@/lib/utilities/class-names";
 export type BrandMarkProps = {
   className?: string;
   priority?: boolean;
-  showName?: boolean;
+  size?: number;
 };
 
+/**
+ * The web app's K mark, unchanged (public/brand/kitamo-mark.png). Decorative
+ * where it sits inside a link that already says "KitaMo home".
+ */
 export function BrandMark({
   className,
   priority = false,
-  showName = true,
+  size = 44,
 }: BrandMarkProps) {
   return (
-    <span
-      className={classNames(
-        "text-text inline-flex items-center gap-2.5 font-semibold",
-        className,
-      )}
-    >
-      <Image
-        alt={showName ? "" : "KitaMo"}
-        className="size-10 rounded-[var(--km-radius-control)]"
-        height={40}
-        priority={priority}
-        src="/brand/kitamo-app-icon.png"
-        width={40}
-      />
-      {showName ? (
-        <span className="text-lg tracking-[-0.02em]">KitaMo</span>
-      ) : null}
-    </span>
+    <Image
+      alt=""
+      className={classNames("block", className)}
+      height={size}
+      priority={priority}
+      src="/brand/kitamo-mark.png"
+      width={size}
+    />
+  );
+}
+
+/** The mark with its "KitaMo" wordmark, for the footer. */
+export function BrandLogo({ className }: { className?: string }) {
+  return (
+    <Image
+      alt="KitaMo"
+      className={classNames("block", className)}
+      height={88}
+      src="/brand/kitamo-logo.png"
+      width={107}
+    />
   );
 }
