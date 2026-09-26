@@ -3,3 +3,6 @@ coverage
 node_modules
 out
 package-lock.json
+
+# Claude Design handoffs are kept as delivered
+docs/redesign/marketing-round-*/

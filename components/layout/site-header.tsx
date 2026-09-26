@@ -1,55 +1,101 @@
 import Link from "next/link";
 
 import { BrandMark } from "@/components/brand/brand-mark";
-import { Container } from "@/components/layout/container";
+import { CreateAccountLink } from "@/components/marketing/actions";
+import { Chevron } from "@/components/marketing/icons";
 import {
   primaryNavigation,
-  testingStatusLink,
   webAppSignInLink,
+  type NavigationKey,
 } from "@/lib/content/site-navigation";
+import { classNames } from "@/lib/utilities/class-names";
 
-const navigationLinkClasses =
-  "rounded-control text-text hover:bg-muted hover:text-action inline-flex min-h-11 items-center px-3 py-2 text-sm font-semibold transition-colors motion-reduce:transition-none";
+const desktopLinkClasses =
+  "text-text hover:text-action inline-flex h-11 items-center px-3.5 text-base font-semibold no-underline decoration-2 underline-offset-[6px] aria-[current=page]:font-bold aria-[current=page]:underline";
 
-const mobileNavigationLinkClasses =
-  "rounded-control text-text hover:bg-muted hover:text-action flex min-h-11 items-center px-3 py-2 text-base font-semibold";
+const menuLinkClasses =
+  "text-text hover:text-action flex min-h-14 items-center text-[1.1875rem] font-semibold no-underline aria-[current=page]:font-bold";
 
-export function SiteHeader() {
+/**
+ * Wide screens (1100px and up) show the navigation inline. Narrower screens
+ * show the mark, the primary action and a native <details> Menu, so the menu
+ * works without JavaScript.
+ */
+export function SiteHeader({ current }: { current?: NavigationKey }) {
   return (
     <header
       aria-label="KitaMo website"
-      className="border-border bg-surface/95 relative z-40 border-b"
+      className="bg-page text-text relative z-20"
     >
-      <Container size="wide">
-        <div className="flex min-h-16 items-center justify-between gap-4">
-          <Link
-            aria-label="KitaMo home"
-            className="rounded-control inline-flex min-h-11 items-center"
-            href="/"
-          >
-            <BrandMark priority />
-          </Link>
+      <div className="px-gutter wide:flex hidden h-20 items-center gap-2">
+        <Link
+          aria-label="KitaMo home"
+          className="mr-8 flex h-12 items-center"
+          href="/"
+        >
+          <BrandMark priority />
+        </Link>
+        <nav aria-label="Primary navigation">
+          <ul className="m-0 flex list-none gap-1 p-0">
+            {primaryNavigation.map((item) => (
+              <li key={item.href}>
+                <Link
+                  aria-current={item.key === current ? "page" : undefined}
+                  className={desktopLinkClasses}
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <span className="flex-1" />
+        <a
+          className="text-text hover:text-action inline-flex h-11 items-center px-4 text-base font-semibold no-underline"
+          href={webAppSignInLink.href}
+        >
+          {webAppSignInLink.label}
+        </a>
+        <CreateAccountLink size="header" />
+      </div>
 
-          <nav aria-label="Primary navigation" className="hidden md:block">
-            <ul className="flex list-none items-center gap-1 p-0">
+      <div className="wide:hidden relative flex min-h-16 items-center gap-2 px-3 py-2">
+        <Link
+          aria-label="KitaMo home"
+          className="flex size-11 shrink-0 items-center justify-center"
+          href="/"
+        >
+          <BrandMark size={36} />
+        </Link>
+        <span className="flex-1" />
+        <CreateAccountLink size="compact" />
+        <details className="group shrink-0">
+          <summary className="border-border-strong flex h-11 cursor-pointer items-center gap-1 rounded-[var(--km-radius-control)] border bg-white pr-2.5 pl-3 text-[0.9375rem] font-semibold select-none">
+            Menu
+            <span className="duration-standard ease-standard flex text-base transition-transform group-open:rotate-180 motion-reduce:transition-none">
+              <Chevron />
+            </span>
+          </summary>
+          <nav
+            aria-label="Mobile navigation"
+            className="bg-page border-border border-b-text absolute inset-x-0 top-full flex flex-col border-t border-b px-5 pt-1 pb-3"
+          >
+            <ul className="m-0 list-none p-0">
               {primaryNavigation.map((item) => (
-                <li key={item.href}>
-                  <Link className={navigationLinkClasses} href={item.href}>
+                <li className="border-border border-b" key={item.href}>
+                  <Link
+                    aria-current={item.key === current ? "page" : undefined}
+                    className={menuLinkClasses}
+                    href={item.href}
+                  >
                     {item.label}
                   </Link>
                 </li>
               ))}
-              <li className="ml-2">
-                <Link
-                  className="rounded-control border-border-strong bg-surface text-action hover:border-action hover:bg-muted inline-flex min-h-11 items-center border px-4 py-2 text-sm font-bold transition-colors motion-reduce:transition-none"
-                  href={testingStatusLink.href}
-                >
-                  {testingStatusLink.label}
-                </Link>
-              </li>
               <li>
                 <a
-                  className={navigationLinkClasses}
+                  className={classNames(menuLinkClasses)}
                   href={webAppSignInLink.href}
                 >
                   {webAppSignInLink.label}
@@ -57,61 +103,8 @@ export function SiteHeader() {
               </li>
             </ul>
           </nav>
-
-          <details className="group relative md:hidden">
-            <summary className="rounded-control border-border-strong bg-surface text-text hover:border-action hover:bg-muted inline-flex min-h-11 cursor-pointer list-none items-center gap-2 border px-4 py-2 text-sm font-bold transition-colors select-none marker:content-none motion-reduce:transition-none [&::-webkit-details-marker]:hidden">
-              <span>Menu</span>
-              <svg
-                aria-hidden="true"
-                className="size-4 transition-transform group-open:rotate-180 motion-reduce:transition-none"
-                fill="none"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="m4 6 4 4 4-4"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.75"
-                />
-              </svg>
-            </summary>
-            <nav
-              aria-label="Mobile navigation"
-              className="border-border bg-surface shadow-raised absolute top-[calc(100%+0.5rem)] right-0 w-[min(18rem,calc(100vw-2rem))] rounded-[var(--km-radius-surface)] border p-2"
-            >
-              <ul className="list-none p-0">
-                {primaryNavigation.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      className={mobileNavigationLinkClasses}
-                      href={item.href}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-                <li className="border-border mt-2 border-t pt-2">
-                  <Link
-                    className="rounded-control text-action hover:bg-muted flex min-h-11 items-center px-3 py-2 text-base font-bold"
-                    href={testingStatusLink.href}
-                  >
-                    {testingStatusLink.label}
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    className={mobileNavigationLinkClasses}
-                    href={webAppSignInLink.href}
-                  >
-                    {webAppSignInLink.label}
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </details>
-        </div>
-      </Container>
+        </details>
+      </div>
     </header>
   );
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="display:block;width:{{ w }}px;padding:{{ pad }}px;background:#161a17;border-radius:{{ r }}px;box-shadow:0 0 0 {{ ring }}px {{ ringColor }}">
+<div style="width:{{ iw }}px;height:{{ ih }}px;overflow:hidden;border-radius:{{ ir }}px;background:#f7f6f2">
+<div style="width:{{ bw }}px;height:{{ bh }}px;transform:scale({{ s }});transform-origin:0 0">
+<sc-if value="{{ is.T1 }}" hint-placeholder-val="{{ false }}"><dc-import name="Plate T1 Kita" hint-size="853px,533px"></dc-import></sc-if>
+<sc-if value="{{ is.T2 }}" hint-placeholder-val="{{ false }}"><dc-import name="Plate T2 Benta" hint-size="853px,533px"></dc-import></sc-if>
+<sc-if value="{{ is.P1 }}" hint-placeholder-val="{{ false }}"><dc-import name="Plate P1 Benta" hint-size="390px,845px"></dc-import></sc-if>
+<sc-if value="{{ is.P2 }}" hint-placeholder-val="{{ false }}"><dc-import name="Plate P2 Checkout" hint-size="390px,845px"></dc-import></sc-if>
+<sc-if value="{{ is.P3 }}" hint-placeholder-val="{{ false }}"><dc-import name="Plate P3 Paninda" hint-size="390px,845px"></dc-import></sc-if>
+<sc-if value="{{ is.P4 }}" hint-placeholder-val="{{ false }}"><dc-import name="Plate P4 Utang" hint-size="390px,845px"></dc-import></sc-if>
+<sc-if value="{{ is.P5 }}" hint-placeholder-val="{{ false }}"><dc-import name="Plate P5 Gastos" hint-size="390px,845px"></dc-import></sc-if>
+<sc-if value="{{ is.P6 }}" hint-placeholder-val="{{ false }}"><dc-import name="Plate Kita Phone" view="week" hint-size="390px,845px"></dc-import></sc-if>
+<sc-if value="{{ is.P7 }}" hint-placeholder-val="{{ false }}"><dc-import name="Plate Kita Phone" view="hidden" hint-size="390px,845px"></dc-import></sc-if>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:540,&quot;height&quot;:360},&quot;plate&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;T1&quot;,&quot;T2&quot;,&quot;P1&quot;,&quot;P2&quot;,&quot;P3&quot;,&quot;P4&quot;,&quot;P5&quot;,&quot;P6&quot;,&quot;P7&quot;],&quot;default&quot;:&quot;T1&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;w&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:520,&quot;tsType&quot;:&quot;number&quot;},&quot;ring&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;tsType&quot;:&quot;number&quot;},&quot;ringColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f7f6f2&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const plate = this.props.plate ?? "T1", tab = plate[0] === "T";
+    const w = Math.round(this.props.w ?? (tab ? 520 : 160));
+    const pad = tab ? Math.max(6, Math.round(w * 0.022)) : Math.max(4, Math.round(w * 0.038));
+    const bw = tab ? 853 : 390, bh = tab ? 533 : 845;
+    const iw = w - pad * 2, s = iw / bw, ih = Math.round(bh * s);
+    const is = {}; ["T1", "T2", "P1", "P2", "P3", "P4", "P5", "P6", "P7"].forEach((k) => (is[k] = k === plate));
+    return { w, pad, iw, ih, bw, bh, s, is, r: tab ? pad * 2 : Math.round(w * 0.16), ir: tab ? Math.max(3, pad / 2) : Math.round(w * 0.13),
+      ring: this.props.ring ?? 0, ringColor: this.props.ringColor ?? "#f7f6f2" };
+  }
+}
+</script>
+</body>
+</html>

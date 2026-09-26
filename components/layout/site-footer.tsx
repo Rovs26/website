@@ -1,15 +1,14 @@
 import Link from "next/link";
 
-import { Container } from "@/components/layout/container";
+import { BrandLogo } from "@/components/brand/brand-mark";
 import {
-  footerCopy,
+  helpLinks,
   primaryNavigation,
-  testingStatusLink,
   webAppSignInLink,
 } from "@/lib/content/site-navigation";
 
 const footerLinkClasses =
-  "rounded-sm text-secondary hover:text-action inline-flex min-h-11 items-center py-2 font-semibold underline decoration-transparent underline-offset-4 hover:decoration-current";
+  "text-text hover:text-action flex min-h-11 items-center text-[1.0625rem] font-semibold no-underline";
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
@@ -17,57 +16,39 @@ export function SiteFooter() {
   return (
     <footer
       aria-label="KitaMo website footer"
-      className="border-border bg-surface border-t"
+      className="bg-page text-text border-border px-gutter flex flex-col gap-8 border-t pt-12 pb-10"
     >
-      <Container className="py-10 sm:py-12" size="wide">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr]">
-          <div className="max-w-sm">
-            <p className="font-display text-text text-xl font-extrabold">
-              KitaMo
-            </p>
-            <p className="text-secondary mt-3 text-sm leading-6">
-              {footerCopy.description}
-            </p>
-            <p className="text-secondary mt-5 text-sm">© {currentYear}</p>
-          </div>
-
-          <nav aria-label="Footer explore">
-            <p className="text-text text-sm font-bold tracking-[0.1em] uppercase">
-              Explore
-            </p>
-            <ul className="mt-2 list-none p-0">
-              {primaryNavigation.map((item) => (
-                <li key={item.href}>
-                  <Link className={footerLinkClasses} href={item.href}>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+      <div className="flex flex-wrap items-start justify-between gap-x-16 gap-y-8">
+        <Link aria-label="KitaMo home" className="flex" href="/">
+          <BrandLogo />
+        </Link>
+        <div className="flex flex-wrap gap-x-16 gap-y-6">
+          <nav aria-label="Site" className="flex min-w-40 flex-col">
+            {primaryNavigation.map((item) => (
+              <Link
+                className={footerLinkClasses}
+                href={item.href}
+                key={item.href}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <a className={footerLinkClasses} href={webAppSignInLink.href}>
+              {webAppSignInLink.label}
+            </a>
           </nav>
-
-          <nav aria-label="Footer product">
-            <p className="text-text text-sm font-bold tracking-[0.1em] uppercase">
-              Product
-            </p>
-            <ul className="mt-2 list-none p-0">
-              <li>
-                <Link
-                  className={footerLinkClasses}
-                  href={testingStatusLink.href}
-                >
-                  {testingStatusLink.label}
-                </Link>
-              </li>
-              <li>
-                <a className={footerLinkClasses} href={webAppSignInLink.href}>
-                  {webAppSignInLink.label}
-                </a>
-              </li>
-            </ul>
+          <nav aria-label="Legal and help" className="flex min-w-40 flex-col">
+            {helpLinks.map((item) => (
+              <a className={footerLinkClasses} href={item.href} key={item.href}>
+                {item.label}
+              </a>
+            ))}
           </nav>
         </div>
-      </Container>
+      </div>
+      <p className="border-border text-secondary m-0 border-t pt-4 text-[0.9375rem] font-medium">
+        © {currentYear} KitaMo.
+      </p>
     </footer>
   );
 }

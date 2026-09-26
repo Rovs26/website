@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+20A0-20B0,U+20B2-20C0,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Schibsted Grotesk";font-weight:100 900;font-display:swap;src:url(assets/fonts/hanken-grotesk-peso.woff2) format("woff2");unicode-range:U+20B1}@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}body{margin:0}*{box-sizing:border-box}</style></helmet>
+<div data-screen-label="P5 Gastos phone" style="width:390px;height:845px;display:flex;flex-direction:column;overflow:hidden;background:#f7f6f2;color:#161a17;font-family:'Schibsted Grotesk',system-ui,sans-serif;font-variant-numeric:lining-nums">
+<div style="height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:13.5px;font-weight:600"><span>2:40</span><span style="display:flex;align-items:center;gap:7px"><span style="display:flex;align-items:flex-end;gap:2px;height:11px"><span style="width:3px;height:4px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:6px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:8px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:11px;background:#161a17;border-radius:1px"></span></span><span style="font-size:12px">4G</span><span style="display:flex;align-items:center"><span style="width:22px;height:11px;border:1.5px solid #161a17;border-radius:3px;padding:1px;display:flex"><span style="width:72%;background:#161a17;border-radius:1px"></span></span><span style="width:2px;height:5px;background:#161a17;border-radius:0 1px 1px 0"></span></span></span></div>
+<header style="height:56px;flex-shrink:0;display:flex;align-items:center;gap:8px;padding:0 8px 0 12px;border-bottom:1px solid #dcdbd3">
+<img src="assets/icon-192.png" width="28" height="28" alt="KitaMo">
+<span style="flex:1;font-size:17px;font-weight:700">Expenses</span>
+<span style="width:44px;height:44px;display:grid;place-items:center"><span style="width:34px;height:34px;border-radius:50%;border:1px solid #858379;background:#fff;display:grid;place-items:center;font-size:14px;font-weight:700">N</span></span>
+</header>
+<div style="flex:1;min-height:0;overflow:hidden;padding:12px 16px;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;justify-content:space-between;margin:-4px -8px 4px"><span style="width:44px;height:44px;display:grid;place-items:center;font-size:20px">{{ ic.chevL }}</span><span style="font-size:15px;font-weight:600">September 2026</span><span style="width:44px;height:44px;display:grid;place-items:center;font-size:20px;color:#b5b8b0">{{ ic.chevR }}</span></div>
+<span style="font-size:14px;font-weight:600;color:#545b55">Bills this month</span>
+<span style="font-size:38px;font-weight:700;letter-spacing:-0.025em;line-height:1.1">₱6,569.00</span>
+<span style="font-size:13.5px;color:#545b55;margin-bottom:14px">₱4,299.00 paid · ₱2,270.00 to pay</span>
+<div style="display:flex;gap:6px;overflow:hidden;margin:0 -16px 10px 0;flex-shrink:0"><sc-for list="{{ quick }}" as="q" hint-placeholder-count="6"><span style="flex-shrink:0;height:44px;display:flex;align-items:center;gap:5px;padding:0 13px;border-radius:999px;background:#fff;border:1px solid #858379;font-size:14px"><span style="display:flex">{{ ic.plus }}</span>{{ q }}</span></sc-for></div>
+<sc-for list="{{ bills }}" as="b" hint-placeholder-count="4">
+<div style="display:flex;align-items:center;gap:10px;min-height:68px;border-top:1px solid #dcdbd3">
+<span style="flex:1;display:flex;flex-direction:column;min-width:0"><span style="font-size:15.5px;font-weight:600">{{ b.name }}</span><span style="font-size:13px;color:#545b55">{{ b.sub }}</span></span>
+<span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span style="font-size:15.5px;font-weight:650">{{ b.amt }}</span><span style="display:inline-flex;align-items:center;gap:4px;padding:1px 8px;border:1.5px solid {{ b.bc }};color:{{ b.bc }};border-radius:999px;font-size:11.5px;font-weight:650"><span style="display:flex">{{ b.icon }}</span>{{ b.badge }}</span></span>
+<sc-if value="{{ b.unpaid }}" hint-placeholder-val="{{ false }}"><span style="height:44px;display:flex;align-items:center;gap:4px;padding:0 10px;border:1px solid #858379;border-radius:8px;background:#fff;font-size:13.5px;font-weight:650;white-space:nowrap"><span style="display:flex">{{ ic.check }}</span>Mark paid</span></sc-if>
+</div>
+</sc-for>
+</div>
+<div style="flex-shrink:0;padding:10px 16px;border-top:1px solid #dcdbd3"><span style="height:56px;display:flex;align-items:center;justify-content:center;gap:8px;background:#006b3c;color:#fff;border-radius:10px;font-size:17px;font-weight:700"><span style="display:flex;font-size:20px">{{ ic.plus }}</span>Add expense</span></div>
+<nav aria-label="Main" style="height:64px;flex-shrink:0;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #dcdbd3;background:#f7f6f2;padding-bottom:4px">
+<sc-for list="{{ tabs }}" as="n" hint-placeholder-count="5"><span style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12px;font-weight:{{ n.fw }};color:{{ n.fg }}"><span style="position:absolute;top:-1px;left:22%;right:22%;height:2px;background:{{ n.bd }}"></span><span style="font-size:22px;display:flex;color:{{ n.ic }}">{{ n.icon }}</span>{{ n.label }}</span></sc-for>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:845}}">
+const IC = {
+  kita: ["M5 5v14M9 5v14M13 5v14M17 5v14M3 16.5 21 8"], benta: ["M4.5 9h15l-1.3 10.2a1 1 0 0 1-1 .8H6.8a1 1 0 0 1-1-.8Z", "M9 9V7a3 3 0 0 1 6 0v2"],
+  paninda: ["M2.5 20.5h19", "M4 12h7v8.5H4z", "M13 15h7v5.5h-7z", "M5.5 4H11v8H5.5z"], gastos: ["M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z", "M9 8h6M9 12h6M9 16h3"],
+  utang: ["M7 3h10.5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7z", "M4 7h3M4 12h3M4 17h3M11 8h4.5M11 12h4.5"],
+  plus: ["M12 5v14M5 12h14"], check: ["M5 12.5l4.5 4.5L19 7.5"], chevL: ["M15 6l-6 6 6 6"], chevR: ["M9 6l6 6-6 6"], ring: ["M4 12a8 8 0 1 0 16 0a8 8 0 1 0-16 0"],
+};
+const TABS = (ic, active) => [["kita", "Profit"], ["benta", "Sell"], ["paninda", "Products"], ["gastos", "Expenses"], ["utang", "Credit"]].map(([k, l]) => { const on = k === active; return { label: l, icon: ic[k], fw: on ? 700 : 560, fg: on ? "#161a17" : "#545b55", ic: on ? "#006b3c" : "#545b55", bd: on ? "#161a17" : "transparent" }; });
+class Component extends DCLogic {
+  icon(k) { const h = React.createElement; return h("svg", { width: "1em", height: "1em", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true }, ...IC[k].map((d, i) => h("path", { key: i, d }))); }
+  renderVals() {
+    const ic = {}; Object.keys(IC).forEach((k) => (ic[k] = this.icon(k)));
+    const paid = { badge: "Paid", bc: "#17643e", icon: ic.check, unpaid: false }, un = { badge: "Unpaid", bc: "#8a5a00", icon: ic.ring, unpaid: true };
+    const bills = [{ name: "Upa", sub: "Monthly · paid Sep 1", amt: "₱3,000.00", ...paid }, { name: "Kuryente", sub: "Monthly · due Mon, Sep 28", amt: "₱1,850.00", ...un },
+      { name: "Tubig", sub: "Monthly · due Fri, Oct 2", amt: "₱420.00", ...un }, { name: "Wifi", sub: "Monthly · paid Sep 20", amt: "₱1,299.00", ...paid }];
+    return { ic, bills, quick: ["Upa", "Kuryente", "Tubig", "Wifi", "Sahod", "Basura"], tabs: TABS(ic, "gastos") };
+  }
+}
+</script>
+</body>
+</html>

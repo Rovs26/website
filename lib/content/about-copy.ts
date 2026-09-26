@@ -1,57 +1,54 @@
+import { sharedCopy } from "@/lib/content/shared-copy";
+
+/**
+ * About copy, approved in docs/content/mr-1-marketing-content-contract.md.
+ */
 export const aboutCopy = {
   metadata: {
-    title: "About KitaMo | Practical Android Tools Currently Testing",
+    title: "About",
     description:
-      "Learn why KitaMo is being developed for Filipino small-business settings and how its current Android testing stage is kept transparent.",
+      "Why KitaMo exists and where it stands: the web app is free while in testing, and an offline Android version is Currently Testing.",
   },
   hero: {
-    heading: "Practical technology for everyday Filipino businesses.",
+    heading: "About KitaMo.",
+    // CLM-011, CLM-016 to CLM-020.
     introduction:
-      "KitaMo is being built as an Android business app for Filipino small-business owners and sellers, with a first test scope focused on practical records kept on the device.",
+      "KitaMo is a web app for Filipino micro-sellers: sari-sari stores, karinderias, food stalls, market stalls and home businesses. You sell at the counter, track stock, log bills and spoilage, keep utang both ways, and see what you really earned each day.",
   },
-  purpose: {
-    eyebrow: "Why KitaMo exists",
-    heading: "Start with the work that needs to stay clear",
-    body: "KitaMo is built around a simple direction: make everyday business records practical to manage from an Android device while keeping the first release intentionally focused and local.",
-    boundary:
-      "This is a product direction, not a claim of measured impact, nationwide use, or guaranteed business results.",
+  why: {
+    eyebrow: "Why",
+    heading: sharedCopy.tagline,
+    body: "Most owners keep a paper lista and have never used accounting software. KitaMo keeps the same list and does the adding and subtracting, so the day's tubo is ready when you close.",
+    // Non-breaking spaces bind each operator to the next word, so a line
+    // never ends on "−".
+    formula: "Tubo =\u00a0Benta −\u00a0Puhunan −\u00a0Bayarin −\u00a0Sira",
   },
-  principles: {
-    eyebrow: "How we approach the work",
-    heading: "Practical choices, clearly explained",
+  standing: {
+    heading: "Where it stands.",
     items: [
       {
-        heading: "Practical first",
-        body: "Begin with everyday business-record tasks supported by the current test.",
+        // CLM-011 (Available Today), CLM-012.
+        name: "Web app",
+        status: "available",
+        body: "Free while in testing. Open it in your browser at app.kitamo.online. Any future charge is announced first and needs your agreement.",
       },
       {
-        heading: "Clear before complicated",
-        body: "Use direct language and keep unnecessary complexity out of the experience.",
-      },
-      {
-        heading: "Useful with limited connectivity",
-        body: "Keep the current supported workflows local to the Android device.",
-      },
-      {
-        heading: "Trust through transparency",
-        body: "Separate what is currently testing from ideas that remain future direction.",
+        // CLM-002, CLM-003, CLM-006.
+        name: "Android app, offline",
+        status: "testing",
+        body: "Not yet available.",
       },
     ],
   },
-  current: {
-    eyebrow: "Current stage",
-    heading: "Focused Android testing comes first",
-    body: "The Android app for small-business owners and sellers is the current testing focus. It is not an open public download, and product details may change as testing continues. A separate web app for store owners is live at app.kitamo.online.",
+  help: {
+    heading: "Need help?",
+    body: "Questions about your account or the app go to Support.",
+    link: {
+      href: "https://app.kitamo.online/support",
+      label: "app.kitamo.online/support",
+    },
   },
-  future: {
-    eyebrow: "Future direction",
-    heading: "Keep learning from practical small-business needs",
-    explanation:
-      "Direction only; it may change and is not a delivery commitment.",
-    body: "KitaMo can keep exploring better ways to help small businesses understand everyday operations and support broader small-business needs over time. No specific feature or delivery timing is promised here.",
-  },
-  actions: {
-    primary: "See who KitaMo is for",
-    secondary: "See how KitaMo works",
+  closing: {
+    heading: "Try it at your counter.",
   },
 } as const;

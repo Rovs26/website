@@ -1,31 +1,27 @@
-import { Container } from "@/components/layout/container";
+import Link from "next/link";
+
 import { PageShell } from "@/components/layout/page-shell";
-import { Section } from "@/components/layout/section";
-import { Stack } from "@/components/layout/stack";
-import { Heading } from "@/components/primitives/heading";
-import { StyledLink } from "@/components/primitives/styled-link";
-import { Text } from "@/components/primitives/text";
 
 export default function NotFound() {
   return (
     <PageShell>
-      <Section aria-labelledby="not-found-heading">
-        <Container size="reading">
-          <Stack gap="large">
-            <Heading id="not-found-heading" level={1} size="large">
-              Page not found
-            </Heading>
-            <Text tone="secondary">
-              The page you requested is not part of this website foundation.
-            </Text>
-            <div>
-              <StyledLink href="/" variant="secondary">
-                Return to KitaMo
-              </StyledLink>
-            </div>
-          </Stack>
-        </Container>
-      </Section>
+      <section
+        aria-labelledby="not-found-heading"
+        className="px-gutter py-section flex flex-col items-start gap-6"
+      >
+        <h1 className="text-h2" id="not-found-heading">
+          Page not found.
+        </h1>
+        <p className="text-body text-secondary max-w-[32.5rem] font-medium">
+          This page is not on kitamo.online.
+        </p>
+        <Link
+          className="border-border-strong text-text hover:bg-muted flex min-h-14 items-center rounded-[var(--km-radius-control)] border bg-white px-6 text-lg font-[650] no-underline"
+          href="/"
+        >
+          Back to KitaMo
+        </Link>
+      </section>
     </PageShell>
   );
 }

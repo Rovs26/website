@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><title>How it works · KitaMo</title><style>@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+20A0-20B0,U+20B2-20C0,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Schibsted Grotesk";font-weight:100 900;font-display:swap;src:url(assets/fonts/hanken-grotesk-peso.woff2) format("woff2");unicode-range:U+20B1}@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}body{margin:0;background:#f7f6f2}*{box-sizing:border-box}a{color:#006b3c}a:hover{color:#004e2c}:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px;box-shadow:0 0 0 2px #fff}h1,h2,h3,p,ol,ul{margin:0}ol,ul{padding:0;list-style:none}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}</style></helmet>
+<div ref="{{ rootRef }}" data-screen-label="How it works" style="width:100%;container-type:inline-size;background:#f7f6f2;color:#161a17;font-family:'Schibsted Grotesk',system-ui,sans-serif;font-variant-numeric:lining-nums;overflow:clip">
+<dc-import name="Site Header" narrow="{{ narrow }}" vw="{{ vw }}" scrolled="{{ scrolled }}" lang="{{ lang }}" current="how" menu-open="{{ menuOpen }}" style="position:{{ hdrPos }};top:0;z-index:20" hint-size="100%,72px"></dc-import>
+<main>
+<section aria-labelledby="how-h" style="padding:clamp(24px,4.4cqw,64px) clamp(20px,5.5cqw,80px) clamp(40px,5.5cqw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:20px 64px;align-items:end">
+<h1 id="how-h" style="font-size:clamp(52px,6.4cqw,96px);line-height:.96;font-weight:700;letter-spacing:-0.045em">How it works.</h1>
+<p style="font-size:clamp(18px,1.5cqw,22px);line-height:1.45;font-weight:500;max-width:540px;text-wrap:pretty">One day at the counter, from setting up your store to seeing the day's tubo.</p>
+</section>
+
+<ol aria-label="The daily loop">
+<li style="padding:clamp(32px,3.3cqw,48px) clamp(20px,5.5cqw,80px);border-top:1px solid #161a17;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px 64px">
+<div style="display:flex;flex-direction:column;gap:14px">
+<span aria-hidden="true" style="display:flex;gap:6px;height:40px"><span style="width:4px;background:#161a17;border-radius:2px"></span></span>
+<span style="font-size:15px;font-weight:600;color:#545b55">Step 1</span>
+<h2 style="font-size:clamp(28px,2.8cqw,40px);line-height:1.08;font-weight:700;letter-spacing:-0.02em;text-wrap:balance">Create an account and set up your business.</h2>
+<p style="font-size:clamp(17px,1.3cqw,19px);line-height:1.5;font-weight:500;max-width:520px;text-wrap:pretty">Add your store's name and choose English or Filipino. You can change the language at any time.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-self:end;align-items:center">
+<a href="https://app.kitamo.online/login?bago=1" style="flex:1 1 260px;max-width:{{ ctaMax }};min-height:60px;display:flex;align-items:center;justify-content:center;padding:8px 32px;background:#006b3c;color:#fff;border-radius:10px;font-size:19px;font-weight:700;text-decoration:none;text-align:center" style-hover="background:#005a32" style-active="background:#004e2c;transform:scale(.97)">{{ L.create }}</a>
+</div>
+</li>
+
+<li style="padding:clamp(32px,3.3cqw,48px) clamp(20px,5.5cqw,80px) 0;border-top:1px solid #161a17;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px 64px">
+<div style="display:flex;flex-direction:column;gap:14px;padding-bottom:clamp(0px,3.3cqw,48px)">
+<span aria-hidden="true" style="display:flex;gap:6px;height:40px"><span style="width:4px;background:#161a17;border-radius:2px"></span><span style="width:4px;background:#161a17;border-radius:2px"></span></span>
+<span style="font-size:15px;font-weight:600;color:#545b55">Step 2</span>
+<h2 style="font-size:clamp(28px,2.8cqw,40px);line-height:1.08;font-weight:700;letter-spacing:-0.02em;text-wrap:balance">Add your paninda.</h2>
+<p style="font-size:clamp(17px,1.3cqw,19px);line-height:1.5;font-weight:500;max-width:520px;text-wrap:pretty">Enter each item with its price and its puhunan. KitaMo keeps the stock count and tags items that run low or run out.</p>
+</div>
+<div style="align-self:end;display:flex;justify-content:flex-start">
+<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><dc-import name="Device" plate="P3" w="{{ pw }}" hint-size="260px,540px"></dc-import></sc-if>
+<sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}"><div style="width:100%;height:{{ cropH }}px;overflow:hidden;display:flex;justify-content:center"><dc-import name="Device" plate="P3" w="{{ cropW }}" hint-size="300px,640px"></dc-import></div></sc-if>
+</div>
+</li>
+
+<li style="padding:clamp(32px,3.3cqw,48px) clamp(20px,5.5cqw,80px) 0;border-top:1px solid #161a17;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px 64px">
+<div style="display:flex;flex-direction:column;gap:14px;padding-bottom:clamp(0px,3.3cqw,48px)">
+<span aria-hidden="true" style="display:flex;gap:6px;height:40px"><span style="width:4px;background:#161a17;border-radius:2px"></span><span style="width:4px;background:#161a17;border-radius:2px"></span><span style="width:4px;background:#161a17;border-radius:2px"></span></span>
+<span style="font-size:15px;font-weight:600;color:#545b55">Step 3</span>
+<h2 style="font-size:clamp(28px,2.8cqw,40px);line-height:1.08;font-weight:700;letter-spacing:-0.02em;text-wrap:balance">Sell at the counter.</h2>
+<p style="font-size:clamp(17px,1.3cqw,19px);line-height:1.5;font-weight:500;max-width:520px;text-wrap:pretty">Tap items on the shelf, then take the payment. Sakto and the ₱200, ₱500 and ₱1,000 keys work out the sukli. Tag GCash, Maya or bank payments with their reference number.</p>
+</div>
+<div style="align-self:end;display:flex;gap:clamp(12px,2.2cqw,32px);align-items:flex-end">
+<dc-import name="Device" plate="P1" w="{{ pw }}" hint-size="260px,540px"></dc-import>
+<dc-import name="Device" plate="P2" w="{{ pw }}" hint-size="260px,540px"></dc-import>
+</div>
+</li>
+
+<li style="padding:clamp(32px,3.3cqw,48px) clamp(20px,5.5cqw,80px) 0;border-top:1px solid #161a17;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px 64px">
+<div style="display:flex;flex-direction:column;gap:14px;padding-bottom:clamp(0px,3.3cqw,48px)">
+<span aria-hidden="true" style="display:flex;gap:6px;height:40px"><span style="width:4px;background:#161a17;border-radius:2px"></span><span style="width:4px;background:#161a17;border-radius:2px"></span><span style="width:4px;background:#161a17;border-radius:2px"></span><span style="width:4px;background:#161a17;border-radius:2px"></span></span>
+<span style="font-size:15px;font-weight:600;color:#545b55">Step 4</span>
+<h2 style="font-size:clamp(28px,2.8cqw,40px);line-height:1.08;font-weight:700;letter-spacing:-0.02em;text-wrap:balance">Record gastos and utang.</h2>
+<p style="font-size:clamp(17px,1.3cqw,19px);line-height:1.5;font-weight:500;max-width:520px;text-wrap:pretty">Set upa, kuryente, tubig, wifi and sahod as repeating bills. Under Utang, Sa iyo lists customers who owe you and Utang mo lists suppliers you owe.</p>
+</div>
+<div style="align-self:end;display:flex;gap:clamp(12px,2.2cqw,32px);align-items:flex-end">
+<dc-import name="Device" plate="P5" w="{{ pw }}" hint-size="260px,540px"></dc-import>
+<dc-import name="Device" plate="P4" w="{{ pw }}" hint-size="260px,540px"></dc-import>
+</div>
+</li>
+
+<li style="background:#161a17;color:#fff;border-top:8px solid #e3a008;padding:clamp(40px,4.4cqw,64px) clamp(20px,5.5cqw,80px) 0">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:14px 64px;align-items:end">
+<div style="display:flex;flex-direction:column;gap:14px">
+<span aria-hidden="true" style="position:relative;display:flex;gap:6px;height:40px;width:40px"><span style="width:4px;background:#fff;border-radius:2px"></span><span style="width:4px;background:#fff;border-radius:2px"></span><span style="width:4px;background:#fff;border-radius:2px"></span><span style="width:4px;background:#fff;border-radius:2px"></span><span style="position:absolute;left:-4px;top:18px;width:44px;height:4px;background:#e3a008;border-radius:2px;transform:rotate(-28deg)"></span></span>
+<span style="font-size:15px;font-weight:600;color:#c6c8bd">Step 5</span>
+<h2 style="font-size:clamp(28px,2.8cqw,40px);line-height:1.08;font-weight:700;letter-spacing:-0.02em;text-wrap:balance">Check Kita at the end of the day.</h2>
+</div>
+<p style="font-size:clamp(17px,1.3cqw,19px);line-height:1.5;font-weight:500;max-width:560px;text-wrap:pretty">Kita shows your tubo for today, this week and this month, a 4-week trend, and the items that earned the most.</p>
+</div>
+<div style="margin-top:clamp(32px,3.3cqw,48px);display:flex;flex-wrap:wrap;gap:clamp(16px,2.8cqw,40px);align-items:flex-end">
+<dc-import name="Device" plate="T1" w="{{ t1w }}" hint-size="820px,526px"></dc-import>
+<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}"><dc-import name="Device" plate="P6" w="{{ pw }}" hint-size="260px,540px"></dc-import></sc-if>
+<sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}"><div style="width:100%;height:{{ cropH }}px;overflow:hidden;display:flex;justify-content:center"><dc-import name="Device" plate="P6" w="{{ cropW }}" hint-size="300px,640px"></dc-import></div></sc-if>
+</div>
+<div style="height:1px;background:#545b55"></div>
+<p style="padding:14px 0 24px;text-align:right;font-size:14px;line-height:20px;font-weight:500;color:#c6c8bd">Screens show the KitaMo web app with sample data.</p>
+</li>
+</ol>
+
+<section aria-labelledby="not-h" style="padding:clamp(64px,6.6cqw,96px) clamp(20px,5.5cqw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:28px clamp(40px,6.6cqw,96px)">
+<h2 id="not-h" style="font-size:clamp(36px,4cqw,60px);line-height:1.02;font-weight:700;letter-spacing:-0.03em">What KitaMo doesn't do.</h2>
+<ul style="border-top:1px solid #161a17">
+<li style="min-height:64px;display:flex;align-items:center;padding:14px 0;border-bottom:1px solid #dcdbd3;font-size:clamp(19px,1.5cqw,22px);line-height:1.35;font-weight:600;text-wrap:pretty">It needs internet.</li>
+<li style="min-height:64px;display:flex;align-items:center;padding:14px 0;border-bottom:1px solid #dcdbd3;font-size:clamp(19px,1.5cqw,22px);line-height:1.35;font-weight:600;text-wrap:pretty">It records payments but doesn't move money.</li>
+<li style="min-height:64px;display:flex;align-items:center;padding:14px 0;border-bottom:1px solid #dcdbd3;font-size:clamp(19px,1.5cqw,22px);line-height:1.35;font-weight:600;text-wrap:pretty">The receipt is not an official BIR receipt.</li>
+<li style="min-height:64px;display:flex;align-items:center;padding:14px 0;border-bottom:1px solid #dcdbd3;font-size:clamp(19px,1.5cqw,22px);line-height:1.35;font-weight:600;text-wrap:pretty">There are no staff logins or multiple stalls yet.</li>
+</ul>
+</section>
+
+<section aria-labelledby="close-h" style="background:#161a17;color:#fff;border-top:8px solid #e3a008;padding:clamp(64px,7.7cqw,112px) clamp(20px,5.5cqw,80px)">
+<h2 id="close-h" style="max-width:980px;font-size:clamp(48px,6.4cqw,96px);line-height:.98;font-weight:700;letter-spacing:-0.045em;text-wrap:balance">Your lista, with the math done.</h2>
+<div style="margin-top:36px;display:flex;flex-wrap:wrap;gap:12px;max-width:600px">
+<a href="https://app.kitamo.online/login?bago=1" style="flex:1 1 260px;max-width:{{ ctaMax }};min-height:60px;display:flex;align-items:center;justify-content:center;padding:8px 32px;background:#006b3c;color:#fff;border-radius:10px;font-size:19px;font-weight:700;text-decoration:none;text-align:center" style-hover="background:#005a32" style-active="background:#004e2c;transform:scale(.97)">{{ L.create }}</a>
+</div>
+<p style="margin-top:16px;font-size:16px;line-height:24px;font-weight:500;color:#c6c8bd">Free while in testing · Works in your browser · English or Filipino.</p>
+</section>
+</main>
+<dc-import name="Site Footer" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;fil&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Preview&quot;},&quot;vw&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:null,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Preview&quot;},&quot;menuOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Preview&quot;},&quot;scrolled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:null,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Preview&quot;}}">
+const tabH = (w) => { const pad = Math.max(6, Math.round(w * 0.022)); return Math.round((w - pad * 2) * 533 / 853) + pad * 2; };
+const phH = (w) => { const pad = Math.max(4, Math.round(w * 0.038)); return Math.round((w - pad * 2) * 845 / 390) + pad * 2; };
+class Component extends DCLogic {
+  state = { w: typeof window !== "undefined" ? window.innerWidth : 1440, scrolled: false };
+  rootRef = (el) => {
+    if (!el || this.onResize) return;
+    this.onResize = () => { const w = window.innerWidth; if (w !== this.state.w) this.setState({ w }); };
+    this.onScroll = () => { const s = window.scrollY > 240; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    window.addEventListener("resize", this.onResize);
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+  };
+  componentWillUnmount() { this.onResize && window.removeEventListener("resize", this.onResize); this.onScroll && window.removeEventListener("scroll", this.onScroll); }
+  renderVals() {
+    const w = this.props.vw ?? this.state.w, wide = w >= 1100, fil = this.props.lang === "fil";
+    const compact = w < (fil ? 520 : 400), cropW = Math.min(w - 40, 300);
+    return {
+      vw: w, wide, narrow: !wide, lang: fil ? "fil" : "en", menuOpen: this.props.menuOpen,
+      scrolled: this.props.scrolled ?? this.state.scrolled, hdrPos: compact ? "sticky" : "relative",
+      L: { create: fil ? "Gumawa ng libreng account" : "Create free account" },
+      ctaMax: wide ? "360px" : "none",
+      pw: wide ? 260 : Math.min(260, Math.floor((w - 40 - Math.min(32, Math.max(12, w * 0.022))) / 2)),
+      cropW, cropH: Math.round(phH(cropW) * 0.52),
+      t1w: wide ? Math.min(w - 160 - 260 - 40, 820) : w - 40,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,9 +1,10 @@
 # KitaMo Public Claims Register
 
-Status: **WEB-3 homepage and WEB-4 core-page claims approved in bounded scope;
-CLM-010 web app sign-in link and CLM-011 web app statement approved 2026-09-25**
+Status: **MR-1 web-first site approved 2026-09-26 (CLM-012 to CLM-026); WEB-3
+and WEB-4 Android claims re-scoped to the Android answers**
 
-Evidence reviewed: 2026-08-09 (CLM-001 to CLM-009); 2026-09-25 (CLM-010)
+Evidence reviewed: 2026-08-09 (CLM-001 to CLM-009); 2026-09-25 (CLM-010,
+CLM-011); 2026-09-26 (CLM-012 to CLM-026)
 Primary source snapshot: `../owner-seller-mobile` at
 `0ce3efd8cb1c904fb362b27bc6cecd5dc937d925`; CLM-010: `../seller-web` at
 `9d30db6d21194870405f9e94ebd498107bbde8c0`
@@ -62,6 +63,21 @@ only for the shared header and footer `Sign in` link recorded below.
 | CLM-009  | For the current Android testing candidate, locally held app data can be removed through the in-app local-data reset, by clearing the app's storage, or by uninstalling the app.                     | evidence found | Currently Testing       | `owner-seller-mobile` | `../owner-seller-mobile/app/privacy.tsx:59-64`; `../owner-seller-mobile/app/owner/business-settings.tsx:482-531`; `../owner-seller-mobile/app/owner/business-settings.tsx:819-879`; `../owner-seller-mobile/docs/release/pre-internal-hardening-validation.md:40-50` | Unapproved — no public claim approval record | Requires Product Authority and Privacy Owner review before use. The in-app full reset is blocked until an Owner PIN exists and then requires the current local PIN; clearing app storage and uninstalling are separate device actions. This is not an account-deletion service, does not cover intentionally shared data, and must not be generalized to future server, account, support, retention, or third-party data. |
 | CLM-010  | The KitaMo web app at `app.kitamo.online` is live, and visitors can reach it from this website through a secondary `Sign in` link to `https://app.kitamo.online/login`.                               | approved       | Available Today         | `seller-web`          | `../seller-web/app/login/page.tsx:13-20`; `../seller-web/app/login/page.tsx:158-172` | Approved — shared header and footer on `/`, `/for-sellers`, `/how-it-works`, and `/about`; owner (Product Authority), 2026-09-25 | Owner approval note: `app.kitamo.online` is a live web app with open sign-up. Exact approved occurrence: the link label `Sign in`, destination `https://app.kitamo.online/login`, same tab, secondary styling, in the desktop header, the mobile Menu, and the footer `Product` group. It is not a primary action. It approves no sign-up, create-account, get-started, download, pricing, capability, platform, account, privacy, or support wording, and no status label or description of the web app. The `Available Today` category restates the owner's note and applies to web-app reachability only. The Android-scoped CLM-002 and CLM-008 wording needs Product Authority revalidation; see the approval record. Revalidate on any change to the web app origin, login route, sign-up policy, or availability. |
 | CLM-011  | A separate KitaMo web app for store owners, with its own online account and sign-in, is live at `app.kitamo.online`. | approved | Available Today | `seller-web` | `../seller-web/README.md:1-7`; `../seller-web/app/login/page.tsx` | Approved: `/` testing explanation, `/how-it-works` introduction, `/about` current stage, shared footer description; owner (Product Authority), 2026-09-25 | Exact approved occurrences: "A separate web app for store owners, with its own sign-in, is at app.kitamo.online." (`/`, `/how-it-works`), "A separate web app for store owners is live at app.kitamo.online." (`/about`), and the footer description. Added so the Android-scoped CLM-002 and CLM-008 sentences no longer read as describing all of KitaMo. Approves no capability, feature, pricing, sign-up call to action or privacy wording for the web app. Revalidate on any change to the origin, sign-up policy or availability. |
+| CLM-012 | The KitaMo web app is free while it is in testing; any future charge is announced first and needs the user's agreement. | approved | Available Today | `seller-web` | `../seller-web/app/(legal)/terms/page.tsx:35` | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | Exact occurrences: "Free while in testing" in the reassurance line, the FAQ answer, and About. Not a promise that KitaMo stays free. No price, plan, trial or tier may be named. Revalidate on any change to the Terms. |
+| CLM-013 | Visitors can create a KitaMo web app account themselves at `https://app.kitamo.online/login?bago=1`. | approved | Available Today | `seller-web` | `../seller-web/app/login/page.tsx:35`, `:62`; HTTP 200 on 2026-09-26 | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | The primary action on every page, labelled exactly "Create free account". Revalidate if sign-up closes, the login route moves (the Ledger branch mentions `owner.kitamo.online` for the signed-in app), or the free status changes. |
+| CLM-014 | The web app runs in a browser on a phone or on a tablet at the counter, and is designed for low-cost devices. | approved | Available Today | `seller-web` | `../seller-web/app/manifest.ts`; `../seller-web/docs/redesign/CLAUDE-DESIGN-BRIEF.md:15-18` (853 × 477 tablet, 2 GB RAM, 360–412 px phones) | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | Exact occurrences: "on your phone or a tablet at the counter", "Works in your browser", "Big buttons on an 8" tablet.", "Made for low-cost phones and tablets." Not a device-compatibility guarantee; no minimum specification is claimed. |
+| CLM-015 | The web app can be used in English or Filipino, and the language can be changed. | approved | Available Today | `seller-web` | `../seller-web/lib/i18n/language-switch.tsx`; `../seller-web/app/login/page.tsx:94`; `../seller-web/app/(app)/akin/page.tsx` | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | Taglish is not claimed. Revalidate when a locale is added or removed. |
+| CLM-016 | The seller rings up sales from a product shelf, with bundle prices, an exact-amount (Sakto) shortcut and change (sukli), and tags GCash, Maya or bank payments with a reference number. KitaMo records payments; it does not move money. | approved | Available Today | `seller-web` | `../seller-web/app/(app)/benta/sell.tsx`; `sell-parts.tsx`; `benta/bayad/bayad.tsx:100-126`, `:277-280` | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | The negative ("doesn't move money") must stay beside any payment wording. Quick cash keys (₱200, ₱500, ₱1,000) are pictured in plates but are on the `claude/ledger-foundation` branch; copy does not claim them (ADR-0012 launch gate). |
+| CLM-017 | The seller keeps stock counts, sees low and out-of-stock items, logs spoilage (sira), and is told when a product has no cost. | approved | Available Today | `seller-web` | `../seller-web/app/(app)/paninda/list.tsx`; `../seller-web/lib/domain/profitMath.ts` | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | No barcode scanning, supplier ordering or automatic reordering may be implied. |
+| CLM-018 | Utang tracks customers who owe the seller (Sa iyo) and suppliers the seller owes (Utang mo). | approved | Available Today | `seller-web` | `../seller-web/app/(app)/utang/page.tsx` | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | A record, not lending or collection. No reminders, SMS, interest or ageing may be implied. |
+| CLM-019 | Gastos records repeating bills such as rent, electricity, water, wifi and wages, and marks them paid. | approved | Available Today | `seller-web` | `../seller-web/app/(app)/gastos/page.tsx` | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | Bill accounts, account numbers and fixed-vs-variable graphs are LATER in the app and must not be claimed. |
+| CLM-020 | Kita shows profit for today, the week and the month, a 4-week trend and the top-earning items, using Tubo = Benta − Puhunan − Bayarin − Sira; a missing cost is flagged, never counted as zero. | approved | Available Today | `seller-web` | `../seller-web/app/(app)/kita-view.tsx`; `../seller-web/lib/domain/profitMath.ts` | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | The homepage receipt is an example day with sample figures, marked as such for screen readers and captioned. Not an accounting, tax or accuracy guarantee. |
+| CLM-021 | A Hidden money view keeps money totals off the screen at the counter. | approved | Available Today | `seller-web` | `../seller-web/app/(app)/akin/page.tsx` (money view setting) | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | Privacy at the counter only; not a security or data-privacy claim. |
+| CLM-022 | The on-screen receipt is a record for the seller and customer, not an official (BIR) receipt. | approved | Available Today | `seller-web` | `../seller-web/app/(app)/resibo/[saleId]/page.tsx:291` | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | Negative clarification. No tax or compliance claim. |
+| CLM-023 | The web app needs an internet connection. | approved | Available Today | `seller-web` | `../seller-web/docs/research/README.md` (web is online-only) | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | Negative clarification. The word "offline" may describe only the Android pilot. |
+| CLM-024 | There are no staff logins or multiple stalls yet. | approved | Available Today | `seller-web` | `../seller-web/docs/ROADMAP-V2.md` (R2 stalls, R3 staff) | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | Negative clarification. "Yet" states no date and promises no delivery. |
+| CLM-025 | The web app's Privacy, Terms and Support pages are public at `app.kitamo.online/privacy`, `/terms` and `/support`. | approved | Available Today | `seller-web` | `../seller-web/app/(legal)/privacy/page.tsx`; `terms/page.tsx`; `support/page.tsx`; HTTP 200 on 2026-09-26 | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | Links only: footer on every route, and the About help link. This site publishes no legal text of its own. |
+| CLM-026 | Product pictures show the KitaMo web app's screens with sample data; scene photos are AI-generated illustrations. | approved | Available Today | this repository | `docs/redesign/generation-kit/README.md`; ADR-0012 | Approved: MR-1, all four routes; owner (Product Authority), 2026-09-26 | Every picture is captioned "Screens show the KitaMo web app with sample data." and photos add "Illustration.". No real brand may appear in an image. People in photos are not customers and must never be presented as such. |
 
 CLM-010 is the only `Available Today` entry. It covers only the reachability of
 the separate web app through the `Sign in` link and does not change the status
@@ -153,20 +169,62 @@ not be added as a public claim until its status and wording are reviewed.
   sign-up policy, or availability; any added description of the web app; or
   reuse of the link on another surface.
 
+## MR-1 web-first approval record
+
+- **Approval context.** On 2026-09-26 the owner, acting as Product Authority,
+  approved a web-first site (ADR-0012):
+  - a primary "Create free account" action;
+  - English copy with the app's seller words;
+  - product pictures made from the web app's screens.
+
+  The design and copy are in `docs/redesign/`. The exact wording is in
+  `../content/mr-1-marketing-content-contract.md`.
+
+- **Evidence.** CLM-012 to CLM-025 were traced to `../seller-web` on branch
+  `claude/ledger-foundation` on 2026-09-26, and to production behaviour where
+  the two differ. Checkout copy describes the keypad and Sakto, which
+  production has today. The quick-cash keys shown in the plates are
+  branch-only. The site should be published once the Ledger build is live
+  (ADR-0012 launch gate).
+- **Re-scoped Android claims.** CLM-002, CLM-003 and CLM-006 now appear only
+  in two places:
+  - the homepage FAQ answer "An offline Android version is Currently Testing
+    and not yet available.";
+  - the About "Where it stands" row.
+
+  CLM-001's product name applies to both products. CLM-004, CLM-007 and
+  CLM-008 have no MR-1 occurrence and stay approved only for their WEB-3/WEB-4
+  wording, which is no longer published.
+
+- **CLM-010 extension.** Sign in keeps its header, menu and footer links. It
+  gains one secondary button in the homepage hero, which never takes primary
+  styling. Tests enforce this.
+- **CLM-011.** The web app is stated as **Available Today** on About, and its
+  description is carried by CLM-012 to CLM-024.
+- **Revalidation trigger.** Any of these requires revalidation:
+  - a web-app release that changes a pictured screen or a claimed capability;
+  - a change to sign-up, the login route or origin, the Terms' free-during-
+    testing clause, or the legal pages;
+  - a new image, language or route.
+
 ## Known claim gaps
 
-No claim entry may yet assert any of the following:
+No claim entry may yet assert any of the following (MR-1 narrows two: web-app
+accounts are claimed through CLM-013, and "free while in testing" through
+CLM-012; no price, plan or tier is claimed):
 
-- an official public website domain;
+- an official public website domain beyond ADR-0011's canonical origin;
 - a public support contact;
 - a legal organization or company identity;
-- public app availability or a launch date;
+- public availability of the Android app, or any launch date;
 - production cloud synchronization or backup;
 - customer-mobile, public Admin, or public API availability;
 - advanced or predictive analytics;
 - general public AI functionality;
-- accounts, staff accounts, or remote multi-device access;
-- subscriptions, prices, discounts, or paid plans;
+- staff accounts or remote multi-device access (web-app owner accounts are
+  claimed only through CLM-013);
+- subscriptions, prices, discounts, or paid plans (only "free while in
+  testing" is claimed, through CLM-012);
 - an approved public privacy policy, account-deletion service, or remote support
   workflow;
 - privacy, security, compliance, certification, revenue, customer-count, or

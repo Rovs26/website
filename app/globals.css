@@ -1,15 +1,82 @@
 @import "tailwindcss";
 
+/*
+ * Schibsted Grotesk (OFL, self-hosted, see public/fonts/OFL.txt) with a
+ * 1 KB Hanken Grotesk subset for the peso sign, which Schibsted lacks.
+ * Same files and ranges as the web app.
+ */
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/fonts/schibsted-grotesk-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/fonts/schibsted-grotesk-latin-ext.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+1E00-1EFF, U+20A0-20B0, U+20B2-20C0, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Schibsted Grotesk";
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/hanken-grotesk-peso.woff2") format("woff2");
+  unicode-range: U+20B1;
+}
+
+@theme {
+  /* One layout breakpoint (1100px) from the 1b design, plus Tailwind's defaults. */
+  --breakpoint-wide: 68.75rem;
+
+  /* Type scale from the design system sheet (marketing-round-3). */
+  --text-display: clamp(3.25rem, 6.4vw, 6rem);
+  --text-display--line-height: 0.96;
+  --text-display--letter-spacing: -0.045em;
+  --text-display--font-weight: 700;
+  --text-h2: clamp(2.25rem, 4vw, 3.75rem);
+  --text-h2--line-height: 1.02;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h2--font-weight: 700;
+  --text-h3: clamp(1.75rem, 2.8vw, 2.5rem);
+  --text-h3--line-height: 1.08;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h3--font-weight: 700;
+  --text-lead: clamp(1.125rem, 1.5vw, 1.375rem);
+  --text-lead--line-height: 1.45;
+  --text-body: clamp(1.0625rem, 1.3vw, 1.1875rem);
+  --text-body--line-height: 1.5;
+  --text-row: clamp(1.25rem, 1.8vw, 1.625rem);
+  --text-row--line-height: 1.25;
+  --text-caption: 0.9375rem;
+  --text-caption--line-height: 1.375rem;
+
+  --spacing-gutter: clamp(1.25rem, 5.5vw, 5rem);
+  --spacing-section: clamp(4rem, 6.6vw, 6rem);
+}
+
 @theme inline {
   --color-page: var(--km-color-page);
   --color-surface: var(--km-color-surface);
   --color-muted: var(--km-color-muted);
+  --color-pressed: var(--km-color-pressed);
   --color-text: var(--km-color-text);
   --color-secondary: var(--km-color-text-secondary);
+  --color-ink: var(--km-color-ink);
+  --color-on-ink: var(--km-color-on-ink);
+  --color-rule-ink: var(--km-color-rule-ink);
   --color-border: var(--km-color-border);
   --color-border-strong: var(--km-color-border-strong);
   --color-action: var(--km-color-action);
   --color-action-hover: var(--km-color-action-hover);
+  --color-action-press: var(--km-color-action-press);
   --color-action-foreground: var(--km-color-action-foreground);
   --color-accent: var(--km-color-accent);
   --color-accent-foreground: var(--km-color-accent-foreground);
@@ -41,70 +108,55 @@
 :root {
   color-scheme: light;
 
-  /* Provisional website palette: replace through these semantic variables. */
-  --km-color-page: #fbf7ed;
+  /*
+   * The web app's Ledger palette (ADR-0012). Contrast on paper #f7f6f2 and
+   * ink #161a17 is recorded in docs/redesign/marketing-round-3/Design System.
+   */
+  --km-color-page: #f7f6f2;
   --km-color-surface: #ffffff;
-  --km-color-muted: #f2ecdf;
-  --km-color-text: #17251d;
-  --km-color-text-secondary: #526057;
-  --km-color-border: #d9d0be;
-  --km-color-border-strong: #a99f8c;
+  --km-color-muted: #f4f3ec;
+  --km-color-pressed: #efeee8;
+  --km-color-text: #161a17;
+  --km-color-text-secondary: #545b55;
+  --km-color-ink: #161a17;
+  --km-color-on-ink: #c6c8bd;
+  --km-color-rule-ink: #545b55;
+  --km-color-border: #dcdbd3;
+  --km-color-border-strong: #858379;
   --km-color-action: #006b3c;
-  --km-color-action-hover: #004e2c;
+  --km-color-action-hover: #005a32;
+  --km-color-action-press: #004e2c;
   --km-color-action-foreground: #ffffff;
   --km-color-accent: #e3a008;
   --km-color-accent-foreground: #2c2100;
-  --km-color-focus: #b33c26;
+  --km-color-focus: #1d4ed8;
   --km-color-success: #17643e;
-  --km-color-warning: #805000;
+  --km-color-warning: #8a5a00;
   --km-color-info: #185b84;
-  --km-color-destructive: #a5322a;
+  --km-color-destructive: #a3382d;
   --km-color-disabled: #e2ddd2;
   --km-color-disabled-foreground: #706d66;
   --km-color-info-soft: #e7f1f6;
-  --km-color-warning-soft: #fff1c9;
+  --km-color-warning-soft: #fde8c8;
 
-  --km-status-available-background: #e5f2e9;
-  --km-status-available-border: #76a88a;
-  --km-status-available-text: #145936;
-  --km-status-testing-background: #fff1c9;
-  --km-status-testing-border: #c4931f;
-  --km-status-testing-text: #614300;
-  --km-status-planned-background: #e7f0f6;
-  --km-status-planned-border: #75a1bd;
-  --km-status-planned-text: #174d6e;
-  --km-status-future-background: #f0ecf5;
-  --km-status-future-border: #9987ad;
-  --km-status-future-text: #4d3b63;
-
-  --km-font-body:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  --km-font-body: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
   --km-font-display: var(--km-font-body);
-  --km-font-weight-regular: 400;
-  --km-font-weight-medium: 600;
-  --km-font-weight-bold: 700;
-  --km-font-weight-extra-bold: 800;
-  --km-reading-line-height: 1.7;
-  --km-reading-letter-spacing: -0.006em;
 
   --km-width-reading: 44rem;
   --km-width-content: 72rem;
-  --km-width-wide: 82rem;
-  --km-page-gutter: clamp(1rem, 4vw, 2rem);
-  --km-section-space: clamp(3.5rem, 9vw, 7.5rem);
+  --km-width-wide: 90rem;
+  --km-page-gutter: clamp(1.25rem, 5.5vw, 5rem);
+  --km-section-space: clamp(4rem, 6.6vw, 6rem);
   --km-space-component: clamp(1rem, 2vw, 1.5rem);
 
-  --km-radius-control: 0.875rem;
-  --km-radius-surface: 1.25rem;
+  --km-radius-control: 0.625rem;
+  --km-radius-surface: 0;
   --km-radius-status: 999px;
-  --km-control-height: 2.75rem;
-  --km-border-width: 1px;
-  --km-shadow-soft: 0 0.5rem 2rem rgba(23, 37, 29, 0.07);
-  --km-shadow-raised: 0 1rem 3rem rgba(23, 37, 29, 0.15);
+  --km-shadow-soft: none;
+  --km-shadow-raised: 0 1rem 3rem rgba(22, 26, 23, 0.15);
 
   --km-duration-fast: 120ms;
-  --km-duration-standard: 200ms;
+  --km-duration-standard: 240ms;
   --km-ease-standard: cubic-bezier(0.2, 0, 0, 1);
 }
 
@@ -118,28 +170,24 @@
   html {
     min-width: 20rem;
     scroll-behavior: smooth;
-    scroll-padding-top: 1rem;
   }
 
   body {
     min-height: 100dvh;
     margin: 0;
     overflow-wrap: break-word;
-    background:
-      radial-gradient(
-        circle at 85% 8%,
-        color-mix(in srgb, var(--km-color-accent) 10%, transparent),
-        transparent 26rem
-      ),
-      var(--km-color-page);
+    background: var(--km-color-page);
     color: var(--km-color-text);
     font-family: var(--km-font-body);
+    font-weight: 500;
+    font-variant-numeric: lining-nums;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
   }
 
   a,
-  button {
+  button,
+  summary {
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -147,9 +195,19 @@
     font: inherit;
   }
 
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Blue focus is 2.62:1 on ink, so every ring carries a white inner ring. */
   :focus-visible {
     outline: 3px solid var(--km-color-focus);
-    outline-offset: 3px;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #ffffff;
   }
 
   ::selection {
@@ -159,34 +217,35 @@
 }
 
 @layer components {
-  .product-status {
-    border-color: var(--status-border);
-    background: var(--status-background);
-    color: var(--status-text);
+  /* The receipt's double rule draws in once as it scrolls into view. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .receipt-rule {
+        transform-origin: left;
+        animation: receipt-rule-draw linear both;
+        animation-timeline: view();
+        animation-range: entry 10% entry 70%;
+      }
+    }
   }
 
-  .product-status[data-product-status="available"] {
-    --status-background: var(--km-status-available-background);
-    --status-border: var(--km-status-available-border);
-    --status-text: var(--km-status-available-text);
+  /* The zig-zag tear at the bottom of the receipt. */
+  .receipt-tear {
+    background:
+      linear-gradient(135deg, #ffffff 7px, transparent 0) 0 0 / 20px 10px
+        repeat-x,
+      linear-gradient(-135deg, #ffffff 7px, transparent 0) 0 0 / 20px 10px
+        repeat-x;
+  }
+}
+
+@keyframes receipt-rule-draw {
+  from {
+    transform: scaleX(0);
   }
 
-  .product-status[data-product-status="testing"] {
-    --status-background: var(--km-status-testing-background);
-    --status-border: var(--km-status-testing-border);
-    --status-text: var(--km-status-testing-text);
-  }
-
-  .product-status[data-product-status="planned"] {
-    --status-background: var(--km-status-planned-background);
-    --status-border: var(--km-status-planned-border);
-    --status-text: var(--km-status-planned-text);
-  }
-
-  .product-status[data-product-status="future"] {
-    --status-background: var(--km-status-future-background);
-    --status-border: var(--km-status-future-border);
-    --status-text: var(--km-status-future-text);
+  to {
+    transform: scaleX(1);
   }
 }
 

@@ -3,43 +3,36 @@ import { describe, expect, it } from "vitest";
 
 import HomePage from "@/app/page";
 import { homepageCopy } from "@/lib/content/homepage-copy";
+import { sharedCopy } from "@/lib/content/shared-copy";
+import { createAccountLink } from "@/lib/content/site-navigation";
+import { allowedHrefs, hrefsIn, linksTo } from "@/tests/helpers/markup";
 
 const renderHomepage = () => renderToStaticMarkup(<HomePage />);
 
-describe("WEB-3 homepage trust behavior", () => {
-  it("renders one H1 and visibly identifies the testing state", () => {
+const pesos = (amount: string) =>
+  Number(amount.replace(/[^\d.]/g, "")) * (amount.includes("−") ? -1 : 1);
+
+describe("MR-1 homepage", () => {
+  it("renders one H1 with the tagline", () => {
     const markup = renderHomepage();
 
     expect(markup.match(/<h1(?:\s|>)/g)).toHaveLength(1);
     expect(markup).toContain(homepageCopy.hero.heading);
-    expect(markup).toContain("Currently Testing");
-    expect(markup).toContain('id="testing-status"');
   });
 
-  it("uses only the approved informational CTA destinations", () => {
-    const markup = renderHomepage();
+  it("makes Create free account the primary action (CLM-013)", () => {
+    const links = linksTo(renderHomepage(), createAccountLink.href);
 
-    expect(markup).toContain('href="/how-it-works"');
-    expect(markup).toContain('href="/for-sellers"');
-    expect(markup).toContain('href="/about"');
-    expect(markup).toContain('href="#testing-status"');
-    expect(markup).toContain('href="/#testing-status"');
+    // Header (wide and narrow), hero, three steps, closing band.
+    expect(links.length).toBeGreaterThanOrEqual(4);
+    for (const link of links) {
+      expect(link.label).toBe("Create free account");
+      expect(link.attributes).toContain("bg-action");
+    }
+  });
 
-    const hrefs = Array.from(
-      markup.matchAll(/<a\b[^>]*href="([^"]+)"/g),
-      (match) => match[1],
-    );
-    const allowedHrefs = new Set([
-      "/",
-      "/about",
-      "/for-sellers",
-      "/how-it-works",
-      "/#testing-status",
-      "#main-content",
-      "#testing-status",
-      // Shared header and footer Sign in link (CLM-010), not a homepage CTA.
-      "https://app.kitamo.online/login",
-    ]);
+  it("links only to the site's routes and the approved web-app pages", () => {
+    const hrefs = hrefsIn(renderHomepage());
 
     expect(hrefs.length).toBeGreaterThan(0);
     for (const href of hrefs) {
@@ -47,38 +40,41 @@ describe("WEB-3 homepage trust behavior", () => {
     }
   });
 
-  it("offers no public download or tester-enrollment action", () => {
+  it("states the Android pilot only as Currently Testing", () => {
     const markup = renderHomepage();
-    const linkLabels = Array.from(
-      markup.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/g),
-      (match) => match[1].replace(/<[^>]*>/g, " ").toLowerCase(),
-    ).join(" ");
 
-    for (const prohibitedAction of [
-      "download",
-      "get started",
-      "join testing",
-      "join now",
-      "sign up",
-      "create account",
-      "waitlist",
-    ]) {
-      expect(linkLabels).not.toContain(prohibitedAction);
-    }
+    expect(markup).toContain(
+      "An offline Android version is Currently Testing and not yet available.",
+    );
+    // "offline" describes the Android pilot and nothing else (CLM-023).
+    expect(markup.toLowerCase().match(/offline/g)).toHaveLength(1);
   });
 
-  it("does not present excluded products or future capabilities as available", () => {
-    const markup = renderHomepage().toLowerCase();
+  it("answers the limits next to the claims", () => {
+    const markup = renderHomepage();
 
-    for (const prohibitedClaim of [
-      "customer app is available",
-      "cloud sync is available",
-      "ai-powered",
-      "public ai",
-      "online account",
-      "available now",
-    ]) {
-      expect(markup).not.toContain(prohibitedClaim);
+    expect(markup).toContain("<details");
+    expect(markup).toContain("Yes, the web app needs a connection.");
+    expect(markup).toContain("It records how you were paid.");
+    expect(markup).toContain("not a BIR receipt");
+    expect(markup).toContain("Free while in testing.");
+  });
+
+  it("captions every product picture", () => {
+    const markup = renderHomepage();
+
+    expect(markup).toContain(sharedCopy.screensCaption);
+    expect(markup).toContain(sharedCopy.illustrationCaption);
+  });
+
+  it("keeps the receipt's figures adding up to Tubo (CLM-020)", () => {
+    const { rows, total } = homepageCopy.formula.receipt;
+    const sum = rows.reduce((running, row) => running + pesos(row.amount), 0);
+
+    expect(sum).toBeCloseTo(pesos(total), 2);
+    // Operators are the true minus sign followed by a space.
+    for (const row of rows.slice(1)) {
+      expect(row.amount.startsWith("− ₱")).toBe(true);
     }
   });
 });

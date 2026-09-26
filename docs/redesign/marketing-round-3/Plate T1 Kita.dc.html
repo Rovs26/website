@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+20A0-20B0,U+20B2-20C0,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Schibsted Grotesk";font-weight:100 900;font-display:swap;src:url(assets/fonts/hanken-grotesk-peso.woff2) format("woff2");unicode-range:U+20B1}@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}body{margin:0}*{box-sizing:border-box}</style></helmet>
+<div data-screen-label="T1 Kita tablet" style="width:853px;height:533px;display:flex;flex-direction:column;overflow:hidden;background:#f7f6f2;color:#161a17;font-family:'Schibsted Grotesk',system-ui,sans-serif;font-variant-numeric:lining-nums">
+<div style="height:24px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#f7f6f2;font-size:13px;font-weight:600">
+<span>2:40</span>
+<span style="display:flex;align-items:center;gap:8px"><span style="display:flex;align-items:flex-end;gap:2px;height:11px"><span style="width:3px;height:4px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:6px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:8px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:11px;background:#161a17;border-radius:1px"></span></span><span style="font-size:12px">4G</span><span style="display:flex;align-items:center"><span style="width:22px;height:11px;border:1.5px solid #161a17;border-radius:3px;padding:1px;display:flex"><span style="width:72%;background:#161a17;border-radius:1px"></span></span><span style="width:2px;height:5px;background:#161a17;border-radius:0 1px 1px 0"></span></span><span style="font-size:12px">72%</span></span>
+</div>
+<header style="height:56px;flex-shrink:0;display:flex;align-items:stretch;padding:0 16px 0 14px;border-bottom:1px solid #dcdbd3;background:#f7f6f2">
+<span style="display:flex;align-items:center;margin-right:8px"><img src="assets/icon-192.png" width="30" height="30" alt="KitaMo"></span>
+<nav aria-label="Main" style="display:flex;min-width:0">
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="6"><span style="display:flex;align-items:center;gap:7px;padding:0 10px;border-bottom:2px solid {{ n.bd }};margin-bottom:-1px;font-size:14.5px;font-weight:{{ n.fw }};color:{{ n.fg }};white-space:nowrap"><span style="font-size:18px;display:flex;color:{{ n.ic }}">{{ n.icon }}</span>{{ n.label }}</span></sc-for>
+</nav>
+<span style="flex:1"></span>
+<span style="align-self:center;font-size:14px;font-weight:550;color:#545b55;white-space:nowrap">Aling Nena's Sari-sari</span>
+</header>
+<div style="height:64px;flex-shrink:0;display:flex;align-items:center;gap:14px;padding:0 20px">
+<div style="display:flex;padding:2px;border:1px solid #858379;border-radius:11px;background:#fff">
+<span style="height:42px;display:flex;align-items:center;padding:0 16px;border-radius:9px;background:#161a17;color:#fff;font-size:14.5px;font-weight:650">Day</span>
+<span style="height:42px;display:flex;align-items:center;padding:0 16px;border-radius:9px;font-size:14.5px;font-weight:550;color:#3f4640">Week</span>
+<span style="height:42px;display:flex;align-items:center;padding:0 16px;border-radius:9px;font-size:14.5px;font-weight:550;color:#3f4640">Month</span>
+</div>
+<div style="display:flex;align-items:center">
+<span style="width:44px;height:44px;display:grid;place-items:center;font-size:20px">{{ ic.chevL }}</span>
+<span style="font-size:15px;font-weight:600;white-space:nowrap">Today, Fri Sep 25</span>
+<span style="width:44px;height:44px;display:grid;place-items:center;font-size:20px;color:#b5b8b0">{{ ic.chevR }}</span>
+</div>
+</div>
+<div style="flex:1;min-height:0;display:grid;grid-template-columns:320px minmax(0,1fr);gap:32px;padding:0 20px 16px">
+<section style="display:flex;flex-direction:column;min-height:0">
+<span style="font-size:14px;font-weight:600;color:#545b55">Profit today</span>
+<span style="font-size:48px;line-height:1.05;font-weight:700;letter-spacing:-0.025em;white-space:nowrap;margin:2px 0 12px">₱1,335.00</span>
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="4">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:36px;border-top:1px solid #dcdbd3">
+<span style="display:flex;align-items:center;font-size:14.5px;font-weight:500;color:#545b55;white-space:nowrap">{{ r.label }}<sc-if value="{{ r.tip }}" hint-placeholder-val="{{ false }}"><span style="width:40px;height:36px;margin:0 -10px 0 -4px;display:grid;place-items:center"><span style="width:18px;height:18px;border-radius:50%;border:1.5px solid #545b55;display:grid;place-items:center;font-size:11px;font-weight:700;color:#545b55">?</span></span></sc-if></span>
+<span style="font-size:15.5px;font-weight:600;white-space:nowrap">{{ r.amt }}</span>
+</div>
+</sc-for>
+<div style="border-top:3px double #161a17"></div>
+<p style="margin:0;padding-top:8px;font-size:13.5px;color:#545b55">41 sales so far · 2:40 PM</p>
+<span style="margin-top:auto;height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:10px;background:#006b3c;color:#fff;border-radius:10px;font-size:17px;font-weight:700"><span style="font-size:21px;display:flex">{{ ic.benta }}</span>Sell</span>
+</section>
+<section style="min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:22px">
+<div>
+<h2 style="margin:0 0 6px;font-size:13.5px;font-weight:650;color:#545b55">Profit, last 4 weeks</h2>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;height:100px;align-items:end;border-bottom:1px solid #161a17">
+<sc-for list="{{ trend }}" as="w" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;height:100%"><span style="font-size:12.5px;font-weight:600">{{ w.v }}</span><span style="width:100%;max-width:56px;height:{{ w.h }}px;border-radius:4px 4px 0 0;background:{{ w.c }}"></span></div></sc-for>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:6px"><sc-for list="{{ trend }}" as="w" hint-placeholder-count="4"><span style="text-align:center;font-size:12.5px;font-weight:{{ w.fw }};color:#545b55">{{ w.label }}</span></sc-for></div>
+</div>
+<div>
+<h2 style="margin:0 0 4px;font-size:13.5px;font-weight:650;color:#545b55">Bills due</h2>
+<sc-for list="{{ bills }}" as="b" hint-placeholder-count="2">
+<div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:12px;min-height:50px;border-top:1px solid #dcdbd3">
+<span style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;font-weight:600">{{ b.name }}</span><span style="font-size:13px;color:#545b55">{{ b.due }}</span></span>
+<span style="display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border:1.5px solid {{ b.c }};color:{{ b.c }};border-radius:999px;font-size:12.5px;font-weight:650;white-space:nowrap"><span style="display:flex;font-size:13px">{{ b.icon }}</span>{{ b.badge }}</span>
+<span style="font-size:15.5px;font-weight:650">{{ b.amt }}</span>
+</div>
+</sc-for>
+</div>
+<div>
+<h2 style="margin:0 0 4px;font-size:13.5px;font-weight:650;color:#545b55">Top earners</h2>
+<sc-for list="{{ earners }}" as="e" hint-placeholder-count="3">
+<div style="display:grid;grid-template-columns:22px minmax(0,1fr) auto;align-items:center;min-height:44px;border-top:1px solid #dcdbd3;gap:8px">
+<span style="font-size:13.5px;font-weight:600;color:#545b55">{{ e.rank }}</span>
+<span style="min-width:0;display:flex;align-items:baseline;gap:8px"><span style="font-size:15px;font-weight:600;white-space:nowrap">{{ e.name }}</span><span style="font-size:13px;color:#545b55;white-space:nowrap">{{ e.sub }}</span></span>
+<span style="font-size:15.5px;font-weight:650">{{ e.amt }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:853,&quot;height&quot;:533}}">
+const IC = {
+  kita: ["M5 5v14M9 5v14M13 5v14M17 5v14M3 16.5 21 8"], benta: ["M4.5 9h15l-1.3 10.2a1 1 0 0 1-1 .8H6.8a1 1 0 0 1-1-.8Z", "M9 9V7a3 3 0 0 1 6 0v2"],
+  paninda: ["M2.5 20.5h19", "M4 12h7v8.5H4z", "M13 15h7v5.5h-7z", "M5.5 4H11v8H5.5z"], gastos: ["M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z", "M9 8h6M9 12h6M9 16h3"],
+  utang: ["M7 3h10.5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7z", "M4 7h3M4 12h3M4 17h3M11 8h4.5M11 12h4.5"], akin: ["M8 8a4 4 0 1 0 8 0a4 4 0 1 0-8 0", "M4 21a8 8 0 0 1 16 0"],
+  chevL: ["M15 6l-6 6 6 6"], chevR: ["M9 6l6 6-6 6"], ring: ["M4 12a8 8 0 1 0 16 0a8 8 0 1 0-16 0"], check: ["M5 12.5l4.5 4.5L19 7.5"],
+};
+class Component extends DCLogic {
+  icon(k) { const h = React.createElement; return h("svg", { width: "1em", height: "1em", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true }, ...IC[k].map((d, i) => h("path", { key: i, d }))); }
+  renderVals() {
+    const ic = {}; Object.keys(IC).forEach((k) => (ic[k] = this.icon(k)));
+    const L = { kita: "Profit", benta: "Sell", paninda: "Products", gastos: "Expenses", utang: "Credit", akin: "Account" };
+    const nav = Object.keys(L).map((k) => { const on = k === "kita"; return { label: L[k], icon: ic[k], fw: on ? 700 : 560, fg: on ? "#161a17" : "#545b55", ic: on ? "#006b3c" : "#545b55", bd: on ? "#161a17" : "transparent" }; });
+    const rows = [{ label: "Sales", amt: "₱4,850.00" }, { label: "Cost of goods", amt: "− ₱3,120.00", tip: true }, { label: "Expenses", amt: "− ₱350.00", tip: true }, { label: "Spoilage", amt: "− ₱45.00", tip: true }];
+    const tv = [7420, 8105, 6880, 5260], mx = Math.max(...tv), wk = ["Aug 31", "Sep 7", "Sep 14", "This week"];
+    const trend = tv.map((x, i) => ({ v: "₱" + x.toLocaleString("en-PH"), h: Math.round((x / mx) * 76), c: i === 3 ? "#006b3c" : "#c6c8bd", fw: i === 3 ? 750 : 550, label: wk[i] }));
+    const bills = [{ name: "Kuryente", due: "Due Mon, Sep 28", badge: "Unpaid", c: "#8a5a00", icon: ic.ring, amt: "₱1,850.00" }, { name: "Wifi", due: "Paid Sep 20", badge: "Paid", c: "#17643e", icon: ic.check, amt: "₱1,299.00" }];
+    const earners = [["Softdrinks 1.5L", "14 sold", "₱182.00"], ["Pancit canton", "37 sold", "₱148.00"], ["Bigas 1 kg", "12 sold", "₱96.00"]].map((e, i) => ({ rank: i + 1, name: e[0], sub: e[1], amt: e[2] }));
+    return { ic, nav, rows, trend, bills, earners };
+  }
+}
+</script>
+</body>
+</html>

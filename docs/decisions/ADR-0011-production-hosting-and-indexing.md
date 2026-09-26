@@ -82,3 +82,19 @@ any inbound link exists.
 Revisit if the public domain changes, if a third-party script becomes
 necessary, if the marketing site stops being fully static, or if the apex and
 `app` subdomain need to be served by different providers.
+
+## Addendum: 2026-09-26
+
+- **Script policy.** `script-src 'self'` is replaced by `script-src 'none'` in
+  production ([ADR-0013](ADR-0013-no-client-javascript.md)). The old value
+  blocked Next.js's inline payload but still let the browser download the
+  runtime. The new value blocks every script, so no runtime is fetched at all.
+  The rest of the header set is unchanged.
+- **Cloudflare's edge injects a Web Analytics beacon** on the proxied apex and
+  `www`. It is a `static.cloudflareinsights.com` script sent only in responses
+  to browser user agents. The CSP blocks it, and it conflicts with ADR-0007.
+  - `app.kitamo.online` is DNS-only, served straight from Vercel, and is not
+    affected.
+  - The owner turned it off on 2026-09-26 (Web analytics → Manage site → RUM:
+    Disable), and the same-day check found no beacon. The steps are in
+    [`../reviews/mr-1-acceptance.md`](../reviews/mr-1-acceptance.md).

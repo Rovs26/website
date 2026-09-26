@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./image-slot.js"></script><title>KitaMo site · Design system</title><style>@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+20A0-20B0,U+20B2-20C0,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Schibsted Grotesk";font-weight:100 900;font-display:swap;src:url(assets/fonts/hanken-grotesk-peso.woff2) format("woff2");unicode-range:U+20B1}@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}body{margin:0;background:#e9e7e1}*{box-sizing:border-box}a{color:#006b3c}a:hover{color:#004e2c}:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px;box-shadow:0 0 0 2px #fff}summary{list-style:none}summary::-webkit-details-marker{display:none}h1,h2,h3,p,ol,ul,dl,dd{margin:0}ol,ul{padding:0;list-style:none}</style></helmet>
+<div data-screen-label="Design system" style="max-width:1536px;margin:0 auto;padding:48px;color:#161a17;font-family:'Schibsted Grotesk',system-ui,sans-serif;font-variant-numeric:lining-nums;display:flex;flex-direction:column;gap:64px">
+
+<header style="display:flex;flex-direction:column;gap:12px;padding-bottom:24px;border-bottom:1px solid #161a17">
+<span style="font-size:15px;font-weight:600;color:#545b55">kitamo.online · 1b Counter and resibo</span>
+<h1 style="font-size:64px;line-height:1;font-weight:700;letter-spacing:-0.04em">Site design system</h1>
+<p style="max-width:760px;font-size:18px;line-height:1.5;font-weight:500;text-wrap:pretty">Built on the app's Ledger tokens. One family, Schibsted Grotesk at 500, 600 and 700, self-hosted. Everything below is the live component, not a picture of it.</p>
+</header>
+
+<section aria-labelledby="tok-h" style="display:flex;flex-direction:column;gap:20px">
+<h2 id="tok-h" style="font-size:36px;line-height:1.1;font-weight:700;letter-spacing:-0.02em">Tokens</h2>
+<p style="max-width:820px;font-size:16px;line-height:1.5;font-weight:500;color:#545b55;text-wrap:pretty">Ratios measured against paper #f7f6f2 and ink #161a17 (WCAG 2.x relative luminance). Text needs 4.5:1, large text and UI edges 3:1. A dash means the pairing is not used.</p>
+<div style="background:#fff;overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:15px;min-width:900px">
+<thead><tr style="text-align:left;border-bottom:1px solid #161a17"><th style="padding:12px 16px;font-weight:600">Token</th><th style="padding:12px 16px;font-weight:600">Hex</th><th style="padding:12px 16px;font-weight:600">Role</th><th style="padding:12px 16px;font-weight:600">On paper</th><th style="padding:12px 16px;font-weight:600">On ink</th></tr></thead>
+<tbody>
+<sc-for list="{{ tokens }}" as="t" hint-placeholder-count="14"><tr style="border-bottom:1px solid #dcdbd3">
+<td style="padding:10px 16px"><span style="display:flex;align-items:center;gap:12px;font-weight:650"><span style="width:36px;height:36px;border-radius:6px;background:{{ t.hex }};box-shadow:inset 0 0 0 1px rgba(22,26,23,.18)"></span>{{ t.name }}</span></td>
+<td style="padding:10px 16px;font-variant-numeric:tabular-nums">{{ t.hex }}</td>
+<td style="padding:10px 16px;color:#3f4640;max-width:340px">{{ t.role }}</td>
+<td style="padding:10px 16px;font-variant-numeric:tabular-nums"><span style="font-weight:650">{{ t.p }}</span> <span style="color:#545b55">{{ t.pv }}</span></td>
+<td style="padding:10px 16px;font-variant-numeric:tabular-nums"><span style="font-weight:650">{{ t.k }}</span> <span style="color:#545b55">{{ t.kv }}</span></td>
+</tr></sc-for>
+</tbody>
+</table>
+</div>
+<p style="max-width:820px;font-size:15px;line-height:1.5;font-weight:500;color:#3f4640;text-wrap:pretty">Focus: blue #1d4ed8 on ink is 2.62:1, so every focus ring carries a 2 px white inner ring (white on ink 17.58:1). Green buttons on the ink band rely on their white label (6.63:1) to identify them, not on the button edge (2.65:1).</p>
+</section>
+
+<section aria-labelledby="type-h" style="display:flex;flex-direction:column;gap:20px">
+<h2 id="type-h" style="font-size:36px;line-height:1.1;font-weight:700;letter-spacing:-0.02em">Type scale</h2>
+<div style="background:#f7f6f2;padding:8px 32px">
+<sc-for list="{{ type }}" as="t" hint-placeholder-count="8"><div style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid #dcdbd3">
+<span style="display:flex;flex-direction:column;gap:2px;font-size:14px;line-height:1.4;font-weight:600"><span>{{ t.name }}</span><span style="font-weight:500;color:#545b55">{{ t.spec }}</span></span>
+<span style="font-size:{{ t.size }};line-height:{{ t.lh }};font-weight:{{ t.fw }};letter-spacing:{{ t.ls }};font-variant-numeric:{{ t.fv }}">{{ t.sample }}</span>
+</div></sc-for>
+</div>
+</section>
+
+<section aria-labelledby="sp-h" style="display:flex;flex-direction:column;gap:20px">
+<h2 id="sp-h" style="font-size:36px;line-height:1.1;font-weight:700;letter-spacing:-0.02em">Spacing</h2>
+<div style="background:#f7f6f2;padding:24px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ space }}" as="s" hint-placeholder-count="11"><div style="display:grid;grid-template-columns:56px minmax(0,1fr);align-items:center;gap:12px;font-size:14px;font-weight:600"><span style="font-variant-numeric:tabular-nums">{{ s.v }}</span><span style="height:12px;width:{{ s.w }};background:#161a17"></span></div></sc-for>
+</div>
+<dl style="display:flex;flex-direction:column;border-top:1px solid #161a17;font-size:15px">
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #dcdbd3"><dt style="font-weight:650">Page gutter</dt><dd>20 px phone → 80 px at 1440 (5.5cqw)</dd></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #dcdbd3"><dt style="font-weight:650">Section padding</dt><dd>64 px phone → 96 px at 1440</dd></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #dcdbd3"><dt style="font-weight:650">Column gap</dt><dd>40–96 px</dd></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #dcdbd3"><dt style="font-weight:650">Lista row</dt><dd>min 60 px, 1 px rule #dcdbd3</dd></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #dcdbd3"><dt style="font-weight:650">Touch target</dt><dd>44 px min · primary button 56–60 px</dd></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #dcdbd3"><dt style="font-weight:650">Radius</dt><dd>10 px buttons · 0 everywhere else</dd></div>
+<div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #dcdbd3"><dt style="font-weight:650">Breakpoints</dt><dd>400 / 520 fil (header) · 1100 (layout)</dd></div>
+</dl>
+</div>
+</section>
+
+<section aria-labelledby="cmp-h" style="display:flex;flex-direction:column;gap:32px">
+<h2 id="cmp-h" style="font-size:36px;line-height:1.1;font-weight:700;letter-spacing:-0.02em">Components</h2>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">Header · desktop</h3>
+<div style="width:1440px;max-width:100%;overflow:hidden;background:#f7f6f2;container-type:inline-size"><dc-import name="Site Header" current="how" style="width:1440px" hint-size="1440px,80px"></dc-import></div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">Header · phone</h3>
+<div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:14px;font-weight:600;color:#545b55">390 · Menu closed</span><div style="width:390px;background:#f7f6f2;container-type:inline-size"><dc-import name="Site Header" narrow="{{ true }}" vw="{{ 390 }}" style="width:390px" hint-size="390px,64px"></dc-import></div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:14px;font-weight:600;color:#545b55">360 · top of page (mark + Menu)</span><div style="width:360px;background:#f7f6f2;container-type:inline-size"><dc-import name="Site Header" narrow="{{ true }}" vw="{{ 360 }}" style="width:360px" hint-size="360px,64px"></dc-import></div><span style="margin-top:8px;font-size:14px;font-weight:600;color:#545b55">360 · scrolled past the hero</span><div style="width:360px;background:#f7f6f2;container-type:inline-size"><dc-import name="Site Header" narrow="{{ true }}" vw="{{ 360 }}" scrolled="{{ true }}" style="width:360px" hint-size="360px,64px"></dc-import></div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:14px;font-weight:600;color:#545b55">390 · Menu open</span><div style="position:relative;width:390px;height:330px;background:#f7f6f2;container-type:inline-size"><dc-import name="Site Header" narrow="{{ true }}" vw="{{ 390 }}" menu-open="{{ true }}" style="width:390px" hint-size="390px,64px"></dc-import></div></div>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">Buttons</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px">
+<div style="background:#f7f6f2;padding:24px;display:flex;flex-direction:column;gap:12px">
+<span style="font-size:14px;font-weight:600;color:#545b55">Primary · default, hover, pressed, focus</span>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<span style="min-height:60px;display:flex;align-items:center;padding:8px 28px;background:#006b3c;color:#fff;border-radius:10px;font-size:19px;font-weight:700">Create free account</span>
+<span style="min-height:60px;display:flex;align-items:center;padding:8px 28px;background:#005a32;color:#fff;border-radius:10px;font-size:19px;font-weight:700">Hover</span>
+<span style="min-height:60px;display:flex;align-items:center;padding:8px 28px;background:#004e2c;color:#fff;border-radius:10px;font-size:19px;font-weight:700;transform:scale(.97)">Pressed</span>
+<span style="min-height:60px;display:flex;align-items:center;padding:8px 28px;background:#006b3c;color:#fff;border-radius:10px;font-size:19px;font-weight:700;outline:3px solid #1d4ed8;outline-offset:2px;box-shadow:0 0 0 2px #fff">Focus</span>
+</div>
+</div>
+<div style="background:#f7f6f2;padding:24px;display:flex;flex-direction:column;gap:12px">
+<span style="font-size:14px;font-weight:600;color:#545b55">Secondary · default, hover, pressed</span>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<span style="min-height:60px;display:flex;align-items:center;padding:8px 28px;background:#fff;border:1px solid #858379;border-radius:10px;font-size:19px;font-weight:650">Sign in</span>
+<span style="min-height:60px;display:flex;align-items:center;padding:8px 28px;background:#f4f3ec;border:1px solid #858379;border-radius:10px;font-size:19px;font-weight:650">Hover</span>
+<span style="min-height:60px;display:flex;align-items:center;padding:8px 28px;background:#efeee8;border:1px solid #858379;border-radius:10px;font-size:19px;font-weight:650;transform:scale(.97)">Pressed</span>
+</div>
+</div>
+<div style="background:#161a17;color:#fff;padding:24px;display:flex;flex-direction:column;gap:12px">
+<span style="font-size:14px;font-weight:600;color:#c6c8bd">On the counter band · Filipino, full width below 1100 px</span>
+<span style="min-height:56px;display:flex;align-items:center;justify-content:center;padding:8px 16px;background:#006b3c;color:#fff;border-radius:10px;font-size:18px;font-weight:700;outline:3px solid #1d4ed8;outline-offset:2px;box-shadow:0 0 0 2px #fff">Gumawa ng libreng account</span>
+<span style="font-size:14px;font-weight:500;color:#c6c8bd">Shown with focus ring.</span>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">Counter band with device pair</h3>
+<div style="background:#161a17;color:#fff;border-top:8px solid #e3a008;padding:40px 32px 0;display:flex;flex-direction:column">
+<span style="font-size:32px;line-height:1.05;font-weight:700;letter-spacing:-0.03em">Section heading.</span>
+<div style="margin-top:32px;position:relative;height:{{ pair.h }}px;width:{{ pair.aw }}px;max-width:100%">
+<div style="position:absolute;left:0;bottom:0"><dc-import name="Device" plate="T1" w="{{ pair.tw }}" hint-size="420px,270px"></dc-import></div>
+<div style="position:absolute;right:0;bottom:0"><dc-import name="Device" plate="P1" w="{{ pair.pw }}" ring="{{ 3 }}" ring-color="#161a17" hint-size="120px,256px"></dc-import></div>
+</div>
+<div style="height:1px;background:#545b55"></div>
+<p style="padding:12px 0 18px;text-align:right;font-size:14px;font-weight:500;color:#c6c8bd">Screens show the KitaMo web app with sample data.</p>
+</div>
+<p style="font-size:15px;line-height:1.5;font-weight:500;color:#3f4640;text-wrap:pretty">8 px gold edge on top, devices stand on the 1 px rule, caption right-aligned. The phone overlaps only a column that holds no totals.</p>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">Receipt ledger</h3>
+<div style="background:#161a17;padding:40px 32px 48px">
+<div style="max-width:420px;background:#fff;color:#161a17;padding:28px 28px 24px;display:flex;flex-direction:column;position:relative">
+<span aria-hidden="true" style="position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(135deg,#fff 7px,transparent 0) 0 0/20px 10px repeat-x,linear-gradient(-135deg,#fff 7px,transparent 0) 0 0/20px 10px repeat-x"></span>
+<span style="text-align:center;font-size:17px;font-weight:700">Aling Nena's Sari-sari</span>
+<span style="text-align:center;font-size:15px;font-weight:500;color:#545b55">Kita · Fri, Sep 25</span>
+<div style="margin:18px 0 6px;border-top:1.5px dashed #858379"></div>
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;align-items:center;min-height:44px;font-size:19px;font-weight:600;font-variant-numeric:tabular-nums"><span>{{ r.label }}</span><span>{{ r.amt }}</span></div></sc-for>
+<div aria-hidden="true" style="margin-top:6px;height:4px;border-top:4px double #161a17;transform:scaleX({{ ruleS }});transform-origin:left;transition:transform 240ms cubic-bezier(.2,0,0,1)"></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;padding-top:10px"><span style="font-size:21px;font-weight:700">Tubo</span><span style="font-size:42px;font-weight:700;letter-spacing:-0.025em;font-variant-numeric:tabular-nums">₱1,335.00</span></div>
+</div>
+</div>
+<p style="font-size:15px;line-height:1.5;font-weight:500;color:#3f4640;text-wrap:pretty">White paper on ink, dashed tear rule, double rule above the total, zig-zag bottom edge. Figures are always final; only the double rule animates.</p>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">Feature block · desktop</h3>
+<div style="background:#f7f6f2;padding:24px;display:flex;flex-direction:column;gap:12px;max-width:300px">
+<dc-import name="Device" plate="P2" w="{{ 236 }}" hint-size="236px,500px"></dc-import>
+<div style="margin-top:12px;padding-top:14px;border-top:1px solid #161a17;display:flex;flex-direction:column;gap:8px">
+<span style="display:flex;align-items:baseline;gap:10px;font-size:32px;line-height:1.05;font-weight:700;letter-spacing:-0.02em">Benta<span style="font-size:15px;font-weight:600;letter-spacing:0;color:#545b55">Sell</span></span>
+<p style="font-size:17px;line-height:1.45;font-weight:500">Seller word, English gloss, one or two plain sentences.</p>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">Feature block · phone</h3>
+<div style="background:#f7f6f2;padding:24px 20px 0;width:390px;max-width:100%;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="display:flex;align-items:baseline;gap:10px;font-size:30px;line-height:1.05;font-weight:700;letter-spacing:-0.02em">Paninda<span style="font-size:15px;font-weight:600;letter-spacing:0;color:#545b55">Products</span></span>
+<p style="font-size:17px;line-height:1.45;font-weight:500">Top half of the screen at 300 px wide, standing on a 1 px ink rule.</p>
+</div>
+<div style="height:{{ cropH }}px;overflow:hidden;border-bottom:1px solid #161a17;display:flex;justify-content:center"><dc-import name="Device" plate="P3" w="{{ 300 }}" hint-size="300px,640px"></dc-import></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">Photo slot with caption</h3>
+<figure style="margin:0;background:#f7f6f2;padding:24px;display:flex;flex-direction:column;gap:10px;max-width:340px">
+<div style="position:relative;width:100%;aspect-ratio:4/5"><image-slot id="ds-photo" shape="rect" placeholder="Photo (4:5 phone, 16:9 desktop)"></image-slot></div>
+<figcaption style="font-size:15px;line-height:22px;font-weight:500;color:#545b55">Caption: 15/22, secondary text, one line of fact.</figcaption>
+</figure>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:24px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">FAQ · closed and open</h3>
+<div style="background:#f7f6f2;padding:8px 32px 24px">
+<div style="border-top:1px solid #161a17">
+<div style="border-bottom:1px solid #dcdbd3"><div style="min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;font-size:21px;font-weight:650">Does it need internet?<span style="flex-shrink:0;width:36px;height:36px;display:grid;place-items:center;border:1px solid #858379;border-radius:999px;background:#fff;font-size:18px">{{ chev }}</span></div></div>
+<div style="border-bottom:1px solid #dcdbd3"><div style="min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;font-size:21px;font-weight:650">Does it take payments?<span style="flex-shrink:0;width:36px;height:36px;display:grid;place-items:center;border:1px solid #858379;border-radius:999px;background:#fff;font-size:18px;transform:rotate(180deg)">{{ chev }}</span></div><p style="padding:0 52px 20px 0;font-size:18px;line-height:1.5;font-weight:500">No. It records how you were paid. The money moves in GCash, Maya or your bank as usual.</p></div>
+</div>
+</div>
+<p style="font-size:15px;line-height:1.5;font-weight:500;color:#3f4640">Native &lt;details&gt;. The chevron turns 180° in 180 ms; the answer appears without animation.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">Motion tokens</h3>
+<dl style="background:#f7f6f2;padding:8px 32px 16px;display:flex;flex-direction:column">
+<sc-for list="{{ motion }}" as="m" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:160px minmax(0,1fr);gap:4px 20px;padding:14px 0;border-bottom:1px solid #dcdbd3">
+<dt style="font-size:17px;font-weight:700">{{ m.name }}</dt>
+<dd style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:650;font-variant-numeric:tabular-nums">{{ m.spec }}</span><span style="font-size:15px;line-height:1.45;font-weight:500;color:#3f4640">{{ m.use }}</span></dd>
+</div></sc-for>
+</dl>
+<button type="button" onClick="{{ replay }}" style="align-self:flex-start;min-height:44px;padding:0 18px;border:1px solid #858379;border-radius:10px;background:#fff;font:inherit;font-size:16px;font-weight:650;color:#161a17;cursor:pointer" style-active="background:#efeee8;transform:scale(.97)">Replay the rule draw-in</button>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:12px">
+<h3 style="font-size:20px;font-weight:700">Footer</h3>
+<div style="width:100%;container-type:inline-size"><dc-import name="Site Footer" hint-size="100%,300px"></dc-import></div>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const lum = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4))); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+const verdict = (r, kind) => kind === "deco" ? "decorative" : r >= 7 ? "AAA text" : r >= 4.5 ? "AA text" : r >= 3 ? "UI / large only" : "not for text";
+const TOK = [
+  ["page", "#f7f6f2", "Paper. Page background.", "", "text"],
+  ["surface", "#ffffff", "Receipt, secondary button, open menu.", "", "text"],
+  ["ink", "#161a17", "Text on paper. The counter band.", "", "text"],
+  ["text-secondary", "#545b55", "Glosses, notes, captions on paper. Rules on ink.", "p", "text"],
+  ["text-on-ink", "#c6c8bd", "Glosses and captions on the counter band.", "k", "text"],
+  ["action", "#006b3c", "Primary button, links. White label 6.63:1.", "p", "text"],
+  ["action-hover", "#005a32", "Primary hover.", "p", "text"],
+  ["action-press", "#004e2c", "Primary pressed, link hover.", "p", "text"],
+  ["accent (gold)", "#e3a008", "The counter edge only. Never text.", "k", "deco"],
+  ["control-edge", "#858379", "Secondary button and Menu outline.", "p", "ui"],
+  ["rule", "#dcdbd3", "Lista lines between rows.", "", "deco"],
+  ["warning", "#8a5a00", "Low-stock and unpaid tags in plates.", "p", "text"],
+  ["focus", "#1d4ed8", "Focus ring, with a 2 px white inner ring.", "b", "ui"],
+];
+const TYPE = [
+  ["Display", "52 → 96 · 0.96 · 700 · −0.045em", "clamp(40px,4.6vw,96px)", ".96", 700, "-0.045em", "Your lista, with the math done."],
+  ["H2", "36 → 60 · 1.02 · 700 · −0.03em", "48px", "1.02", 700, "-0.03em", "Made for the counter."],
+  ["H3 / step", "28 → 40 · 1.08 · 700 · −0.02em", "36px", "1.08", 700, "-0.02em", "Sell at the counter."],
+  ["Lead", "18 → 22 · 1.45 · 500", "22px", "1.45", 500, "0", "Sell, track stock and see what you really earn each day."],
+  ["Body", "17 → 19 · 1.5 · 500", "18px", "1.5", 500, "0", "Tag GCash, Maya or bank payments with their reference number."],
+  ["List row", "20 → 26 · 1.25 · 600", "24px", "1.25", 600, "0", "A Hidden money view, so customers don't see your totals."],
+  ["Small / caption", "15 · 22 · 500", "15px", "22px", 500, "0", "Screens show the KitaMo web app with sample data."],
+  ["Money", "tabular + lining figures · 700", "42px", "1.1", 700, "-0.025em", "₱1,335.00"],
+];
+class Component extends DCLogic {
+  state = { rule: 1 };
+  renderVals() {
+    const h = React.createElement;
+    const tabH = (w) => { const pad = Math.max(6, Math.round(w * 0.022)); return Math.round((w - pad * 2) * 533 / 853) + pad * 2; };
+    const phH = (w) => { const pad = Math.max(4, Math.round(w * 0.038)); return Math.round((w - pad * 2) * 845 / 390) + pad * 2; };
+    const aw = 560, pw = 120, tw = aw - pw + 50;
+    return {
+      tokens: TOK.map(([name, hex, role, only, kind]) => {
+        const p = cr(hex, "#f7f6f2"), k = cr(hex, "#161a17");
+        const show = (x) => kind === "deco" || only === "" || only === "b" || only === x;
+        return { name, hex, role, p: show("p") ? p.toFixed(2) + ":1" : "—", pv: show("p") ? verdict(p, kind) : "", k: show("k") ? k.toFixed(2) + ":1" : "—", kv: show("k") ? verdict(k, kind) : "" };
+      }),
+      type: TYPE.map(([name, spec, size, lh, fw, ls, sample]) => ({ name, spec, size, lh, fw, ls, sample, fv: name === "Money" ? "tabular-nums lining-nums" : "lining-nums" })),
+      space: [4, 8, 12, 16, 20, 24, 32, 48, 64, 96, 128].map((v) => ({ v, w: v * 2 + "px" })),
+      rows: [["Benta", "₱4,850.00"], ["Puhunan", "− ₱3,120.00"], ["Bayarin", "− ₱350.00"], ["Sira", "− ₱45.00"]].map(([label, amt]) => ({ label, amt })),
+      ruleS: this.state.rule,
+      replay: () => { this.setState({ rule: 0 }); setTimeout(() => this.setState({ rule: 1 }), 60); },
+      pair: { aw, pw, tw, h: Math.max(tabH(tw), phH(pw)) },
+      cropH: Math.round(phH(300) * 0.52),
+      chev: h("svg", { width: "1em", height: "1em", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true }, h("path", { d: "M6 9l6 6 6-6" })),
+      motion: [
+        { name: "Rule draw-in", spec: "240 ms · cubic-bezier(.2,0,0,1) · scaleX 0 → 1", use: "The receipt's double rule, once, when it first scrolls into view. Drawn anyway after 4 s." },
+        { name: "Press", spec: "120 ms · background + scale(.97)", use: "Every button and link-button on :active." },
+        { name: "FAQ open", spec: "180 ms · cubic-bezier(.2,0,0,1) · rotate 0 → 180°", use: "The chevron on <details> and on Menu. Content is not animated." },
+        { name: "Reduced motion", spec: "all durations → 0.01 ms", use: "prefers-reduced-motion: reduce. The rule is shown fully drawn." },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

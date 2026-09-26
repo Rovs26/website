@@ -7,6 +7,7 @@ import { SkipLink } from "@/components/primitives/skip-link";
 import { StyledLink } from "@/components/primitives/styled-link";
 import { ProductStatus } from "@/components/status/product-status";
 import { productStatuses } from "@/lib/content/product-status";
+import robots from "@/app/robots";
 import sitemap from "@/app/sitemap";
 import { siteMetadata, siteOrigin } from "@/lib/metadata/site";
 
@@ -92,7 +93,13 @@ describe("public indexing baseline", () => {
     expect(siteMetadata.metadataBase?.toString()).toBe(
       "https://kitamo.online/",
     );
-    expect(siteMetadata.alternates?.canonical).toBe("/");
+    // A root canonical would point every route at "/"; each page sets its own
+    // (see core-public-pages.test.tsx).
+    expect(siteMetadata.alternates).toBeUndefined();
+  });
+
+  it("points crawlers at the sitemap", () => {
+    expect(robots().sitemap).toBe("https://kitamo.online/sitemap.xml");
   });
 
   it("lists only existing, approved routes in the sitemap", () => {
