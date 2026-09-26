@@ -5,5 +5,12 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 export default defineConfig([
   ...nextVitals,
   ...nextTs,
-  globalIgnores([".next/**", "coverage/**", "next-env.d.ts", "out/**"]),
+  globalIgnores([
+    ".next/**",
+    "coverage/**",
+    "next-env.d.ts",
+    "out/**",
+    // Claude Design handoffs are kept as delivered.
+    "docs/redesign/marketing-round-*/**",
+  ]),
 ]);

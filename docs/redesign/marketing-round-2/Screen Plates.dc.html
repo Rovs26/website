@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="design_doc_mode" content="canvas"><style>body{margin:0;background:#e9e7e1;font-family:system-ui,sans-serif}*{box-sizing:border-box}a{color:#006b3c}a:hover{color:#004e2c}</style></helmet>
+<section style="padding:40px 48px;display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px">Plates</span><span style="font:600 16px system-ui;color:#1a1a1a">Screen plates · Aling Nena's Sari-sari · flat, front-on, edge to edge</span></div>
+<p style="max-width:960px;font:14px/1.55 system-ui;color:#2b2b2b">Tablet plates are drawn at 853 × 533 CSS px and export at 1.5× to 1280 × 800. Phone plates are 390 × 845 CSS px and export at 2.77× to 1080 × 2340. Smallest text is 11.5 px CSS, which is 17 px in the tablet export and 32 px in the phone export. Checkout (P2) is a focused flow in the app, so it has a back arrow and no tab bar, as in round 2. Figures match across plates: the ₱183.00 cart in P1, T2 and P2; the Sep 25 day in T1 and P7; the week in P6 and the T1 trend.</p>
+<div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+<div id="T1" style="display:flex;flex-direction:column;gap:8px"><span style="font:600 13px system-ui"><b style="font-family:ui-monospace,monospace;background:#161a17;color:#fff;padding:2px 7px;border-radius:4px">T1</b> Kita · day, formula ledger, 4-week trend</span><dc-import name="Plate T1 Kita" hint-size="853px,533px"></dc-import></div>
+<div id="T2" style="display:flex;flex-direction:column;gap:8px"><span style="font:600 13px system-ui"><b style="font-family:ui-monospace,monospace;background:#161a17;color:#fff;padding:2px 7px;border-radius:4px">T2</b> Benta · shelf and cart</span><dc-import name="Plate T2 Benta" hint-size="853px,533px"></dc-import></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+<div id="P1" style="display:flex;flex-direction:column;gap:8px"><span style="font:600 13px system-ui"><b style="font-family:ui-monospace,monospace;background:#161a17;color:#fff;padding:2px 7px;border-radius:4px">P1</b> Benta · shelf</span><dc-import name="Plate P1 Benta" hint-size="390px,845px"></dc-import></div>
+<div id="P2" style="display:flex;flex-direction:column;gap:8px"><span style="font:600 13px system-ui"><b style="font-family:ui-monospace,monospace;background:#161a17;color:#fff;padding:2px 7px;border-radius:4px">P2</b> Checkout · ₱200, sukli ₱17.00</span><dc-import name="Plate P2 Checkout" hint-size="390px,845px"></dc-import></div>
+<div id="P3" style="display:flex;flex-direction:column;gap:8px"><span style="font:600 13px system-ui"><b style="font-family:ui-monospace,monospace;background:#161a17;color:#fff;padding:2px 7px;border-radius:4px">P3</b> Paninda · Low, Out, + cost</span><dc-import name="Plate P3 Paninda" hint-size="390px,845px"></dc-import></div>
+<div id="P4" style="display:flex;flex-direction:column;gap:8px"><span style="font:600 13px system-ui"><b style="font-family:ui-monospace,monospace;background:#161a17;color:#fff;padding:2px 7px;border-radius:4px">P4</b> Utang · Sa iyo</span><dc-import name="Plate P4 Utang" hint-size="390px,845px"></dc-import></div>
+<div id="P5" style="display:flex;flex-direction:column;gap:8px"><span style="font:600 13px system-ui"><b style="font-family:ui-monospace,monospace;background:#161a17;color:#fff;padding:2px 7px;border-radius:4px">P5</b> Gastos · repeating bills</span><dc-import name="Plate P5 Gastos" hint-size="390px,845px"></dc-import></div>
+<div id="P6" style="display:flex;flex-direction:column;gap:8px"><span style="font:600 13px system-ui"><b style="font-family:ui-monospace,monospace;background:#161a17;color:#fff;padding:2px 7px;border-radius:4px">P6</b> Kita · week, scrolled to the total</span><dc-import name="Plate Kita Phone" view="week" hint-size="390px,845px"></dc-import></div>
+<div id="P7" style="display:flex;flex-direction:column;gap:8px"><span style="font:600 13px system-ui"><b style="font-family:ui-monospace,monospace;background:#161a17;color:#fff;padding:2px 7px;border-radius:4px">P7</b> Kita · Hidden money view</span><dc-import name="Plate Kita Phone" view="hidden" hint-size="390px,845px"></dc-import></div>
+</div>
+</section>
+</x-dc>
+</body>
+</html>

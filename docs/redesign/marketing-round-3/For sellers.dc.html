@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./image-slot.js"></script><title>For sellers · KitaMo</title><style>@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+20A0-20B0,U+20B2-20C0,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Schibsted Grotesk";font-weight:100 900;font-display:swap;src:url(assets/fonts/hanken-grotesk-peso.woff2) format("woff2");unicode-range:U+20B1}@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}body{margin:0;background:#f7f6f2}*{box-sizing:border-box}a{color:#006b3c}a:hover{color:#004e2c}:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px;box-shadow:0 0 0 2px #fff}h1,h2,h3,p,ol,ul,dl,dd{margin:0}ol,ul{padding:0;list-style:none}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}</style></helmet>
+<div ref="{{ rootRef }}" data-screen-label="For sellers" style="width:100%;container-type:inline-size;background:#f7f6f2;color:#161a17;font-family:'Schibsted Grotesk',system-ui,sans-serif;font-variant-numeric:lining-nums;overflow:clip">
+<dc-import name="Site Header" narrow="{{ narrow }}" vw="{{ vw }}" scrolled="{{ scrolled }}" lang="{{ lang }}" current="sellers" menu-open="{{ menuOpen }}" style="position:{{ hdrPos }};top:0;z-index:20" hint-size="100%,72px"></dc-import>
+<main>
+<section aria-labelledby="sel-h" style="padding:clamp(24px,4.4cqw,64px) clamp(20px,5.5cqw,80px) clamp(40px,5.5cqw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:20px 64px;align-items:end">
+<h1 id="sel-h" style="font-size:clamp(52px,6.4cqw,96px);line-height:.96;font-weight:700;letter-spacing:-0.045em">For sellers.</h1>
+<p style="font-size:clamp(18px,1.5cqw,22px);line-height:1.45;font-weight:500;max-width:540px;text-wrap:pretty">Every counter uses KitaMo a little differently. Here is what each kind of seller leans on.</p>
+</section>
+
+<sc-for list="{{ sellers }}" as="s" hint-placeholder-count="5">
+<section aria-labelledby="{{ s.id }}" style="padding:clamp(28px,3.3cqw,48px) clamp(20px,5.5cqw,80px) clamp(40px,4.4cqw,64px);border-top:1px solid #161a17;display:flex;flex-wrap:wrap;gap:20px clamp(32px,4.4cqw,64px);align-items:flex-start">
+<div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+<h2 id="{{ s.id }}" style="font-size:clamp(34px,3.6cqw,52px);line-height:1.02;font-weight:700;letter-spacing:-0.03em">{{ s.name }}</h2>
+</div>
+<dl style="flex:2 1 420px;border-top:1px solid #dcdbd3">
+<sc-for list="{{ s.uses }}" as="u" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:minmax(96px,150px) minmax(0,1fr);gap:4px 20px;padding:16px 0;border-bottom:1px solid #dcdbd3">
+<dt style="font-size:clamp(20px,1.6cqw,24px);line-height:1.25;font-weight:700;letter-spacing:-0.01em">{{ u.word }}</dt>
+<dd style="font-size:clamp(17px,1.3cqw,19px);line-height:1.45;font-weight:500;text-wrap:pretty">{{ u.text }}</dd>
+</div></sc-for>
+</dl>
+<sc-if value="{{ s.photo }}" hint-placeholder-val="{{ false }}">
+<figure style="flex:1 1 280px;max-width:400px;margin:0;display:flex;flex-direction:column;gap:10px">
+<div style="position:relative;width:100%;aspect-ratio:4/5"><image-slot id="karinderia-photo" shape="rect" placeholder="Photo: a karinderia counter (4:5)"></image-slot></div>
+<figcaption style="font-size:15px;line-height:22px;font-weight:500;color:#545b55">A karinderia counter at closing time.</figcaption>
+</figure>
+</sc-if>
+</section>
+</sc-for>
+
+<section aria-labelledby="close-h" style="background:#161a17;color:#fff;border-top:8px solid #e3a008;padding:clamp(64px,7.7cqw,112px) clamp(20px,5.5cqw,80px)">
+<h2 id="close-h" style="max-width:980px;font-size:clamp(48px,6.4cqw,96px);line-height:.98;font-weight:700;letter-spacing:-0.045em;text-wrap:balance">Your lista, with the math done.</h2>
+<div style="margin-top:36px;display:flex;flex-wrap:wrap;gap:12px;max-width:600px">
+<a href="https://app.kitamo.online/login?bago=1" style="flex:1 1 260px;max-width:{{ ctaMax }};min-height:60px;display:flex;align-items:center;justify-content:center;padding:8px 32px;background:#006b3c;color:#fff;border-radius:10px;font-size:19px;font-weight:700;text-decoration:none;text-align:center" style-hover="background:#005a32" style-active="background:#004e2c;transform:scale(.97)">{{ L.create }}</a>
+</div>
+<p style="margin-top:16px;font-size:16px;line-height:24px;font-weight:500;color:#c6c8bd">Free while in testing · Works in your browser · English or Filipino.</p>
+</section>
+</main>
+<dc-import name="Site Footer" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;fil&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Preview&quot;},&quot;vw&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:null,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Preview&quot;},&quot;menuOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Preview&quot;},&quot;scrolled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:null,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Preview&quot;}}">
+const SELLERS = [
+  ["sari", "Sari-sari store", [
+    ["Paninda", "Stock counts across many small items, with low and out-of-stock tags."],
+    ["Benta", "Bundles such as “8 for ₱150”, Sakto, and the sukli worked out for you."],
+    ["Utang", "Sa iyo for regular customers who pay later."],
+  ]],
+  ["karinderia", "Karinderia", [
+    ["Sira", "Log leftover ulam at closing, so it comes off the day's tubo."],
+    ["Gastos", "Kuryente, tubig, upa and sahod as repeating bills."],
+    ["Benta", "Tap each order at the counter and give the sukli."],
+  ], true],
+  ["food", "Food stall", [
+    ["Benta", "A quick checkout, with GCash or Maya reference numbers tagged to each sale."],
+    ["Sira", "Food that didn't sell, logged before you pack up."],
+    ["Kita", "The day's tubo when you close."],
+  ]],
+  ["market", "Market stall", [
+    ["Utang", "Utang mo for suppliers you owe, Sa iyo for suki who pay later."],
+    ["Sira", "Spoiled stock logged, so it counts against tubo."],
+    ["Paninda", "Stock counts and low-stock tags."],
+  ]],
+  ["home", "Home business", [
+    ["Benta", "Record orders on your phone. A tablet is optional."],
+    ["Utang", "Sa iyo for orders paid later."],
+    ["Kita", "Week and month views, and the items that earn the most."],
+  ]],
+];
+class Component extends DCLogic {
+  state = { w: typeof window !== "undefined" ? window.innerWidth : 1440, scrolled: false };
+  rootRef = (el) => {
+    if (!el || this.onResize) return;
+    this.onResize = () => { const w = window.innerWidth; if (w !== this.state.w) this.setState({ w }); };
+    this.onScroll = () => { const s = window.scrollY > 240; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    window.addEventListener("resize", this.onResize);
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+  };
+  componentWillUnmount() { this.onResize && window.removeEventListener("resize", this.onResize); this.onScroll && window.removeEventListener("scroll", this.onScroll); }
+  renderVals() {
+    const w = this.props.vw ?? this.state.w, wide = w >= 1100, fil = this.props.lang === "fil";
+    const compact = w < (fil ? 520 : 400);
+    return {
+      vw: w, wide, narrow: !wide, lang: fil ? "fil" : "en", menuOpen: this.props.menuOpen,
+      scrolled: this.props.scrolled ?? this.state.scrolled, hdrPos: compact ? "sticky" : "relative",
+      L: { create: fil ? "Gumawa ng libreng account" : "Create free account" }, ctaMax: wide ? "360px" : "none",
+      sellers: SELLERS.map(([id, name, uses, photo], i) => ({ id: "s-" + id, name, photo: !!photo, uses: uses.map(([word, text]) => ({ word, text })), tally: Array.from({ length: i + 1 }, (_, k) => ({ k })) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

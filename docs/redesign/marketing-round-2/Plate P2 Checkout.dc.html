@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+20A0-20B0,U+20B2-20C0,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Schibsted Grotesk";font-weight:100 900;font-display:swap;src:url(assets/fonts/hanken-grotesk-peso.woff2) format("woff2");unicode-range:U+20B1}@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}body{margin:0}*{box-sizing:border-box}</style></helmet>
+<div data-screen-label="P2 Checkout phone" style="width:390px;height:845px;display:flex;flex-direction:column;overflow:hidden;background:#f7f6f2;color:#161a17;font-family:'Schibsted Grotesk',system-ui,sans-serif;font-variant-numeric:lining-nums">
+<div style="height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:13.5px;font-weight:600"><span>2:41</span><span style="display:flex;align-items:center;gap:7px"><span style="display:flex;align-items:flex-end;gap:2px;height:11px"><span style="width:3px;height:4px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:6px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:8px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:11px;background:#161a17;border-radius:1px"></span></span><span style="font-size:12px">4G</span><span style="display:flex;align-items:center"><span style="width:22px;height:11px;border:1.5px solid #161a17;border-radius:3px;padding:1px;display:flex"><span style="width:72%;background:#161a17;border-radius:1px"></span></span><span style="width:2px;height:5px;background:#161a17;border-radius:0 1px 1px 0"></span></span></span></div>
+<header style="height:56px;flex-shrink:0;display:flex;align-items:center;gap:8px;padding:0 8px 0 12px;border-bottom:1px solid #dcdbd3">
+<span style="width:44px;height:44px;margin-left:-8px;display:grid;place-items:center;font-size:22px">{{ ic.back }}</span>
+<span style="flex:1;font-size:17px;font-weight:700">Checkout</span>
+</header>
+<div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;padding:12px 16px">
+<div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-size:15px;font-weight:650">Total · 10 items</span><span style="font-size:30px;font-weight:700;letter-spacing:-0.02em">₱183.00</span></div>
+<div style="display:flex;gap:6px;overflow:hidden;margin-right:-16px">
+<sc-for list="{{ methods }}" as="m" hint-placeholder-count="5"><span style="flex-shrink:0;height:48px;display:flex;align-items:center;gap:7px;padding:0 14px;border-radius:999px;background:{{ m.bg }};color:{{ m.fg }};border:1px solid {{ m.bd }};font-size:14.5px;font-weight:{{ m.fw }};white-space:nowrap"><span style="display:flex;font-size:17px">{{ m.icon }}</span>{{ m.label }}</span></sc-for>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
+<sc-for list="{{ quick }}" as="q" hint-placeholder-count="4"><span style="height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;background:{{ q.bg }};color:{{ q.fg }};border:1px solid {{ q.bd }};font-size:15.5px;font-weight:700;line-height:1.1">{{ q.label }}<sc-if value="{{ q.sub }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:550">{{ q.sub }}</span></sc-if></span></sc-for>
+</div>
+<div style="height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#fff;border:2px solid #161a17;border-radius:10px"><span style="font-size:14px;font-weight:600;color:#545b55">Cash received</span><span style="font-size:24px;font-weight:700">₱200.00</span></div>
+<div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:6px;max-height:260px">
+<sc-for list="{{ keys }}" as="k" hint-placeholder-count="12"><span style="display:grid;place-items:center;border-radius:10px;background:#fff;border:1px solid #858379;font-size:22px;font-weight:650">{{ k.label }}</span></sc-for>
+</div>
+</div>
+<div style="flex-shrink:0;padding:10px 16px 16px;border-top:1px solid #dcdbd3;background:#fff;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:baseline;justify-content:space-between"><span style="font-size:15px;font-weight:700">Change</span><span style="font-size:28px;font-weight:700">₱17.00</span></div>
+<span style="height:56px;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:10px;font-size:17px;font-weight:700;background:#006b3c;color:#fff"><span style="display:flex;font-size:20px">{{ ic.check }}</span>Confirm sale</span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:845}}">
+const IC = {
+  back: ["M15 6l-6 6 6 6"], check: ["M5 12.5l4.5 4.5L19 7.5"], cash: ["M3 7h18v10H3z", "M9.5 12a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0-5 0", "M6 10v4M18 10v4"],
+  wallet: ["M7 3h10a1.5 1.5 0 0 1 1.5 1.5v15A1.5 1.5 0 0 1 17 21H7a1.5 1.5 0 0 1-1.5-1.5v-15A1.5 1.5 0 0 1 7 3z", "M10.5 18h3"], bank: ["M3 9.5 12 4l9 5.5", "M5 10v8M9.5 10v8M14.5 10v8M19 10v8", "M3 20.5h18"],
+  utang: ["M7 3h10.5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7z", "M4 7h3M4 12h3M4 17h3M11 8h4.5M11 12h4.5"], back2: ["M20 12H8M13 6l-6 6 6 6"],
+};
+class Component extends DCLogic {
+  icon(k) { const h = React.createElement; return h("svg", { width: "1em", height: "1em", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true }, ...IC[k].map((d, i) => h("path", { key: i, d }))); }
+  renderVals() {
+    const ic = {}; Object.keys(IC).forEach((k) => (ic[k] = this.icon(k)));
+    const methods = [["Cash", "cash"], ["GCash", "wallet"], ["Maya", "wallet"], ["Bank transfer", "bank"], ["Customer account", "utang"]].map(([l, i], n) => { const on = n === 0; return { label: l, icon: ic[i], bg: on ? "#0d4f33" : "#fff", fg: on ? "#fff" : "#161a17", bd: on ? "#0d4f33" : "#858379", fw: on ? 700 : 550 }; });
+    const quick = [["Sakto", "₱183"], ["₱200", ""], ["₱500", ""], ["₱1,000", ""]].map(([l, s], i) => { const on = i === 1; return { label: l, sub: s, bg: on ? "#161a17" : "#fff", fg: on ? "#fff" : "#161a17", bd: on ? "#161a17" : "#858379" }; });
+    const keys = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "00", "0", "⌫"].map((label) => ({ label }));
+    return { ic, methods, quick, keys };
+  }
+}
+</script>
+</body>
+</html>

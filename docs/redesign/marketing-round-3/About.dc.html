@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><title>About · KitaMo</title><style>@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+20A0-20B0,U+20B2-20C0,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Schibsted Grotesk";font-weight:100 900;font-display:swap;src:url(assets/fonts/hanken-grotesk-peso.woff2) format("woff2");unicode-range:U+20B1}@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}body{margin:0;background:#f7f6f2}*{box-sizing:border-box}a{color:#006b3c}a:hover{color:#004e2c}:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px;box-shadow:0 0 0 2px #fff}h1,h2,h3,p,ol,ul,dl,dd{margin:0}ol,ul{padding:0;list-style:none}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}</style></helmet>
+<div ref="{{ rootRef }}" data-screen-label="About" style="width:100%;container-type:inline-size;background:#f7f6f2;color:#161a17;font-family:'Schibsted Grotesk',system-ui,sans-serif;font-variant-numeric:lining-nums;overflow:clip">
+<dc-import name="Site Header" narrow="{{ narrow }}" vw="{{ vw }}" scrolled="{{ scrolled }}" lang="{{ lang }}" current="about" menu-open="{{ menuOpen }}" style="position:{{ hdrPos }};top:0;z-index:20" hint-size="100%,72px"></dc-import>
+<main>
+<section aria-labelledby="about-h" style="padding:clamp(24px,4.4cqw,64px) clamp(20px,5.5cqw,80px) clamp(56px,6.6cqw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px 64px;align-items:end">
+<h1 id="about-h" style="font-size:clamp(52px,6.4cqw,96px);line-height:.96;font-weight:700;letter-spacing:-0.045em">About KitaMo.</h1>
+<p style="font-size:clamp(18px,1.5cqw,22px);line-height:1.45;font-weight:500;max-width:580px;text-wrap:pretty">KitaMo is a web app for Filipino micro-sellers: sari-sari stores, karinderias, food stalls, market stalls and home businesses. You sell at the counter, track stock, log bills and spoilage, keep utang both ways, and see what you really earned each day.</p>
+</section>
+
+<section aria-labelledby="why-h" style="background:#161a17;color:#fff;border-top:8px solid #e3a008;padding:clamp(56px,6.6cqw,96px) clamp(20px,5.5cqw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:28px 64px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<span style="font-size:15px;font-weight:600;color:#c6c8bd">Why</span>
+<h2 id="why-h" style="font-size:clamp(40px,4.4cqw,64px);line-height:1;font-weight:700;letter-spacing:-0.035em;text-wrap:balance">Your lista, with the math done.</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:28px;padding-top:clamp(0px,2.8cqw,40px)">
+<p style="font-size:clamp(18px,1.5cqw,22px);line-height:1.5;font-weight:500;max-width:560px;text-wrap:pretty">Most owners keep a paper lista and have never used accounting software. KitaMo keeps the same list and does the adding and subtracting, so the day's tubo is ready when you close.</p>
+<p style="padding-top:16px;border-top:1px solid #545b55;font-size:clamp(20px,1.8cqw,26px);line-height:1.3;font-weight:700;letter-spacing:-0.01em">Tubo = Benta − Puhunan − Bayarin − Sira</p>
+</div>
+</section>
+
+<section aria-labelledby="where-h" style="padding:clamp(64px,6.6cqw,96px) clamp(20px,5.5cqw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:28px clamp(40px,6.6cqw,96px)">
+<h2 id="where-h" style="font-size:clamp(36px,4cqw,60px);line-height:1.02;font-weight:700;letter-spacing:-0.03em">Where it stands.</h2>
+<dl style="border-top:1px solid #161a17">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 24px;padding:20px 0;border-bottom:1px solid #dcdbd3">
+<dt style="font-size:clamp(20px,1.6cqw,24px);font-weight:700">Web app</dt>
+<dd style="font-size:clamp(18px,1.4cqw,20px);font-weight:600">Free while in testing</dd>
+<dd style="flex-basis:100%;font-size:clamp(16px,1.25cqw,18px);line-height:1.5;font-weight:500;color:#545b55;text-wrap:pretty">Open it in your browser at app.kitamo.online. Any future charge is announced first and needs your agreement.</dd>
+</div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 24px;padding:20px 0;border-bottom:1px solid #dcdbd3">
+<dt style="font-size:clamp(20px,1.6cqw,24px);font-weight:700">Android app, offline</dt>
+<dd style="font-size:clamp(18px,1.4cqw,20px);font-weight:600">Currently Testing</dd>
+<dd style="flex-basis:100%;font-size:clamp(16px,1.25cqw,18px);line-height:1.5;font-weight:500;color:#545b55;text-wrap:pretty">Not yet available.</dd>
+</div>
+</dl>
+</section>
+
+<section aria-labelledby="help-h" style="padding:clamp(56px,6.6cqw,96px) clamp(20px,5.5cqw,80px);border-top:1px solid #dcdbd3;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:20px clamp(40px,6.6cqw,96px);align-items:end">
+<div style="display:flex;flex-direction:column;gap:14px">
+<h2 id="help-h" style="font-size:clamp(36px,4cqw,60px);line-height:1.02;font-weight:700;letter-spacing:-0.03em">Need help?</h2>
+<p style="font-size:clamp(17px,1.3cqw,19px);line-height:1.5;font-weight:500;max-width:480px;text-wrap:pretty">Questions about your account or the app go to Support.</p>
+</div>
+<a href="https://app.kitamo.online/support" style="min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid #161a17;border-bottom:1px solid #161a17;font-size:clamp(20px,1.8cqw,26px);font-weight:700;color:#006b3c;text-decoration:none" style-hover="color:#004e2c;background:#efeee8">app.kitamo.online/support<span aria-hidden="true">→</span></a>
+</section>
+
+<section aria-labelledby="close-h" style="background:#161a17;color:#fff;border-top:8px solid #e3a008;padding:clamp(56px,6.6cqw,96px) clamp(20px,5.5cqw,80px)">
+<h2 id="close-h" style="font-size:clamp(36px,4cqw,60px);line-height:1.02;font-weight:700;letter-spacing:-0.03em">Try it at your counter.</h2>
+<div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;max-width:600px">
+<a href="https://app.kitamo.online/login?bago=1" style="flex:1 1 260px;max-width:{{ ctaMax }};min-height:60px;display:flex;align-items:center;justify-content:center;padding:8px 32px;background:#006b3c;color:#fff;border-radius:10px;font-size:19px;font-weight:700;text-decoration:none;text-align:center" style-hover="background:#005a32" style-active="background:#004e2c;transform:scale(.97)">{{ L.create }}</a>
+</div>
+<p style="margin-top:16px;font-size:16px;line-height:24px;font-weight:500;color:#c6c8bd">Free while in testing · Works in your browser · English or Filipino.</p>
+</section>
+</main>
+<dc-import name="Site Footer" hint-size="100%,320px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;fil&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Preview&quot;},&quot;vw&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:null,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Preview&quot;},&quot;menuOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Preview&quot;},&quot;scrolled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:null,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Preview&quot;}}">
+class Component extends DCLogic {
+  state = { w: typeof window !== "undefined" ? window.innerWidth : 1440, scrolled: false };
+  rootRef = (el) => {
+    if (!el || this.onResize) return;
+    this.onResize = () => { const w = window.innerWidth; if (w !== this.state.w) this.setState({ w }); };
+    this.onScroll = () => { const s = window.scrollY > 240; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    window.addEventListener("resize", this.onResize);
+    window.addEventListener("scroll", this.onScroll, { passive: true });
+  };
+  componentWillUnmount() { this.onResize && window.removeEventListener("resize", this.onResize); this.onScroll && window.removeEventListener("scroll", this.onScroll); }
+  renderVals() {
+    const w = this.props.vw ?? this.state.w, wide = w >= 1100, fil = this.props.lang === "fil";
+    const compact = w < (fil ? 520 : 400);
+    return {
+      vw: w, wide, narrow: !wide, lang: fil ? "fil" : "en", menuOpen: this.props.menuOpen,
+      scrolled: this.props.scrolled ?? this.state.scrolled, hdrPos: compact ? "sticky" : "relative",
+      L: { create: fil ? "Gumawa ng libreng account" : "Create free account" }, ctaMax: wide ? "360px" : "none",
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+<header style="height:80px;display:flex;align-items:center;gap:8px;padding:0 80px;background:#f7f6f2;color:#161a17;font-family:'Schibsted Grotesk',system-ui,sans-serif">
+<a href="KitaMo Home.dc.html" aria-label="KitaMo home" style="display:flex;align-items:center;height:48px;margin-right:32px"><img src="assets/mark-96.png" width="44" height="44" alt=""></a>
+<nav aria-label="Main" style="display:flex;gap:4px">
+<sc-for list="{{ links }}" as="l" hint-placeholder-count="3"><a href="{{ l.href }}" aria-current="{{ l.aria }}" style="height:44px;display:flex;align-items:center;padding:0 14px;font-size:16px;font-weight:{{ l.fw }};color:#161a17;text-decoration:{{ l.td }};text-underline-offset:6px;text-decoration-thickness:2px">{{ l.label }}</a></sc-for>
+</nav>
+<span style="flex:1"></span>
+<a href="https://app.kitamo.online/login" style="height:44px;display:flex;align-items:center;padding:0 16px;font-size:16px;font-weight:600;color:#161a17;text-decoration:none">{{ signIn }}</a>
+<a href="https://app.kitamo.online/login?bago=1" style="height:48px;display:flex;align-items:center;padding:0 20px;background:#006b3c;color:#fff;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;transition:background-color 120ms cubic-bezier(.2,0,0,1)" style-hover="background:#005a32" style-active="background:#004e2c;transform:scale(.97)">{{ create }}</a>
+</header>
+</sc-if>
+<sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+<header style="position:relative;z-index:5;min-height:64px;display:flex;align-items:center;gap:8px;padding:8px 12px 8px 12px;background:#f7f6f2;color:#161a17;font-family:'Schibsted Grotesk',system-ui,sans-serif">
+<a href="KitaMo Home.dc.html" aria-label="KitaMo home" style="flex-shrink:0;display:flex;width:44px;height:44px;align-items:center;justify-content:center"><img src="assets/mark-96.png" width="36" height="36" alt=""></a>
+<span style="flex:1"></span>
+<a href="https://app.kitamo.online/login?bago=1" style="min-height:44px;display:flex;align-items:center;padding:4px 14px;background:#006b3c;color:#fff;border-radius:10px;font-size:15px;line-height:1.15;font-weight:700;text-decoration:none;text-align:center" style-active="background:#004e2c;transform:scale(.97)">{{ create }}</a>
+<details open="{{ menuOpen }}" onToggle="{{ onToggle }}" style="flex-shrink:0">
+<summary style="height:44px;display:flex;align-items:center;gap:4px;padding:0 10px 0 12px;border:1px solid #858379;border-radius:10px;background:#fff;font-size:15px;font-weight:600;cursor:pointer">Menu<span style="display:flex;font-size:16px;transform:rotate({{ chevRot }}deg);transition:transform 180ms cubic-bezier(.2,0,0,1)">{{ chev }}</span></summary>
+<nav aria-label="Main" style="position:absolute;left:0;right:0;top:100%;background:#f7f6f2;border-top:1px solid #dcdbd3;border-bottom:1px solid #161a17;padding:4px 20px 12px;display:flex;flex-direction:column">
+<sc-for list="{{ links }}" as="l" hint-placeholder-count="3"><a href="{{ l.href }}" aria-current="{{ l.aria }}" style="min-height:56px;display:flex;align-items:center;border-bottom:1px solid #dcdbd3;font-size:19px;font-weight:{{ l.fw }};color:#161a17;text-decoration:none">{{ l.label }}</a></sc-for>
+<a href="https://app.kitamo.online/login" style="min-height:56px;display:flex;align-items:center;font-size:19px;font-weight:600;color:#161a17;text-decoration:none">{{ signIn }}</a>
+</nav>
+</details>
+</header>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:80},&quot;narrow&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;fil&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;how&quot;,&quot;sellers&quot;,&quot;about&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;menuOpen&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { open: false };
+  renderVals() {
+    const fil = this.props.lang === "fil", cur = this.props.current ?? "home";
+    const links = [["how", "How it works", "How it works.dc.html"], ["sellers", "For sellers", "For sellers.dc.html"], ["about", "About", "About.dc.html"]]
+      .map(([k, label, href]) => ({ label, href, aria: k === cur ? "page" : undefined, fw: k === cur ? 700 : 600, td: k === cur ? "underline" : "none" }));
+    const h = React.createElement;
+    return {
+      wide: !this.props.narrow, narrow: !!this.props.narrow, links,
+      create: fil ? "Gumawa ng libreng account" : "Create free account", signIn: fil ? "Mag-sign in" : "Sign in",
+      menuOpen: this.props.menuOpen ?? this.state.open, onToggle: (e) => this.setState({ open: e.currentTarget.open }),
+      chevRot: (this.props.menuOpen ?? this.state.open) ? 180 : 0,
+      chev: h("svg", { width: "1em", height: "1em", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true }, h("path", { d: "M6 9l6 6 6-6" })),
+    };
+  }
+}
+</script>
+</body>
+</html>

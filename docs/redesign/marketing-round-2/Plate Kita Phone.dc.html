@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1EFF,U+20A0-20B0,U+20B2-20C0,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:"Schibsted Grotesk";font-weight:100 900;font-display:swap;src:url(assets/fonts/hanken-grotesk-peso.woff2) format("woff2");unicode-range:U+20B1}@font-face{font-family:"Schibsted Grotesk";font-weight:400 800;font-display:swap;src:url(assets/fonts/schibsted-grotesk-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}body{margin:0}*{box-sizing:border-box}</style></helmet>
+<div data-screen-label="Kita phone plate" style="width:390px;height:845px;display:flex;flex-direction:column;overflow:hidden;background:#f7f6f2;color:#161a17;font-family:'Schibsted Grotesk',system-ui,sans-serif;font-variant-numeric:lining-nums">
+<div style="height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-size:13.5px;font-weight:600;position:relative;z-index:2;background:#f7f6f2"><span>2:40</span><span style="display:flex;align-items:center;gap:7px"><span style="display:flex;align-items:flex-end;gap:2px;height:11px"><span style="width:3px;height:4px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:6px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:8px;background:#161a17;border-radius:1px"></span><span style="width:3px;height:11px;background:#161a17;border-radius:1px"></span></span><span style="font-size:12px">4G</span><span style="display:flex;align-items:center"><span style="width:22px;height:11px;border:1.5px solid #161a17;border-radius:3px;padding:1px;display:flex"><span style="width:72%;background:#161a17;border-radius:1px"></span></span><span style="width:2px;height:5px;background:#161a17;border-radius:0 1px 1px 0"></span></span></span></div>
+<header style="height:56px;flex-shrink:0;display:flex;align-items:center;gap:8px;padding:0 8px 0 12px;border-bottom:1px solid #dcdbd3;position:relative;z-index:2;background:#f7f6f2">
+<img src="assets/icon-192.png" width="28" height="28" alt="KitaMo">
+<span style="flex:1;font-size:17px;font-weight:700">Profit</span>
+<span style="width:44px;height:44px;display:grid;place-items:center"><span style="width:34px;height:34px;border-radius:50%;border:1px solid #858379;background:#fff;display:grid;place-items:center;font-size:14px;font-weight:700">N</span></span>
+</header>
+<div style="flex:1;min-height:0;overflow:hidden">
+<div style="padding:12px 16px 20px;display:flex;flex-direction:column;margin-top:{{ offset }}px">
+<div style="display:flex;padding:2px;border:1px solid #858379;border-radius:11px;background:#fff">
+<sc-for list="{{ seg }}" as="s" hint-placeholder-count="3"><span style="flex:1;height:42px;display:grid;place-items:center;border-radius:9px;background:{{ s.bg }};color:{{ s.fg }};font-size:14.5px;font-weight:{{ s.fw }}">{{ s.label }}</span></sc-for>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;margin:6px -8px 8px"><span style="width:44px;height:44px;display:grid;place-items:center;font-size:20px">{{ ic.chevL }}</span><span style="font-size:15px;font-weight:600">{{ date }}</span><span style="width:44px;height:44px;display:grid;place-items:center;font-size:20px;color:#b5b8b0">{{ ic.chevR }}</span></div>
+<span style="font-size:14px;font-weight:600;color:#545b55">{{ answerLabel }}</span>
+<span style="display:flex;align-items:center;gap:10px;font-size:44px;line-height:1.05;font-weight:700;letter-spacing:-0.025em;margin:2px 0 12px"><sc-if value="{{ hidden }}" hint-placeholder-val="{{ false }}"><span style="display:flex;font-size:32px">{{ ic.eyeOff }}</span></sc-if>{{ answer }}</span>
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="4">
+<div style="display:flex;align-items:center;justify-content:space-between;min-height:44px;border-top:1px solid #dcdbd3">
+<span style="display:flex;align-items:center;font-size:15px;color:#545b55">{{ r.label }}<sc-if value="{{ r.tip }}" hint-placeholder-val="{{ false }}"><span style="width:44px;height:44px;margin:0 -12px 0 -4px;display:grid;place-items:center"><span style="width:20px;height:20px;border-radius:50%;border:1.5px solid #545b55;display:grid;place-items:center;font-size:12px;font-weight:700">?</span></span></sc-if></span>
+<span style="font-size:16px;font-weight:600">{{ r.amt }}</span>
+</div>
+</sc-for>
+<div style="border-top:3px double #161a17"></div>
+<p style="margin:0;padding:8px 0 14px;font-size:14px;color:#545b55">{{ meta }}</p>
+<span style="height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:10px;background:#006b3c;color:#fff;border-radius:10px;font-size:17px;font-weight:700"><span style="font-size:21px;display:flex">{{ ic.benta }}</span>Sell</span>
+<sc-if value="{{ showTrend }}" hint-placeholder-val="{{ true }}">
+<h2 style="margin:26px 0 6px;font-size:14px;font-weight:650;color:#545b55">Profit, last 4 weeks</h2>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;height:88px;align-items:end;border-bottom:1px solid #161a17">
+<sc-for list="{{ trend }}" as="w" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px;height:100%"><span style="font-size:12px;font-weight:600">{{ w.v }}</span><span style="width:100%;height:{{ w.h }}px;border-radius:4px 4px 0 0;background:{{ w.c }}"></span></div></sc-for>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-top:6px"><sc-for list="{{ trend }}" as="w" hint-placeholder-count="4"><span style="text-align:center;font-size:12px;font-weight:{{ w.fw }};color:#545b55">{{ w.label }}</span></sc-for></div>
+</sc-if>
+<sc-if value="{{ showBills }}" hint-placeholder-val="{{ false }}">
+<h2 style="margin:24px 0 4px;font-size:14px;font-weight:650;color:#545b55">Bills due</h2>
+<sc-for list="{{ bills }}" as="b" hint-placeholder-count="2">
+<div style="display:flex;align-items:center;gap:10px;min-height:56px;border-top:1px solid #dcdbd3">
+<span style="flex:1;display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;font-weight:600">{{ b.name }}</span><span style="font-size:13px;color:#545b55">{{ b.due }}</span></span>
+<span style="display:flex;flex-direction:column;align-items:flex-end;gap:3px"><span style="font-size:15.5px;font-weight:650">{{ b.amt }}</span><span style="display:inline-flex;align-items:center;gap:4px;padding:1px 8px;border:1.5px solid {{ b.c }};color:{{ b.c }};border-radius:999px;font-size:12px;font-weight:650"><span style="display:flex;font-size:12px">{{ b.icon }}</span>{{ b.badge }}</span></span>
+</div>
+</sc-for>
+</sc-if>
+<h2 style="margin:24px 0 4px;font-size:14px;font-weight:650;color:#545b55">{{ earnTitle }}</h2>
+<sc-for list="{{ earners }}" as="e" hint-placeholder-count="3">
+<div style="display:grid;grid-template-columns:22px minmax(0,1fr) auto;align-items:center;min-height:48px;border-top:1px solid #dcdbd3;gap:8px"><span style="font-size:13.5px;font-weight:600;color:#545b55">{{ e.rank }}</span><span style="display:flex;flex-direction:column;min-width:0"><span style="font-size:15px;font-weight:600">{{ e.name }}</span><span style="font-size:12.5px;color:#545b55">{{ e.sub }}</span></span><span style="font-size:15.5px;font-weight:650">{{ e.amt }}</span></div>
+</sc-for>
+</div>
+</div>
+<nav aria-label="Main" style="height:64px;flex-shrink:0;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #dcdbd3;background:#f7f6f2;padding-bottom:4px">
+<sc-for list="{{ tabs }}" as="n" hint-placeholder-count="5"><span style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12px;font-weight:{{ n.fw }};color:{{ n.fg }}"><span style="position:absolute;top:-1px;left:22%;right:22%;height:2px;background:{{ n.bd }}"></span><span style="font-size:22px;display:flex;color:{{ n.ic }}">{{ n.icon }}</span>{{ n.label }}</span></sc-for>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:845},&quot;view&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;week&quot;,&quot;hidden&quot;],&quot;default&quot;:&quot;week&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const IC = {
+  kita: ["M5 5v14M9 5v14M13 5v14M17 5v14M3 16.5 21 8"], benta: ["M4.5 9h15l-1.3 10.2a1 1 0 0 1-1 .8H6.8a1 1 0 0 1-1-.8Z", "M9 9V7a3 3 0 0 1 6 0v2"],
+  paninda: ["M2.5 20.5h19", "M4 12h7v8.5H4z", "M13 15h7v5.5h-7z", "M5.5 4H11v8H5.5z"], gastos: ["M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z", "M9 8h6M9 12h6M9 16h3"],
+  utang: ["M7 3h10.5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H7z", "M4 7h3M4 12h3M4 17h3M11 8h4.5M11 12h4.5"],
+  chevL: ["M15 6l-6 6 6 6"], chevR: ["M9 6l6 6-6 6"], ring: ["M4 12a8 8 0 1 0 16 0a8 8 0 1 0-16 0"], check: ["M5 12.5l4.5 4.5L19 7.5"],
+  eyeOff: ["M3 3l18 18M10.6 5.2A9 9 0 0 1 12 5c5 0 8.6 4.4 9.6 7a13 13 0 0 1-2.6 3.7M6.5 6.6C4.5 7.9 3 9.9 2.4 12c1 2.6 4.6 7 9.6 7 1.7 0 3.2-.5 4.6-1.2M9.9 9.9a3 3 0 0 0 4.2 4.2"],
+};
+const TABS = (ic, active) => [["kita", "Profit"], ["benta", "Sell"], ["paninda", "Products"], ["gastos", "Expenses"], ["utang", "Credit"]].map(([k, l]) => { const on = k === active; return { label: l, icon: ic[k], fw: on ? 700 : 560, fg: on ? "#161a17" : "#545b55", ic: on ? "#006b3c" : "#545b55", bd: on ? "#161a17" : "transparent" }; });
+class Component extends DCLogic {
+  icon(k) { const h = React.createElement; return h("svg", { width: "1em", height: "1em", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true }, ...IC[k].map((d, i) => h("path", { key: i, d }))); }
+  renderVals() {
+    const ic = {}; Object.keys(IC).forEach((k) => (ic[k] = this.icon(k)));
+    const hidden = (this.props.view ?? "week") === "hidden";
+    const segOn = hidden ? 0 : 1;
+    const seg = ["Day", "Week", "Month"].map((l, i) => ({ label: l, bg: i === segOn ? "#161a17" : "transparent", fg: i === segOn ? "#fff" : "#3f4640", fw: i === segOn ? 650 : 550 }));
+    const tv = [7420, 8105, 6880, 5260], mx = Math.max(...tv), wk = ["Aug 31", "Sep 7", "Sep 14", "This week"];
+    const trend = tv.map((x, i) => ({ v: "₱" + x.toLocaleString("en-PH"), h: Math.round((x / mx) * 62), c: i === 3 ? "#006b3c" : "#c6c8bd", fw: i === 3 ? 750 : 550, label: wk[i] }));
+    if (hidden) return { ic, seg, hidden, offset: 0, date: "Today, Fri Sep 25", answerLabel: "Money hidden", answer: "Hidden",
+      rows: [{ label: "Sales", amt: "41" }, { label: "Items sold", amt: "126" }, { label: "Bills due", amt: "1" }], meta: "41 sales so far · 2:40 PM",
+      showTrend: false, showBills: true, bills: [{ name: "Kuryente", due: "Due Mon, Sep 28", badge: "Unpaid", c: "#8a5a00", icon: ic.ring, amt: "₱ •••" }, { name: "Wifi", due: "Paid Sep 20", badge: "Paid", c: "#17643e", icon: ic.check, amt: "₱ •••" }],
+      earnTitle: "Most sold", earners: [["Pancit canton", "37 sold"], ["Itlog", "30 sold"], ["Softdrinks 1.5L", "14 sold"]].map((e, i) => ({ rank: i + 1, name: e[0], sub: e[1], amt: "" })), tabs: TABS(ic, "kita") };
+    return { ic, seg, hidden, offset: -116, date: "Sep 21–27", answerLabel: "Profit, Sep 21–27", answer: "₱5,260.00",
+      rows: [{ label: "Sales", amt: "₱19,640.00" }, { label: "Cost of goods", amt: "− ₱12,610.00", tip: true }, { label: "Expenses", amt: "− ₱1,650.00", tip: true }, { label: "Spoilage", amt: "− ₱120.00", tip: true }],
+      meta: "214 sales this week · 2:40 PM", showTrend: true, trend, showBills: false, earnTitle: "Top earners",
+      earners: [["Softdrinks 1.5L", "81 sold", "₱1,053.00"], ["Pancit canton", "196 sold", "₱784.00"], ["Bigas 1 kg", "64 sold", "₱512.00"]].map((e, i) => ({ rank: i + 1, name: e[0], sub: e[1], amt: e[2] })), tabs: TABS(ic, "kita") };
+  }
+}
+</script>
+</body>
+</html>
